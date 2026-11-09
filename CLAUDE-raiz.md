@@ -4,13 +4,16 @@ Esta pasta guarda os clones dos repositórios do portfólio. A base de engenhari
 
 ## Antes de qualquer tarefa num repositório
 
-- Leia o processo: @engenharia/ia/processo-repositorio.md
-- Leia os aprendizados do tema da pilha do repositório: @engenharia/ia/aprendizados.md
+Carregados em toda sessão (curtos):
+- Processo: @engenharia/ia/processo-repositorio.md
 - Níveis, régua dos 12 critérios e segurança: @engenharia/arquitetura/padroes.md
 - Fluxo Git e quem mescla o quê: @engenharia/processo/fluxo-git.md
-- Papéis, briefs e permissões: @engenharia/ia/como-trabalhamos.md
+
+Leia antes de mexer no código (longo; leia só os temas da pilha do repositório):
+- Aprendizados por tema: `engenharia/ia/aprendizados.md`
 
 Consulte quando o assunto aparecer:
+- Coordenar agentes, briefs, revisor independente e permissões: `engenharia/ia/como-trabalhamos.md`
 - Deploy com API e banco: `engenharia/arquitetura/deploy/render-atlas.md`
 - Pages, Vercel, Netlify: `engenharia/arquitetura/deploy/pages-vercel-netlify.md`
 - Documentar arquitetura, ADR e análise: `engenharia/arquitetura/modelo-c4.md`, `modelo-adr.md`, `modelo-analise.md`
