@@ -36,6 +36,8 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Os critérios de MVP escritos depois do código deixaram 272 de 468 critérios para trás; escrever o `MVP.md` no primeiro dia. (portfólio, 02/11/2026)
 - Num projeto N2, o código pode deixar o projeto "Finalizado" sem mudar a contagem de critérios, porque o que falta depende do responsável; o avanço aparece nas outras componentes do índice. (learning-portal-fiori-sap, 03/11/2026)
 - Um índice que media atividade (issues, campos) marcou 90 e caiu para 74 com os critérios de MVP; medir resultado, não volume. (portfólio, 02/11/2026)
+- GoatCounter: `data-goatcounter-click` só pega o que já está na tela quando o script carrega; com `helmet`, a CSP precisa liberar o script e o envio. (components e headset, 10/11/2026)
+- Editar uma issue não apaga o histórico de edição: dado de terceiro publicado em issue é decisão do responsável. (douglasabnovato.dev, 10/11/2026)
 
 ## Segurança e segredos
 
@@ -64,6 +66,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - `sed -i` com acento ou `·` não casa em arquivo CRLF; usar o Edit e conferir o `diff --stat`. (huntweb-swapi, 10/11/2026)
 - `python -I` ignora `PYTHONIOENCODING` e `PYTHONUTF8`; usar `python -I -X utf8` para imprimir acentos e setas no console do Windows. (coordenador, 10/11/2026)
 - Agentes em paralelo sobrescrevem arquivos de mesmo nome no scratchpad; uma subpasta por agente. (lote A, 10/11/2026)
+- `cat > arquivo` sem heredoc espera a entrada e trava o Bash até o tempo esgotar; heredoc dentro de `$( )` também quebrou: usar `--body-file`. (lotes de 10/11/2026)
 
 ## Git e locks
 
@@ -106,6 +109,9 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Armadilha de foco em widget não modal só age com o foco dentro dele; testar partindo de um link da página. (feedback-widget, 09/11/2026)
 - Em dev, o Vite recarrega na primeira visita de app SSR e desfaz o percurso por Tab; envolver em `expect().toPass()`. (components, 09/11/2026)
 - No `webServer` do Playwright, passar `PORT`, CORS e `VITE_API_URL` pelo `env`. (aircnc, be-the-hero e dev-radar, 09/11/2026)
+- A última `page.route` registrada vence: registrar a genérica antes da específica. `route.fulfill` para outra origem precisa de `Access-Control-Allow-Origin`. (douglasabnovato.dev e e-commerce-t-shirt, 10/11/2026)
+- Para testar código que só roda em produção (medição): rotear o domínio publicado para o preview local (`--host-resolver-rules`) e sobrescrever `navigator.webdriver` com `addInitScript`. (lotes de 10/11/2026)
+- README de perfil se testa de ponta a ponta renderizando pela API `POST /markdown` com o `GITHUB_TOKEN` do Actions. (douglasabnovato, 10/11/2026)
 
 ## Lighthouse e LCP
 
@@ -162,6 +168,9 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Deploy para Pages por Actions fica travado por uma Variable até o responsável mudar a fonte do Pages; a principal fica verde sem mexer em configuração. (restaurante-churrascaria, 06/11/2026)
 - Status da Netlify vêm com `conclusion` nulo no rollup; decidir pelo código de saída de `gh pr checks`. (restaurante-churrascaria e vizinhos, 06/11/2026)
 - Status externo vermelho há meses por configuração (Vercel) não bloqueou o merge; valeu o CI do GitHub. A correção da configuração é do responsável. (feedback-widget, 06/11/2026)
+- Falha da Vercel em 2 a 4 s, antes da instalação, é configuração, não build; a API de deployments mostra qual projeto serve o domínio. (feedback-widget, 10/11/2026)
+- Uma Variable vazia no `env:` do Actions sobrescreve o `.env.production` do Vite. (learning-portal-fiori-sap, 10/11/2026)
+- Formspree: GET no endpoint dá 405 se o formulário existe e 404 se não existe; confere sem enviar. (facil-admin, 10/11/2026)
 
 ## Streamlit
 
