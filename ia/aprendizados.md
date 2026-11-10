@@ -60,6 +60,10 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Não rodar testes pesados (MUI + jsdom) junto com `npm install`; o Vitest estourou o tempo por disputa de CPU. (oxe-online e petshop, 06/11/2026)
 - Com vários agentes na mesma máquina, as portas padrão (5173, 4173) colidem: portas próprias por repositório pelo `env` do `webServer`, ou config temporária sem commit. (aircnc e biblioteca, 09/11/2026)
 - Porta livre em IPv4 pode estar ocupada em `[::1]` por outro agente; conferir as duas pilhas e o `title` com `curl -6`. Parar o próprio servidor pelo PID (`Get-NetTCPConnection`). (e-commerce-t-shirt e components, 09/11/2026)
+- Padrão de `sparse-checkout` que começa com `/` vira caminho do Windows; usar `MSYS_NO_PATHCONV=1`. (ux-design, 10/11/2026)
+- `sed -i` com acento ou `·` não casa em arquivo CRLF; usar o Edit e conferir o `diff --stat`. (huntweb-swapi, 10/11/2026)
+- `python -I` ignora `PYTHONIOENCODING` e `PYTHONUTF8`; usar `python -I -X utf8` para imprimir acentos e setas no console do Windows. (coordenador, 10/11/2026)
+- Agentes em paralelo sobrescrevem arquivos de mesmo nome no scratchpad; uma subpasta por agente. (lote A, 10/11/2026)
 
 ## Git e locks
 
@@ -71,6 +75,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - `pnpm update -r <pacote> --depth Infinity` com vários pacotes reescreveu o `pnpm-workspace.yaml` inteiro; editar o catálogo à mão e conferir `git diff --stat`. (components, 09/11/2026)
 - Scripts de dados (ex.: `popular_banco.py`) podem regerar arquivos versionados; restaurar com `git checkout` antes do commit. (biblioteca e vizinhos, 06/11/2026)
 - Comprimir imagens não reduz o clone quando o peso está no histórico; isso é decisão do responsável. (aula-de-programacao e ux-design, 09/11/2026)
+- Troca de texto num `MVP.md` com a mesma linha repetida nas tabelas do Histórico acerta várias ou falha: limitar a troca à tabela do topo e conferir o `git diff --stat`. (e-commerce-t-shirt, 10/11/2026)
 
 ## Node, npm, pnpm e outras dependências
 
@@ -133,6 +138,8 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Antes de apagar um `ci/*.yml` duplicado, ver se ele tem passos que o workflow ativo não tem (deploy, `npm audit`). (aircnc e vizinhos, 06/11/2026)
 - Em 06/11/2026 o `ubuntu-latest` passou a ser o 26.04: Playwright 1.56 não instalou o Chromium (1.63 instalou). Se falhar em `playwright install`, subir o Playwright antes de olhar o código. (oxe-online e petshop, 06/11/2026)
 - `playwright install --with-deps` no Ubuntu 26.04 pode levar 12 minutos; olhar os passos do job antes de supor travamento. (casa-criativa e vizinhos, 06/11/2026)
+- `gh pr checks --watch` sai assim que aparecem só os checks da Vercel ou da Netlify; esperar o run do Actions em `gh run list` antes do merge. (catalogo-acai, 10/11/2026)
+- O ruleset sem `required_status_checks` exige PR, mas deixa mesclar com o CI vermelho; conferir os critérios da issue de proteção antes de usar `Closes`. (lotes de 10/11/2026)
 
 ## Render
 
@@ -177,6 +184,8 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Apagar a `feature` remota (`git push --delete`) é bloqueado; fica com o responsável. Os limites do processo vencem guias que sugerem apagar branches. (oxe-online e petshop, 06/11; huntweb-swapi, 03/11/2026)
 - Criar workflow agendado de publicação foi bloqueado; vira issue. (e-commerce-t-shirt e movies, 06/11/2026)
 - O merge de PR do Dependabot foi negado; cita-se na issue de manutenção. (aircnc e vizinhos, 06/11/2026)
+- `gh pr edit --body` foi negado a um agente, e `gh pr comment` não: para registrar algo num PR já aberto, comentar. (lote C, 10/11/2026)
+- Ligar o Pages pela API (`POST repos/<dono>/<repo>/pages`) foi negado ao coordenador como "publicar site novo", mesmo com a autorização geral; criar o ruleset pela API passou. (coordenador, 10/11/2026)
 
 ## Issues e Projects
 
