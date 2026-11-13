@@ -136,7 +136,7 @@ Memórias da líder em 12/11/2026, e o destino proposto para cada uma:
 | `abertura-do-dia-veb` | 7h | A sessão de projeto abre o dia dos seus repositórios e manda o resumo à líder |
 | `convites-learntech` | 10h | Até 3 convites por dia para a organização da comunidade |
 
-Cada execução pede as permissões do responsável na primeira vez. O prompt de cada tarefa deve citar o `CLAUDE.md` e a skill, e não copiar as regras: duas cópias do mesmo prompt já divergiram.
+Cada execução pede as permissões do responsável na primeira vez. O prompt de cada tarefa deve citar o `CLAUDE.md` e a skill, e não copiar as regras: a sessão de projeto já tem duas cópias do prompt das 7h.
 
 ## Ferramentas
 

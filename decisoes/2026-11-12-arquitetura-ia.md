@@ -14,7 +14,7 @@ O levantamento achou:
 
 | # | Decisão | Por quê |
 |---|---|---|
-| D1 | Um mapa único em [`ia/arquitetura-ia.md`](../ia/arquitetura-ia.md), que cita os outros documentos em vez de copiá-los | Cópias divergem: duas cópias do prompt das 7h já divergiram |
+| D1 | Um mapa único em [`ia/arquitetura-ia.md`](../ia/arquitetura-ia.md), que cita os outros documentos em vez de copiá-los | Cópias divergem: já existem duas cópias do prompt das 7h |
 | D2 | Papéis: **líder**, **sessão de projeto** e **sessão de apoio** | Nomes curtos, iguais nos documentos de todas as sessões |
 | D3 | Aviso entre sessões: `<SIGLA> dd/mm: tarefa · início→fim · evidência · quem faz` | Um formato só, que a líder consolida sem reescrever |
 | D4 | Skills e agentes versionados neste repositório, em `.claude/` | Versionados, revisados por PR e iguais para todas as sessões |
