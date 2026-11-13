@@ -44,6 +44,7 @@ ia/
   processo-repositorio.md  passos 0 a 8, decisões, limites, fases de um projeto novo
   aprendizados.md      todas as lições, por tema
   briefs/              modelos de brief para agentes (ciclo completo e ciclo curto)
+  historico/           contexto de sessões encerradas (ex.: DG github original)
 processo/
   fluxo-git.md         feature → sprint → principal; ruleset da principal
   modelo-issue.md      Objetivo, Motivo, Critérios, Fora desta issue; rótulos; Project
