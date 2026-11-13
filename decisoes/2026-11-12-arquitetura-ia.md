@@ -30,4 +30,8 @@ O levantamento achou:
 ## Consequências
 
 - Até o responsável ativar, as skills e os agentes servem como documento e como brief. As sessões podem lê-los pelo caminho.
-- A sessão de projeto (VEB) documenta a sua parte no próprio repositório, usando D2 e D3. Os nomes dos papéis e o formato do aviso ainda dependem de o responsável confirmar.
+- A sessão de projeto (VEB) documenta a sua parte no próprio repositório, usando D2 e D3.
+
+## Confirmação
+
+Em 12/11/2026 o responsável confirmou D2 (nomes dos papéis) e D3 (formato do aviso): "Confirmo os dois". Valem para todas as sessões.
