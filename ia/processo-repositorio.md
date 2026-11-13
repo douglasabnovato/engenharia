@@ -14,7 +14,7 @@ Para um projeto **novo**, o caminho é outro: seis fases com portões (enquadrar
 | 4 | **Finalizado** = todos os critérios aplicáveis em "Atende", exceto os que dependem do responsável, e cada um destes tem issue com `depende-do-responsavel` | Separa o que o código entrega do que só uma conta ou uma pessoa resolve |
 | 5 | Pelo menos 5 issues abertas de próximos passos por repositório, cada uma com 3 a 5 critérios verificáveis | Deixa o próximo passo pronto para quem vier |
 | 6 | Conteúdo novo vem de pesquisa com fonte citada, escrito com palavras próprias | Evita afirmação sem origem e cópia |
-| 7 | Merge na sprint só com CI verde; vermelho ou ausente bloqueia | Sem CI, colar no PR a saída do build e dos testes |
+| 7 | Merge na sprint só com CI verde; vermelho ou ausente bloqueia o merge pelo agente | Sem CI, o PR leva a saída do build e dos testes e fica com `revisao-responsavel`; criar o CI vira issue |
 | 8 | **Nada é mesclado na principal pelo agente.** PR sprint → principal aberto com `revisao-responsavel` | Produção é decisão do responsável |
 | 9 | Todo "Atende" cita comando, data e resultado | Sem evidência, não conta |
 

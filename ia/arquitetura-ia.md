@@ -80,6 +80,7 @@ Skill que aplica o formato: [`aviso-entre-sessoes`](../.claude/skills/aviso-entr
 | Português, frases curtas | `CLAUDE.md` regra 1 | texto |
 | Nunca trabalhar nos clones; clone temporário | `CLAUDE.md` regra 2 | texto |
 | feature → sprint/integração → principal | [`fluxo-git.md`](../processo/fluxo-git.md) | texto e ruleset da principal (onde existe) |
+| Merge só com CI verde | [`fluxo-git.md`](../processo/fluxo-git.md) | CI de cada repositório; no engenharia, `.github/workflows/verificar.yml` (links e testes dos scripts) |
 | Nada na principal sem o responsável | `CLAUDE.md` regra 4 | ruleset (onde existe) e classificador |
 | Proibido force push, reescrever histórico, `--no-verify` | `CLAUDE.md` regra 6 | ruleset `non_fast_forward` (onde existe). Hook pronto em [`hooks.md`](hooks.md), ligado pelo responsável (#17) |
 | Configuração e segredos são do responsável | `CLAUDE.md` regra 7 | classificador de permissões |
