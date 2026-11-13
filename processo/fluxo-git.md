@@ -34,7 +34,7 @@ feature/AAAA-MM-DD  →  developer/sprint-<próxima quinta>  →  principal (mai
 | Dependabot (major) | O responsável | Depois de revisar a migração |
 | sprint → principal | **Só o responsável** | CI verde e revisão. O agente abre com `revisao-responsavel` e deixa aberto |
 
-CI vermelho ou ausente bloqueia qualquer merge. Sem CI, colar no PR a saída do build e dos testes.
+CI vermelho ou ausente bloqueia o merge pelo agente. Num repositório sem CI, o agente cola no PR a saída do build e dos testes, deixa o PR aberto com `revisao-responsavel` e abre a issue para criar o CI. (Regra esclarecida em 13/11/2026, engenharia#21.)
 
 ## Principal protegida
 
