@@ -26,11 +26,13 @@ flowchart TB
 | Papel | Sessão | Pasta em que abre | Faz | Não faz |
 |---|---|---|---|---|
 | Responsável | o dono do portfólio | — | Decide, aprova no chat, configura contas, hospedagem e máquina, mescla na principal | — |
-| Orquestrador | **DG líder** | `C:\douglasabnovato-github` | Planeja o dia, distribui pedidos, evita trabalho duplicado, consolida o relatório, guarda e melhora as regras no `engenharia` | Código nos produtos; aprovar em nome do responsável; dar permissão |
+| Orquestrador | **DG líder** | `C:\douglasabnovato-github` | Líder maior: orquestra os **fluxos** (plano do dia, distribuição, duplicidade, relatório, regras no `engenharia`) e os **conteúdos** (plano de conteúdo da API, do Studio D e do acervo, entregue às sessões donas) | Código nos produtos; aprovar em nome do responsável; dar permissão |
 | Sessão de projeto | **DG mundo** | `mundo-learn-tech` | Os 5 repositórios do learnTECH, do começo ao fim | Mexer fora do learnTECH |
 | Sessão de projeto | **DG veb** | pasta da VEB | Os 3 repositórios da VEB, do começo ao fim | Mexer fora da VEB |
-| Sessão de apoio | **DG github (fork)** | `C:\douglasabnovato-github` | Studio D, roteiros, revisão de fatos e os demais repositórios do portfólio | Mexer nos repositórios das sessões de projeto (lê para os roteiros) |
+| Sessão de apoio | **DG github (fork)** | `C:\douglasabnovato-github` | Os repositórios do GitHub do portfólio: Studio D, roteiros, revisão de fatos e os demais, fora o learnTECH e a VEB | Mexer nos repositórios das sessões de projeto (lê para os roteiros) |
 | Subagente | criado por uma sessão | — | Uma tarefa curta com brief | Decidir; mesclar |
+
+Nenhuma sessão muda de foco nem de acesso a pastas com a entrada do orquestrador. A sessão "DG github" original sai; o contexto dela fica documentado no `engenharia` e passa para a "DG github (fork)".
 
 ## Regras
 
