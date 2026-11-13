@@ -7,6 +7,7 @@ Ferramentas do coordenador e do responsável. Todas usam o GitHub CLI autenticad
 | [`estado.py`](estado.py) | Lê o estado de cada repositório: critérios e "Finalizado" do `MVP.md`, seção do ciclo no plano, PRs abertos e o CI de cada um, CI da branch, issues com 3+ critérios, site respondendo | **Não** | Coordenador, no início e no fim de cada lote |
 | [`relatorio.py`](relatorio.py) | Gera um HTML com o JSON do `estado.py` e o índice do ciclo | **Não** (só um arquivo local) | Coordenador |
 | [`preencher-project.py`](preencher-project.py) | Preenche os campos dos itens do Project a partir das issues; põe responsável, rótulo de tipo e milestone quando faltam | Sim, **só com `--gravar`**. Sem a opção, simula | Coordenador, no fim de cada lote |
+| [`verificar_links.py`](verificar_links.py) | Confere os links internos de todos os `.md`; sai com erro se algum estiver quebrado. Roda no CI (`.github/workflows/verificar.yml`) | **Não** | CI e qualquer sessão antes do PR |
 | [`configurar-responsavel.sh`](configurar-responsavel.sh) | Liga o Pages ou cria o ruleset "principal-protegida" | Sim (configuração do repositório) | **Só o responsável** |
 
 Nenhum script apaga nada: não remove issues, itens, rótulos, branches nem configurações. Os que escrevem só acrescentam ou atualizam campos, e são idempotentes (rodar duas vezes não duplica).
