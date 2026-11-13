@@ -88,7 +88,7 @@ Skill que aplica o formato: [`aviso-entre-sessoes`](../.claude/skills/aviso-entr
 | Modelo de negócio e ambiente gratuito não mudam sem o responsável | memória da líder | texto |
 | Nada em repositório de terceiros | memória da líder | texto |
 
-Achado do levantamento: o `settings.json` do usuário não tem regras de permissão nem hooks. Toda proteção hoje é texto, classificador do app ou ruleset do GitHub. A proposta de hooks está na issue de proteções (fase 5 do plano).
+Achado do levantamento: o `settings.json` do usuário não tem regras de permissão nem hooks. Toda proteção hoje é texto, classificador do app ou ruleset do GitHub. A proposta de bloqueio está na issue #17.
 
 ## Memória
 
@@ -118,7 +118,7 @@ Memórias da líder em 12/11/2026, e o destino proposto para cada uma:
 | [`revisao-de-fatos`](../.claude/skills/revisao-de-fatos/SKILL.md) | Antes de publicar documento, roteiro ou relatório com números e datas |
 | [`aviso-entre-sessoes`](../.claude/skills/aviso-entre-sessoes/SKILL.md) | Mandar ou repassar início, fim e status entre sessões |
 
-**Ativação:** o Claude Code lê skills da pasta `.claude/skills` do projeto aberto e de `~/.claude/skills`. As sessões abrem em pastas como `mundo-learn-tech`, não no `engenharia`. Para valer em todas, o responsável liga a pasta deste repositório à pasta do usuário (passo a passo na issue de ativação).
+**Ativação:** o Claude Code lê skills da pasta `.claude/skills` do projeto aberto e de `~/.claude/skills`. As sessões abrem em pastas como `mundo-learn-tech`, não no `engenharia`. Para valer em todas, o responsável liga a pasta deste repositório à pasta do usuário (passo a passo na issue #16).
 
 ## Agentes definidos
 
@@ -172,8 +172,8 @@ Cada execução pede as permissões do responsável na primeira vez. O prompt de
 
 ## Lacunas e próximos passos
 
-1. Ativar as skills e os agentes para todas as sessões (responsável).
-2. Hooks que bloqueiam force push, push na principal e `--no-verify` (responsável aplica; passo a passo na issue).
+1. Ativar as skills e os agentes para todas as sessões (responsável, issue #16).
+2. Bloquear force push, push na principal e `--no-verify` na configuração (responsável, issue #17).
 3. Subir para o `CLAUDE.md` as regras que hoje estão só na memória da líder.
 4. Trocar o texto das tarefas agendadas por uma chamada à skill `relatorio-do-dia`.
 5. A sessão de projeto (VEB) documenta a sua parte no próprio repositório, com os mesmos papéis e o mesmo formato de aviso.
