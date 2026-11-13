@@ -5,7 +5,7 @@ description: Use para escrever ou revisar um roteiro de vídeo do Studio D a par
 
 # Roteiro do Studio D
 
-Base: `docs/como-escrever-um-roteiro.md` do repositório `douglasabnovato/studio-d` (passos, "Do repositório ao roteiro" e "Regras de fato"). Leia esse guia inteiro antes; esta skill só dá a ordem.
+Base: `docs/como-escrever-um-roteiro.md` do repositório `douglasabnovato/studio-d` (passos, "Do repositório ao roteiro" e "Regras de fato"). Até a sprint `developer/sprint-2026-11-19` entrar na `main` do Studio D, essas seções só existem nela: leia o guia dessa branch. Leia esse guia inteiro antes; esta skill só dá a ordem.
 
 1. **Issues:** confira a issue do roteiro no Studio D e a issue "Pronto para o vídeo N" no repositório de origem (rótulo `roteiro`). Se faltar uma, abra no modelo (skill `issue-no-modelo`).
 2. **Clone temporário** do Studio D e do repositório de origem (skill `ciclo-repositorio`, passos de clone e branch).

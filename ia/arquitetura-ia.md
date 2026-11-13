@@ -156,7 +156,7 @@ Cada execução pede as permissões do responsável na primeira vez. O prompt de
 | Subagentes com brief | Leitura ampla e revisão sem viés | O brief é todo o contexto: dizer o objetivo, o que já foi descartado e o formato da resposta |
 | Revisor independente | Recebe o diff, não a conclusão | Quem conhece a intenção tende a confirmá-la |
 | Revisão de fatos | Confere números e datas antes de publicar | Achou 10 erros num roteiro em 12/11/2026 |
-| Hook de proteção | Recusa force push, `--no-verify`, push na principal e reescrita de histórico antes de o comando rodar ([`hooks.md`](hooks.md)) | Soma às outras camadas: não vê `gh api` nem comandos dentro de scripts |
+| Hook de proteção | Recusa force push, `--no-verify`, push na principal e reescrita de histórico antes de o comando rodar ([`hooks.md`](hooks.md)) | Soma às outras camadas: não vê `gh api`, aliases nem comandos dentro de scripts |
 | Escolha do recurso | Do mais simples ao mais caro: própria sessão, subagente, outra sessão ([`recursos.md`](recursos.md)) | Duas sessões com o mesmo pedido duplicam issues: listar as da última hora antes de abrir |
 | Tarefas agendadas | Abertura do dia às 7h | Prompt curto, que cita a base; nunca duplicar regras |
 | Resumo da conversa | Quando o contexto enche, a sessão segue de um resumo | Estado importante vai para arquivo (relatório, MVP.md, issue), não só para a conversa |
