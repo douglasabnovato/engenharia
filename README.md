@@ -18,6 +18,7 @@ Ela nasceu dos ciclos de outubro e novembro de 2026, em que 39 repositórios for
 | Entender branches e quem mescla | [`processo/fluxo-git.md`](processo/fluxo-git.md) |
 | Fazer o que só o dono do repositório faz | [`processo/guia-do-responsavel.md`](processo/guia-do-responsavel.md) |
 | Coordenar agentes | [`ia/como-trabalhamos.md`](ia/como-trabalhamos.md) e [`ia/briefs/`](ia/briefs/) |
+| Saber quem coordena as sessões e quem é dono de cada repositório | [`ia/orquestracao.md`](ia/orquestracao.md) |
 | Ver a arquitetura de IA inteira (sessões, memória, skills, agentes, proteções) | [`ia/arquitetura-ia.md`](ia/arquitetura-ia.md) |
 | Escolher entre sessão, subagente, agendamento ou skill | [`ia/recursos.md`](ia/recursos.md) |
 | Bloquear as ações proibidas com hook | [`ia/hooks.md`](ia/hooks.md) |
@@ -34,6 +35,8 @@ arquitetura/
   modelo-analise.md    especificação, requisitos com critério de aceite, defeitos com severidade
   deploy/              Render + Atlas; Pages, Vercel e Netlify
 ia/
+  orquestracao.md      orquestrador, sessões donas e regras R1 a R17
+  prompts/dg-lider.md  prompt para criar a sessão orquestradora
   arquitetura-ia.md    mapa da IA: camadas, sessões, protocolo, regras, skills, agentes, técnicas
   recursos.md          quando usar cada recurso avançado, custo e armadilhas
   hooks.md             hook que recusa force push, --no-verify e push na principal
