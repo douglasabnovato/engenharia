@@ -81,14 +81,14 @@ Skill que aplica o formato: [`aviso-entre-sessoes`](../.claude/skills/aviso-entr
 | Nunca trabalhar nos clones; clone temporário | `CLAUDE.md` regra 2 | texto |
 | feature → sprint/integração → principal | [`fluxo-git.md`](../processo/fluxo-git.md) | texto e ruleset da principal (onde existe) |
 | Nada na principal sem o responsável | `CLAUDE.md` regra 4 | ruleset (onde existe) e classificador |
-| Proibido force push, reescrever histórico, `--no-verify` | `CLAUDE.md` regra 6 | ruleset `non_fast_forward` (onde existe). **Proposta:** hook |
+| Proibido force push, reescrever histórico, `--no-verify` | `CLAUDE.md` regra 6 | ruleset `non_fast_forward` (onde existe). Hook pronto em [`hooks.md`](hooks.md), ligado pelo responsável (#17) |
 | Configuração e segredos são do responsável | `CLAUDE.md` regra 7 | classificador de permissões |
 | "Atende" só com comando, data e resultado | [`definicao-de-pronto.md`](../processo/definicao-de-pronto.md) | revisão; skill [`evidencia-atende`](../.claude/skills/evidencia-atende/SKILL.md) |
 | Espera máxima de 4 horas em CI ou fila | memória da líder | texto; `timeout` nos comandos de espera |
 | Modelo de negócio e ambiente gratuito não mudam sem o responsável | memória da líder | texto |
 | Nada em repositório de terceiros | memória da líder | texto |
 
-Achado do levantamento: o `settings.json` do usuário não tem regras de permissão nem hooks. Toda proteção hoje é texto, classificador do app ou ruleset do GitHub. A proposta de bloqueio está na issue #17.
+Achado do levantamento: o `settings.json` do usuário não tem regras de permissão nem hooks. Toda proteção hoje é texto, classificador do app ou ruleset do GitHub. O hook que bloqueia está pronto em [`hooks.md`](hooks.md), com testes. Ligá-lo é a issue #17.
 
 ## Memória
 
@@ -117,6 +117,8 @@ Memórias da líder em 12/11/2026, e o destino proposto para cada uma:
 | [`evidencia-atende`](../.claude/skills/evidencia-atende/SKILL.md) | Marcar um critério como "Atende" ou comentar evidência numa issue |
 | [`revisao-de-fatos`](../.claude/skills/revisao-de-fatos/SKILL.md) | Antes de publicar documento, roteiro ou relatório com números e datas |
 | [`aviso-entre-sessoes`](../.claude/skills/aviso-entre-sessoes/SKILL.md) | Mandar ou repassar início, fim e status entre sessões |
+| [`roteiro-studio-d`](../.claude/skills/roteiro-studio-d/SKILL.md) | Escrever ou revisar um roteiro do Studio D, do estudo do repositório ao PR com revisão de fatos |
+| [`issue-no-modelo`](../.claude/skills/issue-no-modelo/SKILL.md) | Abrir issue no modelo, com rótulos e todos os campos do Project, sem duplicar |
 
 **Ativação:** o Claude Code lê skills da pasta `.claude/skills` do projeto aberto e de `~/.claude/skills`. As sessões abrem em pastas como `mundo-learn-tech`, não no `engenharia`. Para valer em todas, o responsável liga a pasta deste repositório à pasta do usuário (passo a passo na issue #16).
 
@@ -154,6 +156,8 @@ Cada execução pede as permissões do responsável na primeira vez. O prompt de
 | Subagentes com brief | Leitura ampla e revisão sem viés | O brief é todo o contexto: dizer o objetivo, o que já foi descartado e o formato da resposta |
 | Revisor independente | Recebe o diff, não a conclusão | Quem conhece a intenção tende a confirmá-la |
 | Revisão de fatos | Confere números e datas antes de publicar | Achou 10 erros num roteiro em 12/11/2026 |
+| Hook de proteção | Recusa force push, `--no-verify`, push na principal e reescrita de histórico antes de o comando rodar ([`hooks.md`](hooks.md)) | Soma às outras camadas: não vê `gh api` nem comandos dentro de scripts |
+| Escolha do recurso | Do mais simples ao mais caro: própria sessão, subagente, outra sessão ([`recursos.md`](recursos.md)) | Duas sessões com o mesmo pedido duplicam issues: listar as da última hora antes de abrir |
 | Tarefas agendadas | Abertura do dia às 7h | Prompt curto, que cita a base; nunca duplicar regras |
 | Resumo da conversa | Quando o contexto enche, a sessão segue de um resumo | Estado importante vai para arquivo (relatório, MVP.md, issue), não só para a conversa |
 | Evidência por ferramenta | `gh run`, testes, navegador, `curl` | "Atende" sem comando, data e resultado é "Parcial" |
