@@ -1,6 +1,6 @@
 ---
 name: relatorio-do-dia
-description: Use para abrir ou fechar o dia de trabalho de uma sessão (líder ou de projeto). Revisa os repositórios, monta o relatório do dia no formato do portfólio e grava no repositório certo.
+description: Use para abrir ou fechar o dia de trabalho de uma sessão (orquestrador, de projeto ou de apoio). Revisa os repositórios, monta o relatório do dia no formato do portfólio e grava no repositório certo.
 ---
 
 # Relatório do dia

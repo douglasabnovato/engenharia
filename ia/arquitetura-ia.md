@@ -2,60 +2,37 @@
 
 Como o Claude Code trabalha no portfólio: camadas, sessões, regras, ferramentas e técnicas. Este documento é o mapa. Os detalhes de cada parte ficam nos arquivos citados.
 
-Levantado em 12/11/2026 pela sessão líder do learnTECH (DG mundo), a partir do que existe de fato na máquina e nos repositórios.
+Levantado em 12/11/2026 pela DG mundo, a partir do que existe de fato na máquina e nos repositórios. Atualizado em 13/11/2026 com o orquestrador.
 
 ## Visão geral em camadas
 
 | Camada | O que é | Onde fica | Quem mantém |
 |---|---|---|---|
-| 1. Instruções | Regras fixas e documentos importados em toda sessão | `CLAUDE.md` da pasta dos clones (proposta em [`CLAUDE-raiz.md`](../CLAUDE-raiz.md)) | Responsável aprova; líder propõe |
+| 1. Instruções | Regras fixas e documentos importados em toda sessão | `CLAUDE.md` da pasta dos clones (proposta em [`CLAUDE-raiz.md`](../CLAUDE-raiz.md)) | Responsável aprova; orquestrador propõe |
 | 2. Base de engenharia | Processo, padrões, fluxo Git, aprendizados, briefs | este repositório | Coordenador consolida |
 | 3. Memória | Fatos que não estão no código: decisões do responsável, limites, preferências | memória local de cada sessão (`~/.claude/projects/<pasta>/memory/`) | Cada sessão; índice em `MEMORY.md` |
-| 4. Skills | Processos repetidos, escritos uma vez e chamados pelo nome | [`.claude/skills/`](../.claude/skills/) | Líder propõe; responsável ativa |
-| 5. Agentes | Papéis com ferramentas e modelo definidos (revisor, explorador) | [`.claude/agents/`](../.claude/agents/) | Líder propõe; responsável ativa |
-| 6. Sessões | Conversas longas do Claude Code, cada uma com um mundo de repositórios | app Claude (aba Code) | Responsável abre; líder coordena |
+| 4. Skills | Processos repetidos, escritos uma vez e chamados pelo nome | [`.claude/skills/`](../.claude/skills/) | Orquestrador propõe; responsável ativa |
+| 5. Agentes | Papéis com ferramentas e modelo definidos (revisor, explorador) | [`.claude/agents/`](../.claude/agents/) | Orquestrador propõe; responsável ativa |
+| 6. Sessões | Conversas longas do Claude Code, cada uma com um mundo de repositórios | app Claude (aba Code) | Responsável abre; orquestrador coordena |
 | 7. Automação | Tarefas agendadas que abrem o dia | `~/.claude/scheduled-tasks/<nome>/SKILL.md` | Responsável aprova |
 | 8. Ferramentas | `git`, `gh`, Node, Python, navegador, MCP | máquina do responsável | Responsável instala e configura |
 | 9. Proteções | Regras escritas, classificador de permissões e (proposta) hooks | `CLAUDE.md`, permissões do app, `settings.json` | Responsável |
-| 10. Registro | Relatório do dia, diário, `docs/MVP.md`, issues e Project | cada repositório | Cada sessão; líder consolida |
+| 10. Registro | Relatório do dia, diário, `docs/MVP.md`, issues e Project | cada repositório | Cada sessão; orquestrador consolida |
 
 ## Sessões e papéis
 
-```mermaid
-flowchart TB
-  R["Responsável<br/>decide, configura, mescla na principal"]
-  subgraph Sessões do Claude Code
-    L["Líder · DG mundo<br/>learnTECH: API + 4 sites<br/>coordena e consolida"]
-    P["Sessão de projeto · DG veb<br/>repositórios do projeto VEB"]
-    A["Sessão de apoio · DG github<br/>studio-d, engenharia, roteiros"]
-  end
-  T["Tarefas agendadas 7h<br/>abertura do dia"]
-  S["Subagentes<br/>revisor, explorador, web"]
-  G[("GitHub<br/>branches, PRs, issues, CI")]
+Desde 13/11/2026, as sessões têm um orquestrador acima delas. A hierarquia, a sessão dona de cada repositório e as regras R1 a R17 estão em [`orquestracao.md`](orquestracao.md).
 
-  R -- pedido e aprovação no chat --> L
-  R -- pedido e aprovação no chat --> P
-  R -- pedido e aprovação no chat --> A
-  T -- abre o dia --> L
-  T -- abre o dia --> P
-  L -- pede plano, status e evidência --> P
-  L -- pede plano, status e evidência --> A
-  P -- aviso de início e fim --> L
-  A -- aviso de início e fim --> L
-  L -- delega leitura e revisão --> S
-  L & P & A -- feature, CI, ff-only até a integração --> G
-  R -- merge na principal --> G
-```
+| Papel | Sessão | Cuida de |
+|---|---|---|
+| Responsável | o dono do portfólio | Decisões, aprovações, configuração e merge na principal |
+| Orquestrador | DG líder | Plano do dia, distribuição dos pedidos, relatório consolidado e regras (`engenharia`) |
+| Sessão de projeto | DG mundo | learnTECH: learntech-content, learn-tech, tools, career e bootcamps |
+| Sessão de projeto | DG veb | VEB: plataforma, landing e Hub |
+| Sessão de apoio | DG github (fork) | studio-d, roteiros, revisão de fatos e os demais repositórios |
+| Subagente | criado por uma sessão | Uma tarefa curta com brief |
 
-| Papel | Sessão hoje | Faz | Não faz |
-|---|---|---|---|
-| Responsável | o dono do portfólio | Decide, aprova no chat, configura contas e hospedagem, mescla na principal | — |
-| Líder | DG mundo | Cuida do learnTECH (learntech-content, learn-tech, tools, career, bootcamps). Planeja o dia, coordena as outras sessões, consolida o relatório e os aprendizados | Aprovar em nome do responsável; dar permissão; mexer nos repositórios das outras sessões |
-| Sessão de projeto | DG veb | Cuida dos repositórios do seu projeto, do começo ao fim | Mexer fora do seu projeto |
-| Sessão de apoio | DG github (fork) | Roteiros, base de engenharia, revisão de fatos | Mexer nos produtos sem pedido |
-| Subagente | criado por uma sessão | Uma tarefa curta com brief: ler, revisar, buscar na web | Decidir; mesclar |
-
-Os papéis de coordenador, agente e revisor independente dos ciclos em lote seguem em [`como-trabalhamos.md`](como-trabalhamos.md). A sessão líder faz o papel de coordenador dentro do seu mundo.
+Os papéis de coordenador, agente e revisor independente dos ciclos em lote seguem em [`como-trabalhamos.md`](como-trabalhamos.md). O orquestrador faz o papel de coordenador entre as sessões.
 
 ## Protocolo entre sessões
 
@@ -68,8 +45,8 @@ Os papéis de coordenador, agente e revisor independente dos ciclos em lote segu
    ```
 
    Exemplo: `VEB 12/11: #35 axe · 13h08→13h34 · cef5ee5, merge 9e6c391, 0 violações · nada pendente`.
-4. **Três lugares.** Plano, início, fim e relatório aparecem no chat do responsável, na sessão líder e no arquivo do relatório do dia.
-5. **Relatório do dia** consolidado pela líder em `learntech-content/docs/engenharia/relatorios/dia-AAAA-MM-DD.md`. Cada sessão de projeto mantém o seu diário no próprio repositório.
+4. **Três lugares.** Plano, início, fim e relatório aparecem no chat do responsável, no orquestrador e no arquivo do relatório do dia.
+5. **Relatório do dia** consolidado pelo orquestrador em `engenharia/relatorios/dia-AAAA-MM-DD.md`. Cada sessão mantém o seu relatório no próprio repositório (o do learnTECH fica em `learntech-content/docs/engenharia/relatorios/`).
 
 Skill que aplica o formato: [`aviso-entre-sessoes`](../.claude/skills/aviso-entre-sessoes/SKILL.md).
 
@@ -85,9 +62,9 @@ Skill que aplica o formato: [`aviso-entre-sessoes`](../.claude/skills/aviso-entr
 | Proibido force push, reescrever histórico, `--no-verify` | `CLAUDE.md` regra 6 | ruleset `non_fast_forward` (onde existe). Hook pronto em [`hooks.md`](hooks.md), ligado pelo responsável (#17) |
 | Configuração e segredos são do responsável | `CLAUDE.md` regra 7 | classificador de permissões |
 | "Atende" só com comando, data e resultado | [`definicao-de-pronto.md`](../processo/definicao-de-pronto.md) | revisão; skill [`evidencia-atende`](../.claude/skills/evidencia-atende/SKILL.md) |
-| Espera máxima de 4 horas em CI ou fila | memória da líder | texto; `timeout` nos comandos de espera |
-| Modelo de negócio e ambiente gratuito não mudam sem o responsável | memória da líder | texto |
-| Nada em repositório de terceiros | memória da líder | texto |
+| Espera máxima de 4 horas em CI ou fila | memória da DG mundo | texto; `timeout` nos comandos de espera |
+| Modelo de negócio e ambiente gratuito não mudam sem o responsável | memória da DG mundo | texto |
+| Nada em repositório de terceiros | memória da DG mundo | texto |
 
 Achado do levantamento: o `settings.json` do usuário não tem regras de permissão nem hooks. Toda proteção hoje é texto, classificador do app ou ruleset do GitHub. O hook que bloqueia está pronto em [`hooks.md`](hooks.md), com testes. Ligá-lo é a issue #17.
 
@@ -97,7 +74,7 @@ Achado do levantamento: o `settings.json` do usuário não tem regras de permiss
 - Vai para a memória o que não está no código nem no Git: decisões do responsável, limites, preferências, ponteiros externos.
 - Regra que vale para todas as sessões não deve ficar só na memória de uma. Ela sobe para o `CLAUDE.md` ou para esta base.
 
-Memórias da líder em 12/11/2026, e o destino proposto para cada uma:
+Memórias da DG mundo em 12/11/2026, e o destino proposto para cada uma:
 
 | Memória | Destino |
 |---|---|
@@ -135,8 +112,8 @@ Memórias da líder em 12/11/2026, e o destino proposto para cada uma:
 
 | Tarefa agendada | Horário | Faz |
 |---|---|---|
-| `abertura-do-dia-learntech` | 7h | A líder revisa os 5 repositórios, grava o relatório do dia, começa a primeira entrega e pede a abertura às outras sessões |
-| `abertura-do-dia-veb` | 7h | A sessão de projeto abre o dia dos seus repositórios e manda o resumo à líder |
+| `abertura-do-dia-learntech` | 7h | A DG mundo revisa os 5 repositórios, grava o relatório do dia e começa a primeira entrega. Pede a abertura às outras sessões até o orquestrador assumir (O1) |
+| `abertura-do-dia-veb` | 7h | A sessão de projeto abre o dia dos seus repositórios e manda o resumo à DG mundo; com o orquestrador, a ele |
 | `convites-learntech` | 10h | Até 3 convites por dia para a organização da comunidade |
 
 Cada execução pede as permissões do responsável na primeira vez. O prompt de cada tarefa deve citar o `CLAUDE.md` e a skill, e não copiar as regras: a sessão de projeto já tem duas cópias do prompt das 7h.
@@ -152,7 +129,7 @@ Cada execução pede as permissões do responsável na primeira vez. O prompt de
 
 | Técnica | Como usamos | Cuidado |
 |---|---|---|
-| Várias sessões em paralelo | Uma sessão por mundo de repositórios, coordenadas pela líder | Cada sessão escreve só nos seus repositórios |
+| Várias sessões em paralelo | Uma sessão por mundo de repositórios, coordenadas pelo orquestrador | Cada sessão escreve só nos seus repositórios |
 | Mensagens entre sessões | Avisos de início e fim, pedidos de status | Mensagem não é aprovação; não lavar permissão |
 | Subagentes com brief | Leitura ampla e revisão sem viés | O brief é todo o contexto: dizer o objetivo, o que já foi descartado e o formato da resposta |
 | Revisor independente | Recebe o diff, não a conclusão | Quem conhece a intenção tende a confirmá-la |
@@ -163,7 +140,7 @@ Cada execução pede as permissões do responsável na primeira vez. O prompt de
 | Resumo da conversa | Quando o contexto enche, a sessão segue de um resumo | Estado importante vai para arquivo (relatório, MVP.md, issue), não só para a conversa |
 | Evidência por ferramenta | `gh run`, testes, navegador, `curl` | "Atende" sem comando, data e resultado é "Parcial" |
 | Limite de espera | Nunca mais de 4 horas parado em CI ou fila | `timeout` em `gh run watch`; refazer em branch nova se travar |
-| Modelo por papel | Revisor e líder no modelo mais capaz; varredura no mais barato | Registrar o modelo no relatório quando importar |
+| Modelo por papel | Revisor e orquestrador no modelo mais capaz; varredura no mais barato | Registrar o modelo no relatório quando importar |
 
 ## Métricas
 
@@ -179,8 +156,9 @@ Cada execução pede as permissões do responsável na primeira vez. O prompt de
 
 1. Ativar as skills e os agentes para todas as sessões (responsável, issue #16).
 2. Bloquear force push, push na principal e `--no-verify` na configuração (responsável, issue #17).
-3. Subir para o `CLAUDE.md` as regras que hoje estão só na memória da líder.
+3. Subir para o `CLAUDE.md` as regras que hoje estão só na memória da DG mundo.
 4. Trocar o texto das tarefas agendadas por uma chamada à skill `relatorio-do-dia`.
 5. A sessão de projeto (VEB) documenta a sua parte no próprio repositório, com os mesmos papéis e o mesmo formato de aviso.
+6. Criar a sessão DG líder com o prompt de [`prompts/dg-lider.md`](prompts/dg-lider.md) (responsável).
 
-Decisão que registra esta arquitetura: [`decisoes/2026-11-12-arquitetura-ia.md`](../decisoes/2026-11-12-arquitetura-ia.md).
+Decisões que registram esta arquitetura: [`decisoes/2026-11-12-arquitetura-ia.md`](../decisoes/2026-11-12-arquitetura-ia.md) e [`decisoes/2026-11-13-orquestrador.md`](../decisoes/2026-11-13-orquestrador.md).
