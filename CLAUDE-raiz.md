@@ -37,6 +37,9 @@ Consulte quando o assunto aparecer:
 11. **Issues** no modelo: Objetivo, Motivo, 3 a 5 Critérios de entrega, Fora desta issue. Toda tarefa identificada e não feita vira issue. Não feche sem evidência; não feche as que dependem do responsável.
 12. **Se algo for bloqueado por permissão,** não contorne. Registre e siga.
 13. Commits com IA terminam com a linha `Co-Authored-By` do agente; PRs com a linha de geração do Claude Code.
+14. **Ambiente gratuito e modelo de negócio intocado.** Nada de domínio próprio, plano pago ou serviço pago. Não mude regras de negócio, como a identificação obrigatória, sem ordem do responsável. Recusa dele não volta como sugestão.
+15. **Nada em repositório de terceiros:** nem issue, PR, comentário ou push, nem citar issues e @usuários do original. O projeto vem antes para a conta do portfólio (o fork é do responsável).
+16. **Espera máxima de 4 horas** em CI, fila, run ou aprovação. Use `timeout` nos comandos de espera. Passou disso: cancele e refaça numa branch nova, ou avise o orquestrador do motivo.
 
 ## Exceções aceitas pelo responsável
 
