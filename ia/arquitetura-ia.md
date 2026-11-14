@@ -62,9 +62,9 @@ Skill que aplica o formato: [`aviso-entre-sessoes`](../.claude/skills/aviso-entr
 | Proibido force push, reescrever histórico, `--no-verify` | `CLAUDE.md` regra 6 | ruleset `non_fast_forward` (onde existe). Hook pronto em [`hooks.md`](hooks.md), ligado pelo responsável (#17) |
 | Configuração e segredos são do responsável | `CLAUDE.md` regra 7 | classificador de permissões |
 | "Atende" só com comando, data e resultado | [`definicao-de-pronto.md`](../processo/definicao-de-pronto.md) | revisão; skill [`evidencia-atende`](../.claude/skills/evidencia-atende/SKILL.md) |
-| Espera máxima de 4 horas em CI ou fila | memória da DG mundo | texto; `timeout` nos comandos de espera |
-| Modelo de negócio e ambiente gratuito não mudam sem o responsável | memória da DG mundo | texto |
-| Nada em repositório de terceiros | memória da DG mundo | texto |
+| Espera máxima de 4 horas em CI ou fila | `CLAUDE.md` regra 16 | texto; `timeout` nos comandos de espera |
+| Modelo de negócio e ambiente gratuito não mudam sem o responsável | `CLAUDE.md` regra 14 | texto |
+| Nada em repositório de terceiros | `CLAUDE.md` regra 15 | texto |
 
 Achado do levantamento: o `settings.json` do usuário não tem regras de permissão nem hooks. Toda proteção hoje é texto, classificador do app ou ruleset do GitHub. O hook que bloqueia está pronto em [`hooks.md`](hooks.md), com testes. Ligá-lo é a issue #17.
 
@@ -156,7 +156,7 @@ Cada execução pede as permissões do responsável na primeira vez. O prompt de
 
 1. Ativar as skills e os agentes para todas as sessões (responsável, issue #16).
 2. Bloquear force push, push na principal e `--no-verify` na configuração (responsável, issue #17).
-3. Subir para o `CLAUDE.md` as regras que hoje estão só na memória da DG mundo.
+3. ~~Subir para o `CLAUDE.md` as regras que hoje estão só na memória da DG mundo.~~ Feito em 14/11/2026 (regras 14 a 16), com o ok do responsável: "Aprovo as 4".
 4. Trocar o texto das tarefas agendadas por uma chamada à skill `relatorio-do-dia`.
 5. A sessão de projeto (VEB) documenta a sua parte no próprio repositório, com os mesmos papéis e o mesmo formato de aviso.
 6. Criar a sessão DG líder com o prompt de [`prompts/dg-lider.md`](prompts/dg-lider.md) (responsável).
