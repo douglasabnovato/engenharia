@@ -59,7 +59,19 @@ Nenhuma sessão muda de foco nem de acesso a pastas com a entrada do orquestrado
 
 ### Fluxo do dia
 
-- **R7. Abertura às 7h:** cada sessão de projeto faz a sua abertura e manda o resumo ao orquestrador. Às 7h30, o orquestrador junta os resumos, monta o plano do dia, mostra ao responsável e distribui. Uma sessão só começa tarefa nova com o ok do responsável, dado na própria sessão ou repassado com as palavras dele.
+- **R7. Dia em cinco tempos** (fluxo aprovado pelo responsável em 15/11/2026: "aprovo o fluxo"):
+
+  | Hora | Tarefa agendada | Quem | Faz |
+  |---|---|---|---|
+  | 6h30 | `abertura-do-dia-learntech`, `abertura-do-dia-veb`, `revisao-d1-github` | uma sessão nova por projeto | Revisão D-1: separa o que o responsável fez do que o Claude fez (commits com e sem `Co-Authored-By`, PRs, conversas do Remote Control), propõe de 3 a 5 entregas e avisa o orquestrador. **Não começa entrega** |
+  | 6h50 | `abertura-do-dia-lider` | orquestrador | Confere se as revisões rodaram ou travaram, monta o plano do dia e o pacote de merge (PRs com CI verde, em ordem) e mostra ao responsável |
+  | depois do ok | — | orquestrador e sessões | O orquestrador repassa a cada sessão só a sua parte, com as palavras do responsável. As sessões executam só nos próprios repositórios, com aviso de início e de fim |
+  | 12h30 | `checkpoint-lider` | orquestrador | Atualiza o quadro, cobra o limite de 4 horas e aponta duplicidade |
+  | 18h30 | `fechamento-lider` | orquestrador | Grava o relatório consolidado (R10) |
+  | sexta, 17h | `semana-lider` | orquestrador | Métricas da semana, aprendizados, plano de conteúdo e sessões a recomeçar por contexto longo |
+
+  Uma sessão só começa tarefa nova com o ok do responsável, dado na própria sessão ou repassado com as palavras dele. A revisão roda em sessão nova, só leitura, para não travar em permissão nem encher o contexto das sessões principais. Antes de distribuir uma tarefa de conteúdo, o orquestrador lista o que já existe no repositório de destino.
+- **R7a. Limite de trabalho em aberto:** projeto com mais de 5 PRs esperando o responsável não recebe construção nova no plano do dia, só correção e documentação.
 - **R8. Avisos:** toda tarefa tem aviso de início e de fim para o orquestrador, no formato da skill [`aviso-entre-sessoes`](../.claude/skills/aviso-entre-sessoes/SKILL.md):
 
   ```
@@ -68,7 +80,7 @@ Nenhuma sessão muda de foco nem de acesso a pastas com a entrada do orquestrado
 
   Siglas: `LIDER`, `MUNDO`, `VEB` e `GITHUB`.
 - **R9. Três lugares:** plano, início, fim e relatório aparecem no chat do responsável, no orquestrador e no relatório do dia.
-- **R10. Fechamento:** no fim do dia, o orquestrador grava o relatório consolidado em `engenharia/relatorios/dia-AAAA-MM-DD.md`. Cada sessão mantém o seu relatório no próprio repositório. O consolidado é público, então da VEB entram só a tarefa, o horário e o estado, sem detalhe interno.
+- **R10. Fechamento:** às 18h30, o orquestrador grava o relatório consolidado em `engenharia/relatorios/dia-AAAA-MM-DD.md`. Cada sessão mantém o seu relatório no próprio repositório. O consolidado é público, então da VEB entram só a tarefa, o horário e o estado, sem detalhe interno.
 
 ### Limites
 

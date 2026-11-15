@@ -112,8 +112,13 @@ Memórias da DG mundo em 12/11/2026, e o destino proposto para cada uma:
 
 | Tarefa agendada | Horário | Faz |
 |---|---|---|
-| `abertura-do-dia-learntech` | 7h | A DG mundo revisa os 5 repositórios, grava o relatório do dia e começa a primeira entrega. Pede a abertura às outras sessões até o orquestrador assumir (O1) |
-| `abertura-do-dia-veb` | 7h | A sessão de projeto abre o dia dos seus repositórios e manda o resumo à DG mundo; com o orquestrador, a ele |
+| `abertura-do-dia-learntech` | 6h30 | Revisão D-1 dos 5 repositórios do learnTECH, relatório no learntech-content e aviso ao orquestrador. Não começa entrega |
+| `abertura-do-dia-veb` | 6h30 | Revisão D-1 da VEB pela skill `veb-abertura-do-dia`, diário local e aviso ao orquestrador. Não começa entrega |
+| `revisao-d1-github` | 6h30 | Revisão D-1 dos demais repositórios do portfólio, só leitura, com o pacote de merge, e aviso ao orquestrador |
+| `abertura-do-dia-lider` | 6h50 | Chama o orquestrador para montar o plano do dia |
+| `checkpoint-lider` | 12h30 | Chama o orquestrador para o ponto de controle |
+| `fechamento-lider` | 18h30 | Chama o orquestrador para o relatório consolidado |
+| `semana-lider` | sexta, 17h | Chama o orquestrador para a revisão da semana |
 | `convites-learntech` | 10h | Até 3 convites por dia para a organização da comunidade |
 
 Cada execução pede as permissões do responsável na primeira vez. O prompt de cada tarefa deve citar o `CLAUDE.md` e a skill, e não copiar as regras: a sessão de projeto já tem duas cópias do prompt das 7h.
