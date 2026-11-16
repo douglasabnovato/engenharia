@@ -43,6 +43,8 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Nome novo (nível, sigla, rótulo) não repete um que já existe no processo: procurar o nome em todos os repositórios afetados antes de propor. (learntech-content, P-08, 15/11/2026)
 - Conferir se cada teste citado no `docs/MVP.md` existe e se o número bate: na biblioteca, três testes citados não existiam e "22 testes" eram 24. Em 6 de 7 repositórios medidos em 16/11, a nota declarada passava a evidência por 1 a 4 critérios. (biblioteca e lote de 16/11/2026)
 - Gabarito de agente é revisado junto com a medição: erro concentrado num tipo pode ser da regra, não do agente. (learntech-content, 15/11/2026)
+- Procurar marcadores de rascunho (`CI_RUN`, `PR_*`, `TODO`) com `grep` antes de abrir o PR. (ux-design, 16/11/2026)
+- Um 200 com outro `title` e sem os cabeçalhos do helmet mostra que o link publicado não roda este código: conferir os cabeçalhos, não só o status. (rocket-q, 16/11/2026)
 
 ## Segurança e segredos
 
@@ -93,6 +95,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Scripts de dados (ex.: `popular_banco.py`) podem regerar arquivos versionados; restaurar com `git checkout` antes do commit. (biblioteca e vizinhos, 06/11/2026)
 - Comprimir imagens não reduz o clone quando o peso está no histórico; isso é decisão do responsável. (aula-de-programacao e ux-design, 09/11/2026)
 - Troca de texto num `MVP.md` com a mesma linha repetida nas tabelas do Histórico acerta várias ou falha: limitar a troca à tabela do topo e conferir o `git diff --stat`. (e-commerce-t-shirt, 10/11/2026)
+- Repositório grande (centenas de MB): clonar com `--filter=blob:none` ou sparse-checkout. (ux-design, 16/11/2026)
 
 ## Node, npm, pnpm e outras dependências
 
@@ -137,6 +140,8 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - `outlineStyle` diferente de `none` passa com o contorno padrão do Chromium: conferir o valor que o app define. (huntweb-swapi, 16/11/2026)
 - `page.route('**/auth')` não pega `/auth?rnd=`; usar `**/auth*`. (cm-quiz-app, 16/11/2026)
 - O emulador de Auth do Firebase põe uma faixa fora dos landmarks, e o axe acusa `region`; usar `useEmulator(url, { disableWarnings: true })`. (letmeask, 16/11/2026)
+- Com `reducedMotion: 'reduce'`, o axe não vê a animação normal; correção feita só sob `prefers-reduced-motion` não vale para todos. (my-money-app, 16/11/2026)
+- O `@axe-core/playwright` 4.14 exige Node >=22.12; dizer isso no README. (dashboards e rocket-q, 16/11/2026)
 
 ## Lighthouse e LCP
 
@@ -218,6 +223,8 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Vue 3: cliente de SDK externo guardado em `data` vira proxy reativo; usar `markRaw`. O Vue 3 monta dentro de `#app`: raiz com `id="app"` duplica o id. (cm-quiz-app, 09/11/2026)
 - Vite: `manualChunks` em objeto leva dependências compartilhadas para chunks nomeados (o do Radix importava o do Supabase); usar `manualChunks` em função e conferir os `modulepreload` do `dist/index.html`. (facil-admin-plataforma, 09/11/2026)
 - Um `public/index.html` que sobra do CRA num projeto Vite vai para o build: apagar e conferir o `build/index.html`. (oxe-online, 16/11/2026)
+- Link por hash numa página única precisa tratar o `popstate`. (aula-de-programacao, 16/11/2026)
+- `String.replace` com um texto que contém `` $` `` duplica o conteúdo; usar `replace(a, () => b)`. (douglasabnovato, 16/11/2026)
 
 ## Permissões do agente
 
