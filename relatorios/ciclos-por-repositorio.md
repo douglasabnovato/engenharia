@@ -63,6 +63,9 @@ Datas e horas sempre no horário de Brasília (`date` no Git Bash).
 | 16/11/2026 | catalogo-acai (N2) | ciclo de MVP | 11/12 → 9 → 10 | 3 | sim (main de hoje) | 6 (#35, #3, #7, #32, #16, #21) |
 | 16/11/2026 | facil-admin-plataforma (N3) | ciclo de MVP | 8/12 → 8 → 8 (Finalizado sim → não) | 2 | sim, sem backend | 4 (#2, #40, #17, #34) |
 | 16/11/2026 | facil-admin-gestao (N2) | ciclo de MVP | 11/12 → 9 → 10 | 2 | sim (hash conferido) | 5 (#42 com visual novo, #36, #37, #21, #19 a #25) |
+| 16/11/2026 | facil-admin-para-voce (N2) | ciclo de MVP | 11/12 → 10 → 10 | 4, depois 0 | sim (md5 conferido) | 5 (#37, #33, #32, #19, #17 #20 #24) |
+| 16/11/2026 | douglasabnovato.dev (N3) | ciclo de MVP | 10/12 → (6 e 8 sem evidência) → 10 | 3, depois 1 (o 1º merge não esperou a 2ª passada) | sim, Vercel | 5 (#253, #276, #270, #251, #252) |
+| 16/11/2026 | studio-d (N2) | ciclo de MVP | 9/12 → 9 → 9 | 2 | sim (build igual à main) | 5 (#61, #52 e #53, #3, #4, #10 e #54) |
 
 Leitura de 15/11: nos 3 ciclos de MVP, a revisão independente achou 11 erros, todos antes do merge na sprint. Os 2 repositórios que chegaram à produção no dia foram os em que o responsável mesclou durante a verificação, junto com a sessão.
 
@@ -98,6 +101,13 @@ Leitura do lote 7 (16/11, 05h10–05h58, 3 N2 e 1 N3):
 - O facil-admin-plataforma passou de Finalizado "sim" para "não": medido no site, o LCP mediano foi 2,79 s. A correção é de código (#36) e não depende do responsável.
 - Um redirecionamento aberto depois do login foi fechado no facil-admin-plataforma, com teste.
 - Mudança visual (gradientes trocados por cores sólidas no facil-admin-gestao) foi feita por acessibilidade e deixada para o responsável conferir no #42.
+
+Leitura da noite inteira (15/11 22h → 16/11 06h21; 41 repositórios com ficha):
+- Os 40 repositórios da DG github passaram por um ciclo; a fila terminou às 06h21. Nenhuma alteração na principal fora da fila aprovada pelo responsável à 0h40.
+- A nota declarada estava acima da evidência na grande maioria, por 1 a 4 critérios. Os casos mais comuns: critérios 3 e 8 sem Playwright e axe no CI, teste de tema escuro em app sem tema escuro, testes citados no MVP que não existiam.
+- A revisão independente achou erros em quase todos os ciclos. Depois que virou regra do brief (00h10), passou a rodar antes do merge; em 2 repositórios não achou nada.
+- O brief dos agentes ganhou 10 regras durante a noite, todas vindas de fichas: revisão antes do merge, aprendizados lidos na sprint do GitHub, critério 9 pela engenharia#33, alertas contados só entre os abertos, achado contestado com o porquê, N2 e N3 com os 12 critérios, issue do responsável só ele fecha, Dependabot de versão maior só ele decide, medida no ar com o build identificado, datas de Brasília.
+- O gargalo agora é hospedagem e contas: Pages desligado, 403 nos deploys, Render com nomes de outras contas, Supabase parado, GoatCounter inexistente. E 4 riscos de dados pessoais esperam o responsável (item 0 da lista do dia).
 
 ## Fichas
 
@@ -459,3 +469,32 @@ Leitura do lote 7 (16/11, 05h10–05h58, 3 N2 e 1 N3):
 - Depois: 10/12; 5 Parcial (#21) e 9 Parcial (403, #36). LCP no ar no build 893d082, hash conferido: mediana de 1,72 s, TBT 100 ms, elemento `.hero-content > p`.
 - Com o responsável: mesclar o #42, conferindo o visual novo; Dependabot (#36); Variable e fonte do Pages (#37); GoatCounter (#21); conteúdo (#19, #22, #23 e #25).
 - Lição: `overflow-x: hidden` esconde a rolagem lateral em vez de corrigir; o teste de largura precisa rodar com o overflow liberado.
+
+### facil-admin-para-voce · 16/11/2026 · DG github (lote 7)
+- Tipo: ciclo de MVP; N2, HTML, CSS e JS estáticos, Playwright e axe, Pages legado.
+- Antes: declarava 11/12, mas pela régua era 10/12; o #30 entrou pela fila; no ar.
+- Feito: #35 na `developer/sprint-2026-11-19` (run 43835775669: links e fluxo, 31 testes): axe a 1280 e 375 px, sem transições, com as exceções de contraste limitadas por seletor e por limite (#22); um teste próprio mede o texto sobre degradê (#34) e achou o selo do topo com 3,1:1, levado a 5,6:1; página de privacidade ligada ao formulário (#23), com prazo de guarda e contato a decidir pelo responsável (#33). Preços e selos seguem ilustrativos. #37 (sprint → main) aberto.
+- Revisão independente: duas rodadas; 4 erros na primeira, corrigidos; nenhum na segunda.
+- Depois: 10/12; 9 Parcial (403, #32); 5 Parcial (#19). LCP no ar no build 5210470, conferido por md5: mediana 2,20 s, TBT 215 ms, elemento `h1`; nova medida depois do merge (#36).
+- Com o responsável: mesclar o #37; Dependabot (#32); GoatCounter (#19); prazo de guarda e contato da página de privacidade (#33); #17, #20 e #24.
+- Lição: o axe deixa como `incomplete` o texto sobre degradê ou `::before` (71 textos, com o Lighthouse dando 100 e um selo em 3,1:1); restringir cada exceção por seletor e por limite.
+
+### douglasabnovato.dev · 16/11/2026 · DG github (lote 7)
+- Tipo: ciclo de MVP; N3, React 19, TS 6, Vite 8, Tailwind 4, Vitest, Playwright com axe, Vercel.
+- Antes: 10/12, com o 6 e o 8 sem a evidência da régua (o 8 só com Lighthouse); o #262 entrou pela fila; no ar na Vercel (4753b76).
+- Feito: `developer/sprint-2026-11-19` criada; #275 na sprint (runs 43835538035 e 43835545981) e #277 (correção da 2ª revisão): axe em 9 rotas e no menu do celular, nos dois temas (o escuro é de verdade, por `data-theme`), com dados reais e reprovando `incomplete` (22 casos); ícone sem nome corrigido (`svg-img-alt`); menu do celular fora da ordem de Tab quando fechado, Esc devolvendo o foco e Tab fechando o menu; foco com a cor do tema; o menu nunca deslizava (o `* { transition }` vencia o Tailwind) e agora desliza; aviso de lista vazia em Projetos; 42 testes Playwright e 28 Vitest. A #253 citada só pelo número. #276 (sprint → master) aberto.
+- Revisão independente: 1ª passada com 3 erros, corrigidos (espera do critério 6, dados reais do 8, menu sem animação), e 8 sugestões aplicadas; 2ª passada com 1 erro, corrigido no #277, e sugestões na #278. Ressalva: o #275 foi mesclado antes de a 2ª passada chegar.
+- Depois: 10/12; 5 Parcial (#251) e 9 Parcial (#253; Dependabot ligado, 0 abertos, audit 0). LCP mediano no ar de 1,69 s em 5 execuções válidas, TBT 66 ms, elemento `section > img.w-full`. O Pages legado publica o código-fonte e mostra uma página vazia (#270).
+- Com o responsável: mesclar o #276; desligar o Pages (#270); GoatCounter (#251); decidir a #253; teste com pessoa de fora (#252); nova medida do LCP depois do merge (#271).
+- Lição: uma regra CSS fora das camadas (`* { transition }`) vence qualquer utilitário do Tailwind 4; testar a animação com `getComputedStyle`.
+
+### studio-d · 16/11/2026 · DG github (lote 7)
+- Tipo: ciclo de MVP; N2, React 19, Vite 8, Vitest, Playwright com axe, Pages.
+- Antes: 9/12; o #27 entrou pela fila; no ar (611b5e7).
+- Feito: a sprint-19 foi atualizada até a main por fast-forward (a main segue em 611b5e7); #60 na sprint (71c652a; runs 43838490298 e 43838490155; verificar, conferir-site e e2e verdes): workflow `site-no-ar`, semanal, com 11 testes de função pura (#43); teste do botão de copiar, que o MVP citava sem existir; aviso "Copiado: descrição.", para o responsável revisar; critério 7 no ar no build igual ao da main, LCP mediano de 1,73 s; DEPLOY novo e README com os 13 roteiros. Nenhum roteiro alterado e nenhum texto novo em primeira pessoa. #61 (sprint → main) aberto.
+- Revisão independente: 2 erros, corrigidos; 7 sugestões aplicadas.
+- Dependabot: #52 (versão maior de 7 Actions) e #53 (patch de desenvolvimento) comentados, sem fechar nem mesclar (regra 9 do brief).
+- Issues: 14 fechadas, já cumpridas pelo #27; nenhuma com `depende-do-responsavel`.
+- Depois: 9/12, critério 9 Parcial (403, #3).
+- Com o responsável: mesclar o #61; decidir o #52 e o #53; ruleset e Dependabot (#3); GoatCounter (#4); rascunhos de roteiro (#10 e #54).
+- Lição: teste citado no MVP precisa existir; conferir com `grep` no diretório de testes.
