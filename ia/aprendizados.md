@@ -156,6 +156,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Rodar o axe com dados reais: blocos de código e tabelas sem foco pelo teclado só aparecem com conteúdo de verdade. (e-commerce-t-shirt, 16/11/2026)
 - O axe não mede contraste sobre gradiente e marca como `incomplete`: fazer o teste falhar também com `incomplete`. Achou 3:1 e 3,32:1 que passavam. (coin-wallet e facil-admin-gestao, 16/11/2026)
 - Com `noopener`, o `window.open` sempre devolve null; um teste de pop-up bloqueado que só troca esse retorno não prova nada. (catalogo-acai, 16/11/2026)
+- Lighthouse 100 em acessibilidade não prova contraste: o axe deixou 71 textos sobre degradê como `incomplete`, e um selo tinha 3,1:1. Restringir cada exceção por seletor e por limite. (facil-admin-para-voce, 16/11/2026)
 
 ## Lighthouse e LCP
 
@@ -243,6 +244,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Um `public/index.html` que sobra do CRA num projeto Vite vai para o build: apagar e conferir o `build/index.html`. (oxe-online, 16/11/2026)
 - Link por hash numa página única precisa tratar o `popstate`. (aula-de-programacao, 16/11/2026)
 - `String.replace` com um texto que contém `` $` `` duplica o conteúdo; usar `replace(a, () => b)`. (douglasabnovato, 16/11/2026)
+- Regra CSS fora das camadas (`* { transition }`) vence qualquer utilitário do Tailwind 4; testar a animação com `getComputedStyle`. (douglasabnovato.dev, 16/11/2026)
 
 ## Permissões do agente
 
@@ -261,6 +263,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Achado da revisão independente não corrigido vai com o porquê no PR, e o PR não é mesclado sem a sessão dona decidir: dois agentes mantiveram um "Atende" contra a revisão e a regra. (calculadora e letmeask, 16/11/2026)
 - Issue com `depende-do-responsavel` só o responsável fecha, mesmo cumprida: o agente comenta a evidência. Três foram fechadas por agentes e reabertas. (feedback-widget e headset, 16/11/2026)
 - PR do Dependabot de versão maior nunca é fechado nem mesclado pelo agente: comentar a análise e listar para o responsável. (signature-generator, 16/11/2026)
+- O merge na sprint espera todas as passadas da revisão independente: um PR mesclado antes da 2ª passada precisou de correção depois. (douglasabnovato.dev, 16/11/2026)
 
 ## Issues e Projects
 
