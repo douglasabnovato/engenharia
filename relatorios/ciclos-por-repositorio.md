@@ -23,14 +23,29 @@ Datas e horas sempre no horário de Brasília (`date` no Git Bash).
 
 ## Painel
 
-| Data | Repositório | Tipo | Revisão independente (achados) | Chegou à produção no dia? | Itens com o responsável |
-|---|---|---|---|---|---|
-| 15/11/2026 | aircnc | verificação | — | sim (#106 e #107) | 0 |
-| 15/11/2026 | instagram-feed | ciclo de MVP | 2 | sim (#98) | 1 (#104) |
-| 15/11/2026 | dev-radar | ciclo de MVP | 5 | não | 3 (#72, #61, #69) |
-| 15/11/2026 | valoriza | ciclo de MVP | 4 | não | 4 (#20, #11, #16, #22) |
+| Data | Repositório | Tipo | Critérios: declarado → pela régua → depois | Revisão independente (achados) | Chegou à produção no dia? | Itens com o responsável |
+|---|---|---|---|---|---|---|
+| 15/11/2026 | aircnc | verificação | — | — | sim (#106 e #107) | 0 |
+| 15/11/2026 | instagram-feed | ciclo de MVP | 3 e 8 só com jsdom → corrigidos | 2 | sim (#98) | 1 (#104) |
+| 15/11/2026 | dev-radar | ciclo de MVP | → 10/10 | 5 | não | 3 (#72, #61, #69) |
+| 15/11/2026 | valoriza | ciclo de MVP | — | 4 | não | 4 (#20, #11, #16, #22) |
+| 15/11/2026 | learntech-content | processo | 7/12 → 7/12 | não rodou | não | 6 |
+| 16/11/2026 | oxe-online | ciclo de MVP | 10 → 9 → 10 | 3, depois do merge | não (Pages desligado) | 4 (#18, #19, #20, Pages) |
+| 16/11/2026 | proffy | ciclo de MVP | 9 → 7 → 8 | 5, depois do merge | não | 4 (#37, #26, #27, #28) |
+| 16/11/2026 | niky | ciclo de MVP | 10 → 7 → 10 | 3, depois do merge | não | 5 (#30, #21, #34, #33, #23) |
+| 16/11/2026 | biblioteca | ciclo de MVP | 9 → 9 → 10 | 6, antes do merge | no ar, privado | 3 (#15, #4, #12) |
+| 16/11/2026 | huntweb-swapi | ciclo de MVP | 10 → 8 → 10 | 2, antes do merge | não (Pages desligado) | 3 (#36, #38, Pages) |
+| 16/11/2026 | sushibar | ciclo de MVP | 10 → 6 → 10 | 5, antes do merge | não (Pages desligado) | 4 (Pages, #24, #25, #15) |
+| 16/11/2026 | doe-sangue-salve-vidas | ciclo de MVP | 10 → 7 → 9 | 3, antes do merge | não | 4 (#22, #23, #24, #16) |
+| 16/11/2026 | casa-criativa | ciclo de MVP | 10 → (tema escuro falso) → 10 | 5, antes do merge | não | 2 (#65, #47) |
 
 Leitura de 15/11: nos 3 ciclos de MVP, a revisão independente achou 11 erros, todos antes do merge na sprint. Os 2 repositórios que chegaram à produção no dia foram os em que o responsável mesclou durante a verificação, junto com a sessão.
+
+Leitura da madrugada de 16/11 (8 ciclos de MVP):
+- **A nota declarada era maior que a evidência em 6 de 7 repositórios medidos**, por 1 a 4 critérios (média 2,5). O caso mais comum: critérios 3 e 8 em "Atende" sem Playwright nem axe no CI, e testes citados no `MVP.md` que não existiam.
+- **A revisão independente achou 32 erros em 8 repositórios** (média 4). Nos 3 primeiros ela rodou depois do merge e exigiu PR de correção; depois que virou regra do brief, rodou antes, e nada errado chegou à sprint.
+- **Teste de tema escuro falso em 5 repositórios**, embora o aprendizado já estivesse escrito: os agentes liam o `aprendizados.md` de um clone local de 09/11.
+- **Nenhum chegou à produção no dia.** O gargalo mudou: depois dos 33 merges na principal, o que falta é hospedagem (Pages desligado, Render com nome de outra conta, Streamlit privado), não merge.
 
 ## Fichas
 
@@ -69,3 +84,92 @@ Leitura de 15/11: nos 3 ciclos de MVP, a revisão independente achou 11 erros, t
 - Depois: na sprint, não na produção.
 - Com o responsável: #20 (sprint → `main`), #11, #16 (publicação da API), #22 (alertas do Dependabot).
 - Lição: datar a evidência com a data local, não com a UTC.
+
+### learntech-content · 15/11/2026 · DG mundo
+- Tipo: ciclo de processo (método de produção a partir do hd, entregas 1 a 3 e rodada 4 do gabarito), a pedido do responsável.
+- Antes: critérios 7 de 12 · PRs esperando o responsável: 0 (a integração vai em bloco) · principal = produção? sim, sem o lote desta noite.
+- Feito: 11 commits na `developer` por ff-only, CI verde em cada um (1b43257 a a555120): ficha de análise, perfil do autor, registro de decisões (D-01 a D-11, P-01 a P-09, confirmados), níveis AU0 a AU2, rodada 4 do gabarito e D-11 aplicada a 9 itens do acervo. Issues novas: #29 (triagem de 94 issues) e #30 (datas em UTC em 6 scripts).
+- Revisão independente: não rodou. Falha do ciclo, registrada pela própria sessão.
+- Revisão de fatos: não rodou; o perfil do autor está marcado "a confirmar".
+- Depois: critérios 7 de 12, sem mudança (ciclo de processo) · em produção? não; a `developer` está 31 commits à frente da `main`.
+- Com o responsável: levar a `developer` para a `main`; aprovar os grupos da #29; confirmar HD-0049 e HD-0054; confirmar os níveis e as lacunas do perfil; motivo da D-11 (opcional); depois, o AU1.
+- O que travou: datas em UTC (toISOString e TZ do Git Bash sem zoneinfo), corrigidas em 5d82d5e e a555120.
+- Lição: gabarito de agente é revisado junto com a medição; erro concentrado num tipo pode ser da regra, não do agente.
+
+### oxe-online · 16/11/2026 · DG github (lote 1)
+- Tipo: ciclo de MVP; N1, React com Vite e MUI, site estático no Pages.
+- Antes: 10/10 no papel, mas o critério 3 sem teste de navegador; `npm audit` com 4 alertas de desenvolvimento; 1 PR esperando o responsável (#18); principal fora do ar (Pages desligado, 404).
+- Feito: #22 na sprint (6112af4), CI verde (Vitest 11, Playwright 8, nada pulado). Entraram: teste do fluxo com axe no claro, no escuro e em 375 px; filtro "Aceita remoto" (`?remoto=1`); `npm audit fix`; `dependabot.yml`; limpeza do CRA antigo; plano com 3 fontes; MVP com evidência.
+- Revisão independente: depois do merge do #22, a pedido do orquestrador (a autorrevisão não conta). 3 erros: axe no "escuro" repetia o claro (o app não tem tema escuro); risco do `public/index.html` desatualizado; critério 11 sem o link do run. Mais 2 sugestões de espera estável nos testes. Tudo corrigido no #23 (run 43798030035, `raiz` verde).
+- Depois: 10/10 com evidência; 8 issues abertas (#19, #20 e #21 novas); fora do ar até ligar o Pages.
+- Com o responsável: Settings → Pages → Source = GitHub Actions antes de mesclar o #18; mesclar o #18; decidir o texto do aviso de estudo (#19); ligar os alertas do Dependabot (#20).
+- O que travou: o Pages desligado (#11).
+- Lição: `public/index.html` que sobra do CRA num projeto Vite vai para o build; apagar e conferir o `build/index.html`.
+
+### proffy · 16/11/2026 · DG github (lote 1)
+- Tipo: ciclo de MVP; N1, Node 22 + Express 4 + Nunjucks + SQLite.
+- Antes: declarava 9/10, mas pela régua era 7/10 (critérios 3 e 8 só com evidência local); #37 esperando o responsável; fora do ar.
+- Feito: #40 na sprint (20fc534): job e2e com Playwright e axe, contraste do botão Estudar, filtro por preço máximo (#30), plano, MVP e DEPLOY refeitos. Correção #45 (1915077), `raiz` 13/13 e `e2e` 3, verdes.
+- Revisão independente: depois do merge (a regra chegou depois). 5 erros: contorno do botão sumia no fundo; dois testes passavam na página antiga, antes da navegação; tema escuro falso; critério 10 "Atende" sem os checks exigidos no ruleset. Todos corrigidos no #45.
+- Depois: 8/10 com evidência, Finalizado sim (9 e 10 dependem do responsável) · fora do ar: o `render.yaml` usa `proffy-estudo`, porque `proffy.onrender.com` é de outra pessoa.
+- Com o responsável: mesclar o #37; Blueprint no Render (#26); `raiz` e `e2e` obrigatórios no ruleset (#27); banco de telefones no histórico (#28).
+- O que travou: no Windows, o `npm ci` local falhou ao compilar o better-sqlite3 11; o CI passou.
+- Lição: teste "escuro" no Playwright só vale com `prefers-color-scheme` no CSS; a revisão achou o falso teste nos três repositórios do lote 1, embora o aprendizado já estivesse escrito.
+
+### niky · 16/11/2026 · DG github (lote 1)
+- Tipo: ciclo de MVP; N1, React 18 + Vite, Express 4 + SQLite.
+- Antes: declarava 10/10, mas pela régua era 7/10 (hipótese sem meta; critério 3 sem Playwright no CI; axe à mão); #30 esperando o responsável; fora do ar.
+- Feito: #32 na sprint (`developer-sprint-2026-11-12`, dfbef94): e2e com Playwright e axe pela API real, teclado e falha de rede; contraste do "Tentar novamente"; foco na mensagem depois de excluir; Bootstrap 5.3.9; docs refeitos. Correção #37 (run 43797667257: raiz 16, api 8, e2e 3).
+- Revisão independente: depois do merge. 3 erros: tema escuro falso; teste "só teclado" usava `.focus()`; datas divergentes. Corrigidos no #37, que também guarda `test-results` quando falha.
+- Depois: 10/10 com evidência · fora do ar: o front dá 200 com build antigo, e `niky-api.onrender.com` dá 404 servido por outra conta.
+- Com o responsável: mesclar o #30; Blueprint no Render com nome novo para a API e `VITE_API_URL` (#21); e2e no ruleset (#34); Dependabot (#33); Lambda (#23).
+- O que travou: nada.
+- Lição: um `*.onrender.com` com 404 pode ser de outra conta; ler o cabeçalho `x-render-origin-server` antes de escolher o nome do serviço.
+
+### biblioteca · 16/11/2026 · DG github (lote 1)
+- Tipo: ciclo de MVP; N1, Python + Streamlit.
+- Antes: 9/10; #15 esperando o responsável; app no ar, mas privado (303 para o login).
+- Feito: #17 na sprint (run 43797965182; jobs `app` com 24 testes e pip-audit, e `tela` com 13). Entraram: Streamlit 1.67 e Pillow 13 (a 12.3 tinha CVEs); pip-audit no CI; página de detalhe (#7); `region` do axe resolvida pelo `<main>` do Streamlit 1.67 (#11); teste de Esc; testes de banco ausente, busca vazia e espera, que o MVP citava sem existirem; docs com fontes.
+- Revisão independente: antes do merge, primeira do lote na ordem certa. 6 erros: critério 6 sem teste de espera; "22 testes" no lugar de 24; `C:\v` corrompido no README; "claro e escuro" num app de tema único; plano dizendo que o código marcava o `main`; marcador de revisão pendente no PR. Todos corrigidos.
+- Depois: 10/10 · o app continua privado.
+- Com o responsável: mesclar o #15; Streamlit Cloud → Settings → Sharing → public (#4); caminhos longos no Windows (#12).
+- O que travou: nada.
+- Lição: conferir se cada teste citado no MVP existe; em Python, `\v` numa string vira tabulação vertical (usar string raw).
+
+### huntweb-swapi · 16/11/2026 · DG github (lote 2)
+- Tipo: ciclo de MVP; N1, React 18 + Vite 8.
+- Antes: declarava 10/10, mas pela régua era 8/10.
+- Feito: #37 na sprint (run 43799358100): e2e com axe só pelo teclado; WCAG 2.5.3 no link "Acessar"; título da aba por página; busca acompanha a URL; atualização do vite resolve 9 alertas; README reescrito.
+- Revisão independente: antes do merge. 2 erros ("só teclado" com `fill()` e `focus()`; checagem de foco fraca), corrigidos, mais 5 sugestões aplicadas.
+- Depois: 10/10 · fora do ar (404, Pages desligado).
+- Com o responsável: ligar o Pages, mesclar o #36, pôr o e2e no ruleset (#38).
+- Lição: `outlineStyle` diferente de `none` passa com o contorno padrão do Chromium; conferir o valor que o app define.
+
+### sushibar · 16/11/2026 · DG github (lote 2)
+- Tipo: ciclo de MVP; N1, Next.js 16 estático, React 19, Tailwind 3, Vitest e Playwright.
+- Antes: declarava 10/10, mas só 6/10 tinham evidência (critérios 2, 3, 8 e 9); #21 esperando; fora do ar (Pages desligado).
+- Feito: #23 na sprint (42583df, run 43800589625: raiz 15 e e2e 9): axe nas 5 páginas; abas por seta e End; link de pular e foco de 3 px; 3 testes de falha do Supabase; deps de produção com audit 0; deploy condicionado a `PAGES_VIA_ACTIONS`; 12 arquivos sem uso removidos. Depois, dentro da fila aprovada pelo responsável, #21 na main (aeef304), com o deploy pulado de propósito.
+- Revisão independente: antes do merge. 5 erros (contagem de arquivos, plano sem o critério 9, data inventada no DEPLOY, 403 do Dependabot ausente, comentário prometendo axe no tema escuro), corrigidos; 9 de 11 sugestões aplicadas (inclusive `retries: 0` e `timeout-minutes`).
+- Depois: 10/10 · fora do ar até ligar o Pages.
+- Com o responsável: Settings → Pages → GitHub Actions; Variable `PAGES_VIA_ACTIONS=true` e rodar o workflow na main; e2e no ruleset (#24); Dependabot (#25); cardápio ilustrativo (#15).
+- O que travou: um push não gerou run do CI.
+- Lição: antes do merge, conferir no `gh run list` que existe run para o último commit do PR. Deploy condicionado a uma Variable deixa mesclar com o Pages desligado.
+
+### doe-sangue-salve-vidas · 16/11/2026 · DG github (lote 2)
+- Tipo: ciclo de MVP; N1, Express 4, Nunjucks, PostgreSQL, node:test e Playwright.
+- Antes: declarava 10/10, mas pela régua era 7/10 (critérios 3 e 8 sem Playwright e axe; 9 com evidência velha); #20 esperando; fora do ar.
+- Feito: #21 na sprint (586f5f5, run 43800806434): e2e com axe e teclado, com PostgreSQL 16 no CI; página 429 em português; "Quem pode doar" com fonte do Ministério da Saúde; código antigo removido; `npm audit` no CI e patch do `pg`. Dado pessoal: a captura do README mostrava nomes completos com tipo sanguíneo (dado de saúde, sensível pela LGPD) e foi trocada por dados fictícios. Depois, dentro da fila aprovada, #20 na master (6f33391).
+- Revisão independente: antes do merge. 3 erros (senha local citada no `ANALISE.md`, teste de duplicidade sem valor, run de um commit anterior), corrigidos; 6 de 7 sugestões aplicadas, a outra virou a #27.
+- Depois: 9/10; critério 9 Parcial, porque o histórico público ainda tem a imagem antiga, um INSERT com nome e e-mail de terceiro e a senha local antiga · fora do ar.
+- Com o responsável: histórico (#22); e2e no ruleset (#23); Dependabot (#24); publicação no Render (#16).
+- O que travou: nada.
+- Lição: ao procurar dado pessoal, abrir as imagens do repositório; capturas de tela guardam dados de saúde.
+
+### casa-criativa · 16/11/2026 · DG github (lote 2)
+- Tipo: ciclo de MVP; N1, Node, Express 4, Nunjucks, SQLite, Playwright e axe.
+- Antes: 10/10, mas afirmava testar o tema escuro sem `prefers-color-scheme` no CSS; nenhum PR esperando (o #57 entrou pela fila aprovada); fora do ar.
+- Feito: `developer/sprint-2026-11-19` criada a partir da master; #59 na sprint (run 43802260791): busca `/ideias?q=` sem diferença de maiúsculas e acentos, com `%` e `_` como texto (#50); better-sqlite3 12 e job `raiz-node-24` (#51); o projeto Playwright "escuro" virou "celular" (375 px), com teste de rolagem horizontal (#55); `.netlify/state.json` fora do repositório. 17 testes de unidade e 36 no navegador. #65 (sprint → master) aberto com `revisao-responsavel`, não mesclado por ter surgido depois da aprovação.
+- Revisão independente: antes do merge. 5 erros (axe dependente da ordem dos testes; critério 8 afirmando mais que o teste; faltava o id do ruleset; plano com "matriz" e "12 testes"; descrição do PR vencida), corrigidos em 3a3eea9.
+- Depois: 10/10 com evidência · fora do ar.
+- Com o responsável: mesclar o #65 (#64); publicar no Render (#47); opcional: apagar 4 branches `dependabot/*` obsoletas.
+- Lição: com o ruleset exigindo o check `raiz`, uma matriz de versões de Node renomeia o job e trava o merge; usar um job à parte.

@@ -41,6 +41,8 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Ao revisar um MVP, conferir cada "Atende" contra a coluna de evidência da régua: no instagram-feed, os critérios 3 e 8 estavam "Atende" só com jsdom, sem Playwright nem axe. (instagram-feed, 15/11/2026)
 - Ao citar o estado de uma issue, conferir se um PR já mesclado na sprint a resolve. Nesse caso, escrever "corrigido na sprint, falta a principal". (studio-d e aircnc, 15/11/2026)
 - Nome novo (nível, sigla, rótulo) não repete um que já existe no processo: procurar o nome em todos os repositórios afetados antes de propor. (learntech-content, P-08, 15/11/2026)
+- Conferir se cada teste citado no `docs/MVP.md` existe e se o número bate: na biblioteca, três testes citados não existiam e "22 testes" eram 24. Em 6 de 7 repositórios medidos em 16/11, a nota declarada passava a evidência por 1 a 4 critérios. (biblioteca e lote de 16/11/2026)
+- Gabarito de agente é revisado junto com a medição: erro concentrado num tipo pode ser da regra, não do agente. (learntech-content, 15/11/2026)
 
 ## Segurança e segredos
 
@@ -52,6 +54,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Dados pessoais em bancos versionados e em issues públicas apareceram em 4 repositórios e 12 issues; revisar privacidade (LGPD) antes do primeiro commit. (portfólio, 02/11/2026)
 - Uma mudança removeu um acesso de demonstração intencional e foi revertida; registrar esse tipo de decisão em ADR. (portfólio, 02/11/2026)
 - Antes de avisar "tem dado pessoal", rodar `grep` no arquivo da branch: o aviso pode ter sido herdado de outra versão. (studio-d, 15/11/2026)
+- Ao procurar dado pessoal, abrir também as imagens do repositório: uma captura no README mostrava nomes completos com tipo sanguíneo. (doe-sangue-salve-vidas, 16/11/2026)
 
 ## Windows e Git Bash
 
@@ -73,7 +76,8 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - `cat > arquivo` sem heredoc espera a entrada e trava o Bash até o tempo esgotar; heredoc dentro de `$( )` também quebrou: usar `--body-file`. (lotes de 10/11/2026)
 - Datar evidência, aviso e relatório com a data local (`date '+%d/%m %H:%M'`), nunca com a UTC: depois das 21h em Brasília, a UTC já é o dia seguinte. Em script, nada de `toISOString`. (portfólio e learntech-content, 15/11/2026)
 - O Git Bash pode não ter zoneinfo: `TZ=America/Sao_Paulo date` cai em GMT sem erro. Usar o `date` puro, que segue o relógio do Windows. (learntech-content, 15/11/2026)
-- Para provar que a produção roda a principal, comparar o pacote publicado com um build local. SVG com CRLF muda o hash: comparar o conteúdo com `tr -d ''`. (aircnc, 15/11/2026)
+- Para provar que a produção roda a principal, comparar o pacote publicado com um build local. SVG com CRLF muda o hash: comparar o conteúdo com `tr -d '
+'`. (aircnc, 15/11/2026)
 
 ## Git e locks
 
@@ -94,6 +98,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - `composer audit` pode passar a falhar sem mudança no código; atualizar com `composer update pacote --with pacote:~X.Y.Z` para não trocar de versão maior. (e-commerce-t-shirt, 06/11/2026)
 - No Windows, `pip` falha por caminho longo com Streamlit em venv no scratchpad; rodar localmente só o backend e deixar o teste da interface para o CI, registrando no PR. (biblioteca, 06/11/2026)
 - Dependências envelheceram até exigir migração (13 PRs do Dependabot parados); atualizar toda semana, em passos pequenos. (portfólio, 02/11/2026)
+- Com o PHP local mais antigo que o do CI, rodar o `composer update` com `platform.php` igual ao do CI; `--ignore-platform-req` puxa versões maiores. (e-commerce-t-shirt, 16/11/2026)
 
 ## Testes em geral
 
@@ -107,6 +112,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - No jsdom, em página grande, preferir `waitFor` com `getElementById` a `findByRole`. (components, 09/11/2026)
 - Teste de tema escuro só vale se o CSS tiver `prefers-color-scheme`; sem isso, ele repete o claro. (dev-radar, 15/11/2026)
 - Em teste de tempo real com duas páginas, esperar um sinal de "conectado" na tela (por exemplo, `data-tempo-real`) antes da ação. Sem isso, o evento se perde, e o `retries` esconde a falha. (instagram-feed, 15/11/2026)
+- Testar o "escuro" num app sem tema escuro só repete o claro: trocar o projeto por outro que valha, como celular (375 px) com teste de rolagem horizontal. (casa-criativa e oxe-online, 16/11/2026)
 
 ## Playwright e axe
 
@@ -122,6 +128,8 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Para testar código que só roda em produção (medição): rotear o domínio publicado para o preview local (`--host-resolver-rules`) e sobrescrever `navigator.webdriver` com `addInitScript`. (lotes de 10/11/2026)
 - README de perfil se testa de ponta a ponta renderizando pela API `POST /markdown` com o `GITHUB_TOKEN` do Actions. (douglasabnovato, 10/11/2026)
 - `aria-label` num link com texto visível diferente quebra a WCAG 2.5.3 (`label-content-name-mismatch`). Usar o texto visível como nome. (instagram-feed, 15/11/2026)
+- Teste "só teclado" não usa `.focus()` nem `fill()`: navegar com `Tab` e digitar com `keyboard.type`. (niky e huntweb-swapi, 16/11/2026)
+- `outlineStyle` diferente de `none` passa com o contorno padrão do Chromium: conferir o valor que o app define. (huntweb-swapi, 16/11/2026)
 
 ## Lighthouse e LCP
 
@@ -156,6 +164,8 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - `playwright install --with-deps` no Ubuntu 26.04 pode levar 12 minutos; olhar os passos do job antes de supor travamento. (casa-criativa e vizinhos, 06/11/2026)
 - `gh pr checks --watch` sai assim que aparecem só os checks da Vercel ou da Netlify; esperar o run do Actions em `gh run list` antes do merge. (catalogo-acai, 10/11/2026)
 - O ruleset sem `required_status_checks` exige PR, mas deixa mesclar com o CI vermelho; conferir os critérios da issue de proteção antes de usar `Closes`. (lotes de 10/11/2026)
+- Antes do merge, conferir no `gh run list` que existe run para o último commit do PR: um push pode não gerar CI. (sushibar, 16/11/2026)
+- Com o ruleset exigindo o check `raiz`, uma matriz de versões de Node renomeia o job e trava o merge: usar um job à parte (`raiz-node-24`). (casa-criativa, 16/11/2026)
 
 ## Render
 
@@ -164,6 +174,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - O Blueprint cria a API e o site a partir de `rootDir` no mesmo repositório. (aircnc, 09/11/2026)
 - `/health` que não toca o banco não prova a conexão. (aircnc, 09/11/2026)
 - Serviço acima de 512 MB de memória derruba API e formulários no plano gratuito. (components, 27/10/2026)
+- Um `*.onrender.com` com 404 pode ser de outra conta: ler o cabeçalho `x-render-origin-server` antes de escolher o nome do serviço. (niky e proffy, 16/11/2026)
 
 ## MongoDB Atlas
 
@@ -181,10 +192,12 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Falha da Vercel em 2 a 4 s, antes da instalação, é configuração, não build; a API de deployments mostra qual projeto serve o domínio. (feedback-widget, 10/11/2026)
 - Uma Variable vazia no `env:` do Actions sobrescreve o `.env.production` do Vite. (learning-portal-fiori-sap, 10/11/2026)
 - Formspree: GET no endpoint dá 405 se o formulário existe e 404 se não existe; confere sem enviar. (facil-admin, 10/11/2026)
+- Deploy no Pages condicionado a uma Variable (`PAGES_VIA_ACTIONS`) deixa mesclar na principal com o Pages desligado, sem CI vermelho. (sushibar, 16/11/2026)
 
 ## Streamlit
 
 - `st_keyup` reage a keyup e o `fill()` do Playwright não o dispara; digitar com `press_sequentially` e conferir que a lista diminuiu. Esperar o menu e o iframe antes do teste de teclado. (biblioteca, 09/11/2026)
+- Em Python, `` numa string vira tabulação vertical: caminho do Windows em string raw. (biblioteca, 16/11/2026)
 
 ## Expo
 
@@ -196,6 +209,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - `React.lazy` só suspende na primeira vez por instância; não testar âncora e carregamento com o mesmo nome. (components, 09/11/2026)
 - Vue 3: cliente de SDK externo guardado em `data` vira proxy reativo; usar `markRaw`. O Vue 3 monta dentro de `#app`: raiz com `id="app"` duplica o id. (cm-quiz-app, 09/11/2026)
 - Vite: `manualChunks` em objeto leva dependências compartilhadas para chunks nomeados (o do Radix importava o do Supabase); usar `manualChunks` em função e conferir os `modulepreload` do `dist/index.html`. (facil-admin-plataforma, 09/11/2026)
+- Um `public/index.html` que sobra do CRA num projeto Vite vai para o build: apagar e conferir o `build/index.html`. (oxe-online, 16/11/2026)
 
 ## Permissões do agente
 
@@ -209,6 +223,8 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Aprovação dada ao orquestrador não vale nas sessões que exigem o ok no próprio chat. O orquestrador diz ao responsável onde ele precisa dizer "sim". (engenharia, 14/11/2026)
 - Tarefa agendada que para numa permissão fica em "running" sem avisar. Rodar "Run now" uma vez para aprovar as ferramentas, e o plano das 6h50 confere se as revisões rodaram. (engenharia, 15/11/2026)
 - Antes de distribuir uma tarefa de conteúdo, o orquestrador lista o que já existe no repositório de destino. Em 15/11, pediu roteiros que já estavam em rascunho desde 12/11. (engenharia, 15/11/2026)
+- Agente lê `ia/aprendizados.md` e `ia/orquestracao.md` da sprint do engenharia no GitHub (`gh api`), não do clone local: com o clone de 09/11, os agentes do lote 1 repetiram o teste de tema escuro falso já registrado. (engenharia, 16/11/2026)
+- Autorrevisão do agente não conta como revisão independente: o revisor é um subagente que recebe só o diff, antes do merge na sprint; sem ele, o PR fica aberto. (oxe-online, 16/11/2026)
 
 ## Issues e Projects
 
