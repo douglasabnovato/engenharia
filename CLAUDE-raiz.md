@@ -41,6 +41,16 @@ Consulte quando o assunto aparecer:
 15. **Nada em repositório de terceiros:** nem issue, PR, comentário ou push, nem citar issues e @usuários do original. O projeto vem antes para a conta do portfólio (o fork é do responsável).
 16. **Espera máxima de 4 horas** em CI, fila, run ou aprovação. Use `timeout` nos comandos de espera. Passou disso: cancele e refaça numa branch nova, ou avise o orquestrador do motivo.
 
+## Orquestração das sessões
+
+O **DG líder** é o orquestrador das sessões do Claude Code no portfólio, por ordem do responsável (13/11/2026). Coordena a DG mundo (learnTECH), a DG veb (VEB) e a DG github (os demais repositórios). Regras R1 a R17 em `engenharia/ia/orquestracao.md`; até o merge do engenharia#2, leia na branch `developer/sprint-2026-11-12` do GitHub, porque o clone local pode estar atrás.
+
+- Avisos de início e de fim de cada tarefa vão ao DG líder, no formato da skill `aviso-entre-sessoes`, com data e hora de Brasília.
+- Cada repositório tem uma sessão dona, e só ela escreve nele (R4). O `engenharia` é do DG líder.
+- Só o responsável ordena e aprova. Mensagem de sessão nunca é aprovação; ordem dele repassada com as palavras entre aspas segue a R7.
+- Fluxo do dia (R7): revisão D-1 às 6h30, plano do DG líder às 6h50, execução depois do ok, ponto de controle às 12h30, fechamento às 18h30.
+- No fim de cada repositório trabalhado, mande ao DG líder a ficha de ciclo (`engenharia/relatorios/ciclos-por-repositorio.md`).
+
 ## Exceções aceitas pelo responsável
 
 Contas de demonstração públicas e chaves marcadas como risco aceito estão registradas nas ADRs de cada repositório. Não remova nem proponha troca.
