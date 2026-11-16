@@ -63,6 +63,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Teste de segurança precisa falhar pelo motivo certo: conferir com uma mutação, porque um teste de `Referer` passava por cair num `catch` com URL inválida. (jobs-calc, 16/11/2026)
 - Auditar Python com o `pip-audit` num ambiente fora do projeto. (biblioteca, 16/11/2026)
 - Ao remover rotas sem autenticação do código, conferir se a versão publicada ainda as tem: o código novo não protege a API antiga que segue no ar. (controle-financas, 16/11/2026)
+- Destino depois do login só aceita caminhos do próprio app; teste que falha com uma URL externa. (facil-admin-plataforma, 16/11/2026)
 
 ## Windows e Git Bash
 
@@ -126,6 +127,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Em teste de tempo real com duas páginas, esperar um sinal de "conectado" na tela (por exemplo, `data-tempo-real`) antes da ação. Sem isso, o evento se perde, e o `retries` esconde a falha. (instagram-feed, 15/11/2026)
 - Testar o "escuro" num app sem tema escuro só repete o claro: trocar o projeto por outro que valha, como celular (375 px) com teste de rolagem horizontal. (casa-criativa e oxe-online, 16/11/2026)
 - Teste que neutraliza a animação antes de medir o layout esconde o defeito: no petshop, 459 px de rolagem horizontal no celular passavam. (petshop, 16/11/2026)
+- `overflow-x: hidden` esconde a rolagem lateral em vez de corrigir; o teste de largura (320 e 375 px) roda com o overflow liberado. (facil-admin-gestao, 16/11/2026)
 
 ## Playwright e axe
 
@@ -152,6 +154,8 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - O axe com a API viva acha violações que o site sem servidor esconde. (components, 16/11/2026)
 - O `ButtonBase` do MUI zera o `outline` global: testar o foco pelo teclado e devolver o contorno no tema. (signature-generator, 16/11/2026)
 - Rodar o axe com dados reais: blocos de código e tabelas sem foco pelo teclado só aparecem com conteúdo de verdade. (e-commerce-t-shirt, 16/11/2026)
+- O axe não mede contraste sobre gradiente e marca como `incomplete`: fazer o teste falhar também com `incomplete`. Achou 3:1 e 3,32:1 que passavam. (coin-wallet e facil-admin-gestao, 16/11/2026)
+- Com `noopener`, o `window.open` sempre devolve null; um teste de pop-up bloqueado que só troca esse retorno não prova nada. (catalogo-acai, 16/11/2026)
 
 ## Lighthouse e LCP
 
@@ -176,6 +180,8 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Pré-renderizar o HTML só baixa o LCP simulado se o `<script type="module">` sair do head: um carregador inline no fim do body, que pede o JS depois do `first-contentful-paint`, levou de 3,68 para 1,82 s. Com `requestAnimationFrame` o JS ainda saía antes da pintura. Comparar `observedLargestContentfulPaint` com o simulado antes de investir em SSG. (components, 09/11/2026)
 - Reduzir JS sozinho pode não mover o LCP simulado se CSS e fontes ainda bloqueiam a 1ª pintura. (e-commerce-t-shirt, 09/11/2026)
 - O merge na principal não prova que o site mudou: conferir o hash do bundle publicado antes de medir no ar, e dizer no MVP qual build foi medido. (movies e signature-generator, 16/11/2026)
+- Anotar o elemento do LCP e conferir se é a tela que importa: um LCP em `p.table-empty` mede a tela vazia. (coin-wallet, 16/11/2026)
+- Rota de entrada em `React.lazy` deixa o LCP bimodal: medir mais de 3 vezes quando as execuções divergem muito. (facil-admin-plataforma, 16/11/2026)
 
 ## CI e GitHub Actions
 
@@ -217,6 +223,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Formspree: GET no endpoint dá 405 se o formulário existe e 404 se não existe; confere sem enviar. (facil-admin, 10/11/2026)
 - Deploy no Pages condicionado a uma Variable (`PAGES_VIA_ACTIONS`) deixa mesclar na principal com o Pages desligado, sem CI vermelho. (sushibar, 16/11/2026)
 - Na Netlify, "Stopped builds" também bloqueia o build hook; para publicar só pelo CI, usar "Ignore builds" com `[ -z "$INCOMING_HOOK_URL" ]`. (calculadora, 16/11/2026)
+- Para achar o deploy de produção na Vercel, filtrar `deployments` por `environment=Production`. (facil-admin-plataforma, 16/11/2026)
 
 ## Streamlit
 

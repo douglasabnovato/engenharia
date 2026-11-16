@@ -59,6 +59,10 @@ Datas e horas sempre no horário de Brasília (`date` no Git Bash).
 | 16/11/2026 | restaurante-churrascaria (N2) | ciclo de MVP | 7/12 → 7 → 7 | 3 | build antigo no ar | 7 (#30, #34, #2, #12, #29, #16, #11 e #21) |
 | 16/11/2026 | signature-generator (N2) | ciclo de MVP | 11/12 → (8 só Lighthouse) → 11 | 3 | build de 06/11 no ar (403) | 6 (#112, #118, #68 e #72, #87, #96, #100) |
 | 16/11/2026 | e-commerce-t-shirt (N2) | ciclo de MVP | 9/12 → (8 e 9 sem base) → 8 | 2 | build de 06/11 no ar | 5 (#41, #28, #16, #43, #18) |
+| 16/11/2026 | coin-wallet (N2) | ciclo de MVP | 11/12 → 9 → 10 | 2 | sim (hash igual ao da main) | 5 (#43, #24, #38, #22, #23 a #26) |
+| 16/11/2026 | catalogo-acai (N2) | ciclo de MVP | 11/12 → 9 → 10 | 3 | sim (main de hoje) | 6 (#35, #3, #7, #32, #16, #21) |
+| 16/11/2026 | facil-admin-plataforma (N3) | ciclo de MVP | 8/12 → 8 → 8 (Finalizado sim → não) | 2 | sim, sem backend | 4 (#2, #40, #17, #34) |
+| 16/11/2026 | facil-admin-gestao (N2) | ciclo de MVP | 11/12 → 9 → 10 | 2 | sim (hash conferido) | 5 (#42 com visual novo, #36, #37, #21, #19 a #25) |
 
 Leitura de 15/11: nos 3 ciclos de MVP, a revisão independente achou 11 erros, todos antes do merge na sprint. Os 2 repositórios que chegaram à produção no dia foram os em que o responsável mesclou durante a verificação, junto com a sessão.
 
@@ -88,6 +92,12 @@ Leitura do lote 6 (16/11, 04h20–05h10, 4 N2):
 - O teste "celular" que substituiu o "escuro" falso já achou rolagem lateral em 3 repositórios (petshop 459 px, e-commerce-t-shirt 77 px, casa-criativa).
 - A sessão fechou 2 PRs do Dependabot de versão maior (signature-generator#68 e #72), com comentário; isso é do responsável. Desde 05h06, a regra 9 do brief proíbe.
 - Dados do negócio do restaurante-churrascaria não foram inventados nem mudados; a #30 pergunta ao responsável se o cliente é real.
+
+Leitura do lote 7 (16/11, 05h10–05h58, 3 N2 e 1 N3):
+- O axe reprovando também nos resultados `incomplete` achou contraste baixo sobre gradiente em 2 repositórios (coin-wallet 3:1, facil-admin-gestao 3,32:1), que antes passavam.
+- O facil-admin-plataforma passou de Finalizado "sim" para "não": medido no site, o LCP mediano foi 2,79 s. A correção é de código (#36) e não depende do responsável.
+- Um redirecionamento aberto depois do login foi fechado no facil-admin-plataforma, com teste.
+- Mudança visual (gradientes trocados por cores sólidas no facil-admin-gestao) foi feita por acessibilidade e deixada para o responsável conferir no #42.
 
 ## Fichas
 
@@ -413,3 +423,39 @@ Leitura do lote 6 (16/11, 04h20–05h10, 4 N2):
 - Depois: 8/12; Parciais 5, 7, 9 (403, #43, engenharia#33) e 10 · a produção roda o build de 06/11.
 - Com o responsável: mesclar o #41; publicar (#28); segredos e Variable (#16); Dependabot (#43); GoatCounter (#18).
 - Lição: `composer update` com `platform` temporário muda o `content-hash` e grava `platform-overrides` no lock; restaurar os dois e conferir com `composer validate`.
+
+### coin-wallet · 16/11/2026 · DG github (lote 7)
+- Tipo: ciclo de MVP; N2, React 18 + Vite + Redux, Vitest, Playwright e axe, Netlify.
+- Antes: declarava 11/12, mas pela régua era 9/12 (8 sem axe nem teclado no navegador; 9 como Atende com 403); no ar.
+- Feito: `developer/sprint-2026-11-19` criada; #41 na sprint (run 43828907649): axe que falha também com `color-contrast` incompleto, a 1280 e 375 px, e teste só de teclado; acharam botões verdes com 3:1 sobre gradiente (que o axe não media), 340 px de rolagem lateral no celular e título repetido no login, corrigidos; desfazer a exclusão, com `role="status"` e foco no "Desfazer" (#27); patches; `netlify.toml`; `public/index.html` do CRA removido. #43 (sprint → main) aberto, preview da Netlify "ready".
+- Revisão independente: 2 erros, corrigidos com teste (o desfazer perdia a despesa quando o id era reaproveitado; o mouse religava o tempo com o foco no aviso); 5 de 6 sugestões aplicadas.
+- Depois: 10/12; 5 Parcial (GoatCounter 400, #24) e 9 Parcial (403, #38). LCP no ar de 2,29 s de mediana, TBT 55 ms, elemento `p.table-empty`, com o hash do bundle igual ao da main; nova medida depois do #43 (#40).
+- Com o responsável: mesclar o #43; GoatCounter (#24); Dependabot (#38); fechar a #22; decidir #23, #25 e #26.
+- Lição: o axe não mede contraste sobre gradiente; fazer o teste falhar também com `incomplete`.
+
+### catalogo-acai · 16/11/2026 · DG github (lote 7)
+- Tipo: ciclo de MVP; N2, React 19 + Vite + Tailwind 4, Vercel.
+- Antes: declarava 11/12, mas pela régua era 9/12; o #29 entrou pela fila; a main no ar.
+- Feito: `developer/sprint-2026-11-19` criada; #33 na sprint (runs 43827698588 e 43828147731) e #36 (run 43829189718, o critério 7 diz qual build foi medido): axe A/AA a 375 e 1280 px em 4 telas; teclado com Tab preso no montador e no checkout, Esc e contorno visível; testes de alvos e de falhas; botões do carrinho e o fechar do montador com 44×44; `dependabot.yml` e `vercel.json`; patches; as asserções do link do WhatsApp não levam mais o número para o log. Preço dos adicionais e WhatsApp intactos (#3). A mudança no que o roteiro do Studio D mostra está registrada na #31. 24 Vitest e 19 Playwright, 0 pulados. #35 (sprint → main) aberto.
+- Revisão independente: 3 erros, corrigidos (o teste do pop-up não provava nada com `noopener`; texto do critério 6; CI pendente); o #36 sem erros.
+- Depois: 10/12; 5 Parcial (#7) e 9 Parcial (403, #32). LCP mediano de 1,31 s no deploy do commit 40c44f6 (a main de hoje); nova medida depois da publicação (#37).
+- Com o responsável: mesclar o #35; Dependabot (#32); GoatCounter (#7); preço e WhatsApp (#3); um pedido real (#16); fechar a #21.
+- Lição: com `noopener`, o `window.open` sempre devolve null; um teste de pop-up bloqueado que só troca esse retorno não prova nada.
+
+### facil-admin-plataforma · 16/11/2026 · DG github (lote 7)
+- Tipo: ciclo de MVP; N3, React 18, Vite, Vercel e Supabase.
+- Antes: 8/12, Finalizado sim; o #27 entrou pela fila; no ar na Vercel, sem backend.
+- Feito: `developer/sprint-2026-11-19` criada; #39 na sprint (run 43834289064: front com 95 testes e 12/12 Playwright; banco verde): o destino depois do login só aceita caminhos do próprio app (`src/lib/destino.ts`), com teste que falha sem a correção (redirecionamento aberto fechado); `npm audit fix` sem versão maior e ADR 0001 decidindo o risco do react-router 6 e do zod 3 até a migração (#35); o "escuro" falso virou "celular", com teste de rolagem a 375 e 320 px; DEPLOY, `dependabot.yml` semanal e Node 22 no CI. Contas de demonstração mantidas (ADR). #40 (sprint → main) aberto.
+- Revisão independente: 2 erros, corrigidos (marcador `<preencher>` no MVP; o comando do DEPLOY trazia o Preview, não a Production).
+- Depois: 8/12, e Finalizado passou para "não": o 7 virou Não atende (Lighthouse móvel no site, build 26a530f da main, mediana de 2,79 s em 7 execuções). A correção é de código (#36): a rota de entrada em `React.lazy` deixa o LCP bimodal.
+- Com o responsável: restaurar o Supabase (#2, DNS não resolve); Dependabot (#34); GoatCounter (#17); mesclar o #40.
+- Lição: para achar o deploy de produção na Vercel, filtrar `deployments` por `environment=Production`.
+
+### facil-admin-gestao · 16/11/2026 · DG github (lote 7)
+- Tipo: ciclo de MVP; N2, página estática em HTML, CSS e JS, Playwright, Pages legado.
+- Antes: declarava 11/12, mas pela régua era 9/12 (8 sem axe; 9 só com o audit e 403); o #34 entrou pela fila; no ar.
+- Feito: #41 na `developer/sprint-2026-11-19` (run 43835217487: 21 testes, jobs fluxo e links): o formulário ia até 445 px a 375 px, e o `overflow-x: hidden` escondia o excesso (corrigido, com teste a 320 e 375 px e o overflow liberado); axe que reprova com `incomplete` e roda sem transições (#24), achando o botão secundário com 3,32:1 escondido pelo gradiente; gradientes do topo, fundo translúcido e título em gradiente trocados por cores sólidas, e setas em SVG (mudança visual, com comentário no #42 para o responsável conferir); mensagem de falha sem citar o WhatsApp inexistente; testes sem rede e de espera; `pages.yml` pronto e desligado por `PAGES_VIA_ACTIONS`; 5 imagens quebradas fora do README, e o verificador de links confere o README. #42 (sprint → main) aberto.
+- Revisão independente: 2 erros (os tamanhos de 47 e 1,6 MB), corrigidos com medida por comando; 4 sugestões aplicadas.
+- Depois: 10/12; 5 Parcial (#21) e 9 Parcial (403, #36). LCP no ar no build 893d082, hash conferido: mediana de 1,72 s, TBT 100 ms, elemento `.hero-content > p`.
+- Com o responsável: mesclar o #42, conferindo o visual novo; Dependabot (#36); Variable e fonte do Pages (#37); GoatCounter (#21); conteúdo (#19, #22, #23 e #25).
+- Lição: `overflow-x: hidden` esconde a rolagem lateral em vez de corrigir; o teste de largura precisa rodar com o overflow liberado.
