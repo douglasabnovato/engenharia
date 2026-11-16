@@ -55,6 +55,10 @@ Datas e horas sempre no horário de Brasília (`date` no Git Bash).
 | 16/11/2026 | learning-portal-fiori-sap (N2) | ciclo de MVP | 8/12 → 8 → 8 | 2, antes do merge | não (Pages desligado) | 5 (#34, #3, #16, #29, #17) |
 | 16/11/2026 | controle-financas (N2) | ciclo de MVP | 8/12 → 8 → 8 (7 Atende no ar) | 4, antes do merge | front sim (versão da main); API antiga com rotas sem token | 8 (#47, #43, #7, #19, #35, #38, #46, #32 e #39) |
 | 16/11/2026 | components (N3) | ciclo de MVP | 8/12 → 7 → 9 (7 Atende no ar) | 4, antes do merge | sim, sem o servidor | 4 (#53, #28, #27, #41) |
+| 16/11/2026 | movies (N2) | ciclo de MVP | 10/12 → 10 → 9 (7 Não atende no ar) | 3 | build de 06/11 no ar (403) | 6 (#98, #104, #58, #59, #99, #73 e #90) |
+| 16/11/2026 | restaurante-churrascaria (N2) | ciclo de MVP | 7/12 → 7 → 7 | 3 | build antigo no ar | 7 (#30, #34, #2, #12, #29, #16, #11 e #21) |
+| 16/11/2026 | signature-generator (N2) | ciclo de MVP | 11/12 → (8 só Lighthouse) → 11 | 3 | build de 06/11 no ar (403) | 6 (#112, #118, #68 e #72, #87, #96, #100) |
+| 16/11/2026 | e-commerce-t-shirt (N2) | ciclo de MVP | 9/12 → (8 e 9 sem base) → 8 | 2 | build de 06/11 no ar | 5 (#41, #28, #16, #43, #18) |
 
 Leitura de 15/11: nos 3 ciclos de MVP, a revisão independente achou 11 erros, todos antes do merge na sprint. Os 2 repositórios que chegaram à produção no dia foram os em que o responsável mesclou durante a verificação, junto com a sessão.
 
@@ -78,6 +82,12 @@ Leitura do lote 5 (16/11, 03h05–04h20, 4 N2 e 1 N3):
 - Nos N2 e N3 a nota não subiu no papel: os critérios 5 (medição) e 7 (desempenho no ar) ficaram Parciais onde não havia painel nem site publicado. Só controle-financas e components têm o 7 Atende, com Lighthouse móvel no site, 3 execuções válidas e mediana.
 - Agentes fecharam 3 issues com `depende-do-responsavel` (feedback-widget#12 e #20, headset#28); a DG github reabriu. Das 29 fechadas na madrugada, 26 fecharam sozinhas com os merges na principal feitos por ordem do responsável.
 - Dois riscos novos de dados pessoais: fotos de cupom no histórico (controle-financas#43) e a API antiga do controle-financas com rotas sem token (#47), hoje sem devolver dado porque o banco está inacessível.
+
+Leitura do lote 6 (16/11, 04h20–05h10, 4 N2):
+- Primeiro "Não atende" honesto no desempenho (movies: LCP mediano 3,22 s no ar, build de 06/11). O signature-generator é o primeiro N2 com o critério 9 Atende pela regra completa (alertas ligados, 0 abertos, audit 0).
+- O teste "celular" que substituiu o "escuro" falso já achou rolagem lateral em 3 repositórios (petshop 459 px, e-commerce-t-shirt 77 px, casa-criativa).
+- A sessão fechou 2 PRs do Dependabot de versão maior (signature-generator#68 e #72), com comentário; isso é do responsável. Desde 05h06, a regra 9 do brief proíbe.
+- Dados do negócio do restaurante-churrascaria não foram inventados nem mudados; a #30 pergunta ao responsável se o cliente é real.
 
 ## Fichas
 
@@ -366,3 +376,40 @@ Leitura do lote 5 (16/11, 03h05–04h20, 4 N2 e 1 N3):
 - Depois: 9/12; Parciais 3 (#28), 5 (#27) e 9 (403, #41).
 - Com o responsável: mesclar o #53; Render (#28); GoatCounter (#27); Dependabot (#41).
 - Lição: o axe com a API viva acha violações que o site sem servidor esconde.
+
+### movies · 16/11/2026 · DG github (lote 6)
+- Tipo: ciclo de MVP; N2, CRA, React 18, Jest, Playwright com axe, Pages.
+- Antes: 10/12; o #91 entrou pela fila; o site serve o build de 06/11, porque o deploy dá 403 (#98).
+- Feito: `developer/sprint-2026-11-19` criada; #103 na sprint (run 43823772615: build-and-test e e2e): "Onde assistir no Brasil" no detalhe, com crédito à JustWatch e testes (#84); `link-in-text-block` corrigido; DEPLOY com o diagnóstico da #98 e dois caminhos; seção 5 do MVP com o "saberemos quando", registrado na #97. As setas da #96 não foram feitas, para preservar o roteiro do vídeo do Studio D. A chave da TMDB ficou intacta (risco aceito). #104 (sprint → main) aberto.
+- Revisão independente: 3 erros, corrigidos em 6c1d532 (critério 1 sem fonte; critério 8 sem comando; `provider_id` nulo).
+- Depois: 9/12. O 7 é Não atende no ar (mediana 3,22 s, TBT de 196 a 255 ms, LCP no pôster, build de 06/11); o 9 é Parcial (403, #99, mais 2 moderados no react-router 6); o 5 é Parcial (#58).
+- Com o responsável: #98 (caminho 1 ou 2 do DEPLOY); Dependabot (#99); GoatCounter (#58); teste com 5 pessoas (#59); mesclar o #104; fechar a #73 e a #90.
+- Lição: o merge na principal não prova que o site mudou; conferir o hash do bundle publicado antes de medir no ar.
+
+### restaurante-churrascaria · 16/11/2026 · DG github (lote 6)
+- Tipo: ciclo de MVP; N2, Vue 3, Vite, Firestore, Playwright e axe.
+- Antes: 7/12; o #22 entrou pela fila; o site serve o build antigo de `main:/docs` (#2).
+- Feito: #33 na `developer/sprint-2026-11-19` (runs 43823325623 e 43823785716, job web: Vitest 16, regras 5, Playwright 10): aviso de coleta no rodapé (#12); projetos Playwright celular e desktop no lugar do "escuro" falso; axe no cardápio inteiro; testes do delivery fechado às 20h e do "Enviando…", cada um falhando sem a correção; firebase 12.19, vue 3.5.45 e tailwind 4.3.5; prints do README corrigidos. Nenhum dado do cliente inventado nem mudado; a issue nova #30 pede ao responsável que diga se o cliente é real. #34 (sprint → main) aberto.
+- Revisão independente: 3 erros, corrigidos (critério 6 sem teste de espera; Java 11+ no README, quando o CI usa 21; CI citado sem o run); 8 sugestões aplicadas.
+- Depois: 7/12, critério 9 Parcial (403, #29) · fora do ar com o build novo.
+- Com o responsável: mesclar o #34; Variables, Pages → Actions e `PAGES_VIA_ACTIONS` (#2); GoatCounter (#12); Dependabot (#29); cliente real ou não (#30); meta (#16); conferir e fechar a #11 e a #21.
+- Lição: documentar o Java que o CI usa para os emuladores do Firebase e fixar a versão do firebase-tools.
+
+### signature-generator · 16/11/2026 · DG github (lote 6)
+- Tipo: ciclo de MVP; N2, React 18, Vite 8, MUI 7, Vitest e Playwright.
+- Antes: 11/12, com o critério 8 só com Lighthouse; o #110 entrou pela fila; o site serve o build de 06/11, porque o deploy dá 403 (#112).
+- Feito: #117 na `developer/sprint-2026-11-19` (ac814d2, run 43827966810): o teste de teclado achou o MUI zerando o contorno de foco dos botões, e o tema agora o devolve; aviso do limite de 10.000 caracteres do Gmail (#102); espera e falha no download do PNG (#103); 38 testes Vitest e 6 Playwright. #118 (sprint → master) aberto, com CI verde.
+- Desvio: a sessão fechou os PRs #68 e #72 do Dependabot (versão maior, pacotes do CRA que não estão mais no lock), com comentário. Pelo `fluxo-git.md`, Dependabot de versão maior é decisão do responsável: ele confirma ou reabre. Regra repassada à DG github.
+- Revisão independente: 3 erros, corrigidos (run que faltava; espera do critério 6; teste do Esc que podia passar sozinho).
+- Depois: 11/12. O 7 Atende foi medido no ar no build de 06/11 (LCP mediano 1,66 s, TBT 399 ms, `header h1`) e precisa ser refeito depois da #112. O 9 Atende: API 200, 0 alertas abertos e audit 0. O 5 Parcial (#87).
+- Com o responsável: #112 (ou Pages → GitHub Actions); GoatCounter (#87); mesclar o #118; validar a assinatura em e-mail real (#96); meta (#100); confirmar o fechamento dos PRs #68 e #72.
+- Lição: o `ButtonBase` do MUI zera o `outline` global; testar o foco pelo teclado e devolver o contorno no tema.
+
+### e-commerce-t-shirt · 16/11/2026 · DG github (lote 6)
+- Tipo: ciclo de MVP; N2, Laravel 12 + Vue 3.
+- Antes: declarava 9/12, com o 8 e o 9 sem base; o #41 esperava; a main tinha CI vermelho (`composer audit`, corrigido pelo #40).
+- Feito: #42 na `developer/sprint-2026-11-19` (run 43828510144: backend, frontend e fluxo): vue, vue-router, pinia, vitest e laravel/sanctum 4.4.0, com `platform.php` 8.3.0; o axe com dados reais achou blocos de código e tabelas do Teste Técnico sem foco pelo teclado (corrigido); o projeto "escuro" falso virou "celular" de 375 px e achou 77 px de rolagem lateral (corrigido); a grade da vitrine fica reservada durante o carregamento, com CLS medido no navegador (#36); testes de lista vazia e de erro com nova tentativa; ADR D23 da conta de demonstração (mantida, risco aceito). Entra no #41 (sprint → main), atualizado.
+- Revisão independente: 2 erros de documentação, corrigidos (contagem do audit; origem da evidência); 5 de 8 sugestões aplicadas.
+- Depois: 8/12; Parciais 5, 7, 9 (403, #43, engenharia#33) e 10 · a produção roda o build de 06/11.
+- Com o responsável: mesclar o #41; publicar (#28); segredos e Variable (#16); Dependabot (#43); GoatCounter (#18).
+- Lição: `composer update` com `platform` temporário muda o `content-hash` e grava `platform-overrides` no lock; restaurar os dois e conferir com `composer validate`.

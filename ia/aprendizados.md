@@ -109,6 +109,8 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Dependências envelheceram até exigir migração (13 PRs do Dependabot parados); atualizar toda semana, em passos pequenos. (portfólio, 02/11/2026)
 - Com o PHP local mais antigo que o do CI, rodar o `composer update` com `platform.php` igual ao do CI; `--ignore-platform-req` puxa versões maiores. (e-commerce-t-shirt, 16/11/2026)
 - Dependência nativa que traz binários prontos (better-sqlite3 13): `ignore-scripts=true` no `.npmrc` evita o node-gyp no Windows. (be-the-hero, 16/11/2026)
+- `composer update` com `platform` temporário muda o `content-hash` e grava `platform-overrides` no lock; restaurar os dois e conferir com `composer validate`. (e-commerce-t-shirt, 16/11/2026)
+- Documentar o Java que o CI usa para os emuladores do Firebase e fixar a versão do `firebase-tools`. (restaurante-churrascaria e letmeask, 16/11/2026)
 
 ## Testes em geral
 
@@ -148,6 +150,8 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Rodar o axe também com o mouse sobre o botão principal: o contraste do hover só aparece assim. (feedback-widget, 16/11/2026)
 - Axe no meio de uma animação lê a cor com opacidade parcial e falha só às vezes: esperar o fim da animação. (headset, 16/11/2026)
 - O axe com a API viva acha violações que o site sem servidor esconde. (components, 16/11/2026)
+- O `ButtonBase` do MUI zera o `outline` global: testar o foco pelo teclado e devolver o contorno no tema. (signature-generator, 16/11/2026)
+- Rodar o axe com dados reais: blocos de código e tabelas sem foco pelo teclado só aparecem com conteúdo de verdade. (e-commerce-t-shirt, 16/11/2026)
 
 ## Lighthouse e LCP
 
@@ -171,6 +175,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - CSS do Google Fonts bloqueia: `media="print"` com `onload` e `noscript` tirou 0,5 s; carregar o CSS de fontes depois do `load` derrubou o FCP para ~1,2 s, porque fontes de outro domínio entram na conta antes da 1ª pintura. (facil-admin-plataforma e e-commerce-t-shirt, 09/11/2026)
 - Pré-renderizar o HTML só baixa o LCP simulado se o `<script type="module">` sair do head: um carregador inline no fim do body, que pede o JS depois do `first-contentful-paint`, levou de 3,68 para 1,82 s. Com `requestAnimationFrame` o JS ainda saía antes da pintura. Comparar `observedLargestContentfulPaint` com o simulado antes de investir em SSG. (components, 09/11/2026)
 - Reduzir JS sozinho pode não mover o LCP simulado se CSS e fontes ainda bloqueiam a 1ª pintura. (e-commerce-t-shirt, 09/11/2026)
+- O merge na principal não prova que o site mudou: conferir o hash do bundle publicado antes de medir no ar, e dizer no MVP qual build foi medido. (movies e signature-generator, 16/11/2026)
 
 ## CI e GitHub Actions
 
@@ -248,6 +253,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Autorrevisão do agente não conta como revisão independente: o revisor é um subagente que recebe só o diff, antes do merge na sprint; sem ele, o PR fica aberto. (oxe-online, 16/11/2026)
 - Achado da revisão independente não corrigido vai com o porquê no PR, e o PR não é mesclado sem a sessão dona decidir: dois agentes mantiveram um "Atende" contra a revisão e a regra. (calculadora e letmeask, 16/11/2026)
 - Issue com `depende-do-responsavel` só o responsável fecha, mesmo cumprida: o agente comenta a evidência. Três foram fechadas por agentes e reabertas. (feedback-widget e headset, 16/11/2026)
+- PR do Dependabot de versão maior nunca é fechado nem mesclado pelo agente: comentar a análise e listar para o responsável. (signature-generator, 16/11/2026)
 
 ## Issues e Projects
 
