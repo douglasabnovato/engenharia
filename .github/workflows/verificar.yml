@@ -1,0 +1,32 @@
+# Verificação do engenharia (engenharia#21): links internos e testes dos scripts.
+name: verificar
+
+on:
+  push:
+    branches: ["developer/**", "feature/**"]
+  pull_request:
+    branches: ["developer/**", "main"]
+
+permissions:
+  contents: read
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Links internos dos .md
+        run: python scripts/verificar_links.py
+      - name: Testes dos scripts
+        run: |
+          # Roda cada pasta de scripts que tem test_*.py (as pastas não são pacotes).
+          pastas=$(find scripts -name 'test_*.py' -printf '%h\n' | sort -u)
+          if [ -z "$pastas" ]; then echo "Nenhum teste encontrado"; exit 1; fi
+          for p in $pastas; do
+            echo "== $p"
+            python -m unittest discover -s "$p" -p 'test_*.py' -v
+          done
