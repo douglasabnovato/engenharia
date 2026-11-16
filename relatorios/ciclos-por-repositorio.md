@@ -50,6 +50,11 @@ Datas e horas sempre no horário de Brasília (`date` no Git Bash).
 | 16/11/2026 | aula-de-programacao | ciclo de MVP | 9 → 8 → 9 | 2, antes do merge (1 contestado com evidência) | versão anterior no ar; entra com o #36 | 5 (#36, #33, #21, #29, #25 e #26) |
 | 16/11/2026 | douglasabnovato (perfil) | ciclo de MVP | 9 → (8 e 9 sem evidência) → 8 | 5 (1 recusado com o porquê) | versão anterior no ar; entra com o #62 | 6 (#62, #56, #46, #47, #57, #44) |
 | 16/11/2026 | ux-design | ciclo de MVP | 9 → 8 → 9 | 3, antes do merge | versão anterior no ar; entra com o #50 | 6 (#46, #31, #50, #45, #47, #41) |
+| 16/11/2026 | feedback-widget (N2) | ciclo de MVP | 9/12 → 8 → 8 | 1, antes do merge | não (Vercel com build de 2022) | 7 (#11, #3, #15, #31, #12 e #20, #26, #27) |
+| 16/11/2026 | headset (N2) | ciclo de MVP | 9/12 → 8 → 8 | 3, antes do merge | não | 6 (#38, #4, #20, #19, #35, #18 e #28) |
+| 16/11/2026 | learning-portal-fiori-sap (N2) | ciclo de MVP | 8/12 → 8 → 8 | 2, antes do merge | não (Pages desligado) | 5 (#34, #3, #16, #29, #17) |
+| 16/11/2026 | controle-financas (N2) | ciclo de MVP | 8/12 → 8 → 8 (7 Atende no ar) | 4, antes do merge | front sim (versão da main); API antiga com rotas sem token | 8 (#47, #43, #7, #19, #35, #38, #46, #32 e #39) |
+| 16/11/2026 | components (N3) | ciclo de MVP | 8/12 → 7 → 9 (7 Atende no ar) | 4, antes do merge | sim, sem o servidor | 4 (#53, #28, #27, #41) |
 
 Leitura de 15/11: nos 3 ciclos de MVP, a revisão independente achou 11 erros, todos antes do merge na sprint. Os 2 repositórios que chegaram à produção no dia foram os em que o responsável mesclou durante a verificação, junto com a sessão.
 
@@ -68,6 +73,11 @@ Leitura do lote 4 (16/11, 02h10–03h05, 6 ciclos):
 - A revisão independente achou 0 a 5 erros por repositório, e em 2 deles (dashboards e cm-quiz-app, antes) nenhum. Pela primeira vez, 2 achados foram contestados com evidência e decididos pela DG github, como pede o brief desde 02h08.
 - Repositórios no ar (aula-de-programacao, dashboards, perfil, ux-design) seguem com a versão anterior até o merge na principal.
 - Dados de terceiros voltaram a aparecer: imagens do catálogo do ux-design (#46), em site público.
+
+Leitura do lote 5 (16/11, 03h05–04h20, 4 N2 e 1 N3):
+- Nos N2 e N3 a nota não subiu no papel: os critérios 5 (medição) e 7 (desempenho no ar) ficaram Parciais onde não havia painel nem site publicado. Só controle-financas e components têm o 7 Atende, com Lighthouse móvel no site, 3 execuções válidas e mediana.
+- Agentes fecharam 3 issues com `depende-do-responsavel` (feedback-widget#12 e #20, headset#28); a DG github reabriu. Das 29 fechadas na madrugada, 26 fecharam sozinhas com os merges na principal feitos por ordem do responsável.
+- Dois riscos novos de dados pessoais: fotos de cupom no histórico (controle-financas#43) e a API antiga do controle-financas com rotas sem token (#47), hoje sem devolver dado porque o banco está inacessível.
 
 ## Fichas
 
@@ -307,3 +317,52 @@ Leitura do lote 4 (16/11, 02h10–03h05, 6 ciclos):
 - Depois: 9/10, critério 9 Parcial (403, #45, engenharia#33; #31; #46) · no ar (Pages legado, igual à main por md5); o site soma cerca de 830 MB, perto do limite de 1 GB do Pages (#33, #34).
 - Com o responsável: imagens com dados de terceiros no site público (#46, citadas só pelo nome do arquivo); clientes (#31); mesclar o #50; Dependabot (#45); número de WhatsApp (#47); fechar a #41.
 - Lição: procurar marcadores de rascunho com `grep` antes de abrir o PR; em repositório grande, clonar com `--filter=blob:none` ou sparse-checkout.
+
+### feedback-widget · 16/11/2026 · DG github (lote 5)
+- Tipo: ciclo de MVP; N2, React 18 + Vite + Tailwind; API Express 5 + Prisma; Playwright e axe.
+- Antes: declarava 9/12, mas pela régua era 8/12; o #21 entrou pela fila. A Vercel serve um build de 2022, e a API no Render dá 404.
+- Feito: #30 na `developer/sprint-2026-11-19` (run 43815984092: server, web e e2e): e2e com a demo e a API real juntas, POST pelo navegador, captura de tela e axe; contraste do hover de "Enviar feedback" de 3,5 para 6:1; contador de caracteres e aviso quando a captura falha; patches de express, nodemailer e axios; `server/coverage` fora do Git; DEPLOY com o diagnóstico da Vercel (falha em 19 s sem log de build: pré-condição do painel) e um usuário próprio no Neon. #31 (sprint → main) aberto.
+- Revisão independente: antes do merge. 1 erro (um "RUNID" provisório), corrigido; 6 de 7 sugestões aplicadas.
+- Depois: 8/12; 3, 5, 7 e 9 Parciais (o 9 por 403, #26, engenharia#33) · fora do ar com o build novo.
+- Desvio: o agente fechou a #12 e a #20, que têm `depende-do-responsavel`; a DG github reabriu com comentário e pôs a regra no brief (regra 8: issue do responsável só ele fecha).
+- Com o responsável: erro no painel da Vercel (#11); Blueprint no Render com Neon (#3); GoatCounter (#15); Dependabot (#26); e2e no ruleset (#27); mesclar o #31; fechar a #12 e a #20.
+- Lição: rodar o axe também com o mouse sobre o botão principal; o contraste do hover só aparece assim.
+
+### headset · 16/11/2026 · DG github (lote 5)
+- Tipo: ciclo de MVP; N2, React 19 + Vite + Bootstrap/LESS, Express 5 + Drizzle + SQLite.
+- Antes: declarava 9/12, mas pela régua era 8; o #29 entrou pela fila; fora do ar (Render no-server, nome livre).
+- Feito: #37 na `developer/sprint-2026-11-19` (2918df9; runs 43818703076 e 43818959730, verificar): o axe reprova qualquer violação A/AA, nos temas claro e escuro (o app tem `data-bs-theme` a partir de `prefers-color-scheme`), no produto, no carrinho e no checkout; `<p>` dentro de `<dl>` corrigido, com teste; testes de API lenta, falha de rede e catálogo vazio; `npm audit` no CI (#26); patches de produção. #38 (sprint → main) aberto.
+- Revisão independente: antes do merge. 3 erros, corrigidos (CI vermelho por `color-contrast` no aviso animado; números citados sem CI verde).
+- Depois: 8/12, critério 9 Parcial (403, #35, engenharia#33) · fora do ar.
+- Desvio: o agente fechou a #28 (`depende-do-responsavel`) como obsoleta; a DG github reabriu com comentário.
+- Com o responsável: mesclar o #38; Blueprint (#4); GoatCounter (#20); Dependabot (#35); meta da hipótese (#19); fechar a #18 e a #28.
+- Lição: axe no meio de uma animação lê a cor com opacidade parcial e falha só às vezes; esperar o fim, ou usar `reducedMotion` só quando a animação não é o alvo do teste.
+
+### learning-portal-fiori-sap · 16/11/2026 · DG github (lote 5)
+- Tipo: ciclo de MVP; N2, OpenUI5 1.136, QUnit e Playwright.
+- Antes: 8/12; o #26 entrou pela fila; fora do ar (Pages desligado).
+- Feito: `developer/sprint-2026-11-19` criada; #32 na sprint (run 43819142143, verificar): favoritos com estrela, filtro "Só favoritas" e aviso quando o navegador não salva (#18); o estado vazio da busca nunca aparecia (comparava "0 trilhas" com 0), corrigido; axe na lista, no detalhe e na trilha inexistente; foco visível com teste de mutação; Esc; 49 asserções QUnit e 29 checagens no navegador; DEPLOY refeito (descrevia um workflow inexistente). #34 (sprint → main) aberto.
+- Revisão independente: antes do merge. 2 erros, corrigidos (critério 11 sem o run; aviso "nenhuma favorita" errado). Axe no escuro não feito, com o porquê no PR (o app não tem tema escuro).
+- Depois: 8/12; o 8 virou Atende; 9 Parcial (403, #29); 3, 5 e 7 Parciais · fora do ar.
+- Com o responsável: mesclar o #34; Pages e `PAGES_VIA_ACTIONS` (#3); GoatCounter (#16); Dependabot (#29); hipótese (#17).
+- Lição: um estado vazio que nunca aparece passa despercebido se nenhum teste o abre; no UI5 Horizon, o foco é desenhado no `.sapMFocusable::before`.
+
+### controle-financas · 16/11/2026 · DG github (lote 5)
+- Tipo: ciclo de MVP; N2, React 19, Vite e Tailwind no Pages; API Express 5 no Render, PostgreSQL no Supabase e leitura pelo Gemini.
+- Antes: 8/12; o #33 entrou pela fila; o front no ar (docs/), a API na versão antiga.
+- Feito: `developer/sprint-2026-11-19` criada; #44 na sprint (a48f6a8, run 43821915254: server 8, client 31, e2e 2): correção da leitura do cupom com `PATCH /api/receipts/:id`, só pelo dono (#29); e2e só pelo teclado, com foco de 3 px e axe (#30, #20); a API antiga, com rotas sem token, removida do código; 5 fotos de cupom com nome, endereço e operadores saíram da árvore (o histórico fica para o responsável, #43); critério 7 Atende: Lighthouse móvel no site publicado (versão da main), 16/11 03h33–03h43, 3 execuções válidas de 7: LCP 1,57 / 2,30 / 1,36 s, mediana 1,57 s; TBT 58 / 45 / 110 ms; elemento `main > h1`. #46 (sprint → main) aberto.
+- Revisão independente: 4 erros, corrigidos (critério 10 dizia que o e2e não era obrigatório; a correção apagava a hora e escapava da deduplicação; data no fuso do navegador; mensagem do 409 errada).
+- Depois: 8/12; Parciais 3 (#7), 5 (#35), 9 (403, #38) e 10 (Pages legado, #19).
+- Issue aberta por engano: #39 (`depende-do-responsavel`); o ruleset já exige client, e2e e server; evidência comentada, o responsável fecha.
+- Risco em produção: a API publicada é a versão antiga, com 4 rotas sem token (`/api/users/:id`, `/api/receipts?profile_id=`, `/api/receipts/dashboard/summary`, `/api/receipts/:id`). Testadas só com GET e ids inexistentes: respondem 500 (banco inacessível), nunca 401. Se o banco voltar, expõem nome, e-mail, WhatsApp e cupons. Issue #47 (`depende-do-responsavel`); o #48 cita a #47 no critério 9.
+- Com o responsável: republicar ou derrubar a API antiga (#47); fotos com dados pessoais no histórico (#43); #7; #19 (Pages → Actions e variável); #35; #38; fechar #32 e #39; mesclar o #46.
+- Lição: o ruleset vale mais que o texto do MVP anterior; conferir `rules/branches/main` antes de escrever o critério 10.
+
+### components · 16/11/2026 · DG github (lote 5)
+- Tipo: ciclo de MVP; N3, monorepo pnpm, React 19, Vite, Hono e PGlite.
+- Antes: declarava 8/12, mas era 7 pela régua (o critério 8 só tinha `color-contrast`); no ar na Vercel, sem o servidor.
+- Feito: #51 na sprint (eac9bb9, run 43821988774): critério 7 Atende com Lighthouse móvel no site, 3 execuções, LCP mediano de 1,67 s, TBT de 338 a 605 ms, elemento `h1#topo-titulo`; axe completo no hub e nos 8 filhos (selo das Tarefas de 4,1 para 5,9:1); seções pedidas no tempo ocioso (#34); vulnerabilidades de desenvolvimento de 5 para 1 (#40); testes de lista vazia e de espera; saiu a sugestão de plano pago (regra 14). #53 (sprint → main) aberto.
+- Revisão independente: 4 erros, corrigidos. O último commit, só de teste (ae39257), não passou pelo revisor.
+- Depois: 9/12; Parciais 3 (#28), 5 (#27) e 9 (403, #41).
+- Com o responsável: mesclar o #53; Render (#28); GoatCounter (#27); Dependabot (#41).
+- Lição: o axe com a API viva acha violações que o site sem servidor esconde.

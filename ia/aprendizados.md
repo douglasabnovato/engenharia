@@ -45,6 +45,8 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Gabarito de agente é revisado junto com a medição: erro concentrado num tipo pode ser da regra, não do agente. (learntech-content, 15/11/2026)
 - Procurar marcadores de rascunho (`CI_RUN`, `PR_*`, `TODO`) com `grep` antes de abrir o PR. (ux-design, 16/11/2026)
 - Um 200 com outro `title` e sem os cabeçalhos do helmet mostra que o link publicado não roda este código: conferir os cabeçalhos, não só o status. (rocket-q, 16/11/2026)
+- O ruleset vale mais que o texto do MVP anterior: conferir `gh api repos/<dono>/<repo>/rules/branches/<principal>` antes de escrever o critério 10. (controle-financas, 16/11/2026)
+- Estado vazio que nunca aparece passa despercebido se nenhum teste o abre: no fiori, a busca comparava "0 trilhas" com 0. (learning-portal-fiori-sap, 16/11/2026)
 
 ## Segurança e segredos
 
@@ -60,6 +62,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Contar alertas abertos com `dependabot/alerts?state=open&per_page=100`, por gravidade e por manifest, a cada revisão: sem o filtro a API devolve 30 de todos os estados, e o texto do critério 9 envelhece (no dev-radar dizia 76; eram 3). (dev-radar e engenharia, 16/11/2026)
 - Teste de segurança precisa falhar pelo motivo certo: conferir com uma mutação, porque um teste de `Referer` passava por cair num `catch` com URL inválida. (jobs-calc, 16/11/2026)
 - Auditar Python com o `pip-audit` num ambiente fora do projeto. (biblioteca, 16/11/2026)
+- Ao remover rotas sem autenticação do código, conferir se a versão publicada ainda as tem: o código novo não protege a API antiga que segue no ar. (controle-financas, 16/11/2026)
 
 ## Windows e Git Bash
 
@@ -142,6 +145,9 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - O emulador de Auth do Firebase põe uma faixa fora dos landmarks, e o axe acusa `region`; usar `useEmulator(url, { disableWarnings: true })`. (letmeask, 16/11/2026)
 - Com `reducedMotion: 'reduce'`, o axe não vê a animação normal; correção feita só sob `prefers-reduced-motion` não vale para todos. (my-money-app, 16/11/2026)
 - O `@axe-core/playwright` 4.14 exige Node >=22.12; dizer isso no README. (dashboards e rocket-q, 16/11/2026)
+- Rodar o axe também com o mouse sobre o botão principal: o contraste do hover só aparece assim. (feedback-widget, 16/11/2026)
+- Axe no meio de uma animação lê a cor com opacidade parcial e falha só às vezes: esperar o fim da animação. (headset, 16/11/2026)
+- O axe com a API viva acha violações que o site sem servidor esconde. (components, 16/11/2026)
 
 ## Lighthouse e LCP
 
@@ -241,6 +247,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Agente lê `ia/aprendizados.md` e `ia/orquestracao.md` da sprint do engenharia no GitHub (`gh api`), não do clone local: com o clone de 09/11, os agentes do lote 1 repetiram o teste de tema escuro falso já registrado. (engenharia, 16/11/2026)
 - Autorrevisão do agente não conta como revisão independente: o revisor é um subagente que recebe só o diff, antes do merge na sprint; sem ele, o PR fica aberto. (oxe-online, 16/11/2026)
 - Achado da revisão independente não corrigido vai com o porquê no PR, e o PR não é mesclado sem a sessão dona decidir: dois agentes mantiveram um "Atende" contra a revisão e a regra. (calculadora e letmeask, 16/11/2026)
+- Issue com `depende-do-responsavel` só o responsável fecha, mesmo cumprida: o agente comenta a evidência. Três foram fechadas por agentes e reabertas. (feedback-widget e headset, 16/11/2026)
 
 ## Issues e Projects
 
