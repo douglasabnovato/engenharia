@@ -80,6 +80,14 @@ Padrões de código que se repetiram e funcionaram:
 - Senha só com letras e números (`@`, `:` e `/` quebram a URI se não forem codificados).
 - Detalhes do Atlas em [`deploy/render-atlas.md`](deploy/render-atlas.md).
 
+### Alertas sem correção na versão atual
+
+Regra do responsável, 16/11/2026: "Regra geral por ADR. alertas que nao atrapalham a producao, pode passar. os que atrapalham, entender, escolher a melhor estrategia para manter a funcionalidade".
+
+- **Não chega à produção** (ferramenta de desenvolvimento, build, teste): risco aceito numa ADR do repositório, com a frase acima, a data, os pacotes e a severidade, e a prova de que não chega ao site (busca no `dist`, `expo export --source-maps`). Com a ADR, o critério 9 pode ficar "Atende".
+- **Chega ao site:** entender o caminho, escolher a estratégia (atualizar, override, trocar pacote ou versão maior) e provar com lint, testes, build e e2e que a funcionalidade continua. Não vira ADR de aceite.
+- Antes de aceitar, conferir se uma versão menor do pacote pai já corrige.
+
 ### Dados pessoais (LGPD)
 - Decidir na Fase 0: o que se coleta, onde fica, quem vê.
 - Nenhum dado pessoal novo em código, documentos, issues ou dados de teste. Usar e-mails e nomes fictícios.

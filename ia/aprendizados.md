@@ -47,6 +47,9 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Um 200 com outro `title` e sem os cabeçalhos do helmet mostra que o link publicado não roda este código: conferir os cabeçalhos, não só o status. (rocket-q, 16/11/2026)
 - O ruleset vale mais que o texto do MVP anterior: conferir `gh api repos/<dono>/<repo>/rules/branches/<principal>` antes de escrever o critério 10. (controle-financas, 16/11/2026)
 - Estado vazio que nunca aparece passa despercebido se nenhum teste o abre: no fiori, a busca comparava "0 trilhas" com 0. (learning-portal-fiori-sap, 16/11/2026)
+- Uma SPA responde 200 em qualquer rota: conferir o conteúdo (título ou texto da página), não só o código. (oxe-online, 16/11/2026)
+- O `MVP.md` pode estar em `documentacao/`: procurar nos dois lugares antes de dizer que falta ou diverge. (portfólio, 16/11/2026)
+- Nomes dos tópicos do roadmap.sh: árvore do repositório developer-roadmap pela API (`git/trees/master?recursive=1`, pasta `roadmaps/<slug>/content`). A página de boas práticas não está lá: ler pelo navegador. (formacao-dev, 16/11/2026)
 
 ## Segurança e segredos
 
@@ -87,6 +90,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - O Git Bash pode não ter zoneinfo: `TZ=America/Sao_Paulo date` cai em GMT sem erro. Usar o `date` puro, que segue o relógio do Windows. (learntech-content, 15/11/2026)
 - Para provar que a produção roda a principal, comparar o pacote publicado com um build local. SVG com CRLF muda o hash: comparar o conteúdo com `tr -d '
 '`. (aircnc, 15/11/2026)
+- No Git Bash, `TZ=` com nome de fuso cai em UTC sem aviso. Usar o `date` local e conferir o horário antes de escrever. (portfólio, 16/11/2026)
 
 ## Git e locks
 
@@ -112,6 +116,10 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Dependência nativa que traz binários prontos (better-sqlite3 13): `ignore-scripts=true` no `.npmrc` evita o node-gyp no Windows. (be-the-hero, 16/11/2026)
 - `composer update` com `platform` temporário muda o `content-hash` e grava `platform-overrides` no lock; restaurar os dois e conferir com `composer validate`. (e-commerce-t-shirt, 16/11/2026)
 - Documentar o Java que o CI usa para os emuladores do Firebase e fixar a versão do `firebase-tools`. (restaurante-churrascaria e letmeask, 16/11/2026)
+- Lock gravado pelo npm 11 que o CI recusa: regenerar com `npx npm@10 install --package-lock-only`. (portfólio, 16/11/2026)
+- Antes de aceitar um risco, rodar `npm view <pai> dependencies.<pacote>`: às vezes uma versão menor do pai já corrige o alerta. (catalogo-acai, 16/11/2026)
+- Para provar que um pacote não vai para o site, procurar no `dist` cadeias internas dele (ex.: `GRPC_TRACE`), não só o nome. (restaurante-churrascaria, 16/11/2026)
+- Alerta que não chega à produção vai para ADR de risco aceito; o que chega ao site é corrigido mantendo a funcionalidade. Regra em [`padroes.md`](../arquitetura/padroes.md#alertas-sem-correção-na-versão-atual). (portfólio, 16/11/2026)
 
 ## Testes em geral
 
@@ -128,6 +136,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Testar o "escuro" num app sem tema escuro só repete o claro: trocar o projeto por outro que valha, como celular (375 px) com teste de rolagem horizontal. (casa-criativa e oxe-online, 16/11/2026)
 - Teste que neutraliza a animação antes de medir o layout esconde o defeito: no petshop, 459 px de rolagem horizontal no celular passavam. (petshop, 16/11/2026)
 - `overflow-x: hidden` esconde a rolagem lateral em vez de corrigir; o teste de largura (320 e 375 px) roda com o overflow liberado. (facil-admin-gestao, 16/11/2026)
+- O vitest 4 com `globals` não traz os tipos do Node: pôr `/// <reference types="node" />` no teste. (facil-admin-plataforma, 16/11/2026)
 
 ## Playwright e axe
 
@@ -183,6 +192,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - O merge na principal não prova que o site mudou: conferir o hash do bundle publicado antes de medir no ar, e dizer no MVP qual build foi medido. (movies e signature-generator, 16/11/2026)
 - Anotar o elemento do LCP e conferir se é a tela que importa: um LCP em `p.table-empty` mede a tela vazia. (coin-wallet, 16/11/2026)
 - Rota de entrada em `React.lazy` deixa o LCP bimodal: medir mais de 3 vezes quando as execuções divergem muito. (facil-admin-plataforma, 16/11/2026)
+- Medir o LCP com um agente só rodando: com a máquina carregada, o número local não vale. (facil-admin-plataforma, 16/11/2026)
 
 ## CI e GitHub Actions
 
@@ -196,6 +206,8 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - O ruleset sem `required_status_checks` exige PR, mas deixa mesclar com o CI vermelho; conferir os critérios da issue de proteção antes de usar `Closes`. (lotes de 10/11/2026)
 - Antes do merge, conferir no `gh run list` que existe run para o último commit do PR: um push pode não gerar CI. (sushibar, 16/11/2026)
 - Com o ruleset exigindo o check `raiz`, uma matriz de versões de Node renomeia o job e trava o merge: usar um job à parte (`raiz-node-24`). (casa-criativa, 16/11/2026)
+- Rajada de merges na principal dá 403 no push para a `gh-pages`. Mesclar em lotes de 5 com pausa de 300 s; o rerun resolve o que falhou. (movies e signature-generator, 16/11/2026)
+- E2E que falha e passa no mesmo commit: rerun uma vez, mesclar se verde e registrar numa issue de teste instável (sem duplicar). (douglasabnovato.dev, 16/11/2026)
 
 ## Render
 
@@ -235,6 +247,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 
 - O `zod` vulnerável vinha do `@expo/cli` 57.0.27; `npm install expo@~57.0.32` resolve dentro do mesmo SDK, sem Expo 58. Conferir o lock dos outros apps Expo 57. (aircnc, 09/11/2026)
 - Dependabot de segurança que exige rebaixar uma dependência maior (minimatch → expo 52) falha. Registrar na issue de migração, sem esperar o PR. (aircnc, 15/11/2026)
+- Para saber se um alerta chega ao app, rodar `npx expo export --source-maps` e contar os módulos do mapa: o Dependabot marca como runtime o toolchain que vem pelo `expo`. (aircnc, 16/11/2026)
 
 ## React, Vue e Vite
 
@@ -270,3 +283,5 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Não preencher os campos do Project à mão (mais de 5 minutos por repositório): criar a issue com rótulos e milestone e rodar `gh project item-add`; quem coordena roda o preenchimento em lote. (learning-portal-fiori-sap, 03/11/2026)
 - Os rótulos `mvp` e `depende-do-responsavel` podem não existir; criar antes de abrir as issues. (calculadora e sushibar, 03/11/2026)
 - 117 de 179 issues iniciais, sem objetivo nem critério, acabaram fechadas como não planejadas; toda issue nasce com objetivo, motivo e 3 a 5 critérios. (portfólio, 02/11/2026)
+- Issue só fecha depois do merge na principal; antes, comentar a evidência. Fechar na sprint obrigou a reabrir 6. (portfólio, 16/11/2026)
+- Para saber quem fechou uma issue (pessoa ou PR), ler o `ClosedEvent` pelo GraphQL (`actor` e `closer`). (portfólio, 16/11/2026)
