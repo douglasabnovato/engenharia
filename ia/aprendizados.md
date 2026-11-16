@@ -55,6 +55,9 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Uma mudança removeu um acesso de demonstração intencional e foi revertida; registrar esse tipo de decisão em ADR. (portfólio, 02/11/2026)
 - Antes de avisar "tem dado pessoal", rodar `grep` no arquivo da branch: o aviso pode ter sido herdado de outra versão. (studio-d, 15/11/2026)
 - Ao procurar dado pessoal, abrir também as imagens do repositório: uma captura no README mostrava nomes completos com tipo sanguíneo. (doe-sangue-salve-vidas, 16/11/2026)
+- Contar alertas abertos com `dependabot/alerts?state=open&per_page=100`, por gravidade e por manifest, a cada revisão: sem o filtro a API devolve 30 de todos os estados, e o texto do critério 9 envelhece (no dev-radar dizia 76; eram 3). (dev-radar e engenharia, 16/11/2026)
+- Teste de segurança precisa falhar pelo motivo certo: conferir com uma mutação, porque um teste de `Referer` passava por cair num `catch` com URL inválida. (jobs-calc, 16/11/2026)
+- Auditar Python com o `pip-audit` num ambiente fora do projeto. (biblioteca, 16/11/2026)
 
 ## Windows e Git Bash
 
@@ -99,6 +102,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - No Windows, `pip` falha por caminho longo com Streamlit em venv no scratchpad; rodar localmente só o backend e deixar o teste da interface para o CI, registrando no PR. (biblioteca, 06/11/2026)
 - Dependências envelheceram até exigir migração (13 PRs do Dependabot parados); atualizar toda semana, em passos pequenos. (portfólio, 02/11/2026)
 - Com o PHP local mais antigo que o do CI, rodar o `composer update` com `platform.php` igual ao do CI; `--ignore-platform-req` puxa versões maiores. (e-commerce-t-shirt, 16/11/2026)
+- Dependência nativa que traz binários prontos (better-sqlite3 13): `ignore-scripts=true` no `.npmrc` evita o node-gyp no Windows. (be-the-hero, 16/11/2026)
 
 ## Testes em geral
 
@@ -113,6 +117,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Teste de tema escuro só vale se o CSS tiver `prefers-color-scheme`; sem isso, ele repete o claro. (dev-radar, 15/11/2026)
 - Em teste de tempo real com duas páginas, esperar um sinal de "conectado" na tela (por exemplo, `data-tempo-real`) antes da ação. Sem isso, o evento se perde, e o `retries` esconde a falha. (instagram-feed, 15/11/2026)
 - Testar o "escuro" num app sem tema escuro só repete o claro: trocar o projeto por outro que valha, como celular (375 px) com teste de rolagem horizontal. (casa-criativa e oxe-online, 16/11/2026)
+- Teste que neutraliza a animação antes de medir o layout esconde o defeito: no petshop, 459 px de rolagem horizontal no celular passavam. (petshop, 16/11/2026)
 
 ## Playwright e axe
 
@@ -130,6 +135,8 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - `aria-label` num link com texto visível diferente quebra a WCAG 2.5.3 (`label-content-name-mismatch`). Usar o texto visível como nome. (instagram-feed, 15/11/2026)
 - Teste "só teclado" não usa `.focus()` nem `fill()`: navegar com `Tab` e digitar com `keyboard.type`. (niky e huntweb-swapi, 16/11/2026)
 - `outlineStyle` diferente de `none` passa com o contorno padrão do Chromium: conferir o valor que o app define. (huntweb-swapi, 16/11/2026)
+- `page.route('**/auth')` não pega `/auth?rnd=`; usar `**/auth*`. (cm-quiz-app, 16/11/2026)
+- O emulador de Auth do Firebase põe uma faixa fora dos landmarks, e o axe acusa `region`; usar `useEmulator(url, { disableWarnings: true })`. (letmeask, 16/11/2026)
 
 ## Lighthouse e LCP
 
@@ -193,6 +200,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Uma Variable vazia no `env:` do Actions sobrescreve o `.env.production` do Vite. (learning-portal-fiori-sap, 10/11/2026)
 - Formspree: GET no endpoint dá 405 se o formulário existe e 404 se não existe; confere sem enviar. (facil-admin, 10/11/2026)
 - Deploy no Pages condicionado a uma Variable (`PAGES_VIA_ACTIONS`) deixa mesclar na principal com o Pages desligado, sem CI vermelho. (sushibar, 16/11/2026)
+- Na Netlify, "Stopped builds" também bloqueia o build hook; para publicar só pelo CI, usar "Ignore builds" com `[ -z "$INCOMING_HOOK_URL" ]`. (calculadora, 16/11/2026)
 
 ## Streamlit
 
@@ -225,6 +233,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Antes de distribuir uma tarefa de conteúdo, o orquestrador lista o que já existe no repositório de destino. Em 15/11, pediu roteiros que já estavam em rascunho desde 12/11. (engenharia, 15/11/2026)
 - Agente lê `ia/aprendizados.md` e `ia/orquestracao.md` da sprint do engenharia no GitHub (`gh api`), não do clone local: com o clone de 09/11, os agentes do lote 1 repetiram o teste de tema escuro falso já registrado. (engenharia, 16/11/2026)
 - Autorrevisão do agente não conta como revisão independente: o revisor é um subagente que recebe só o diff, antes do merge na sprint; sem ele, o PR fica aberto. (oxe-online, 16/11/2026)
+- Achado da revisão independente não corrigido vai com o porquê no PR, e o PR não é mesclado sem a sessão dona decidir: dois agentes mantiveram um "Atende" contra a revisão e a regra. (calculadora e letmeask, 16/11/2026)
 
 ## Issues e Projects
 

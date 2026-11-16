@@ -38,6 +38,12 @@ Datas e horas sempre no horário de Brasília (`date` no Git Bash).
 | 16/11/2026 | sushibar | ciclo de MVP | 10 → 6 → 10 | 5, antes do merge | não (Pages desligado) | 4 (Pages, #24, #25, #15) |
 | 16/11/2026 | doe-sangue-salve-vidas | ciclo de MVP | 10 → 7 → 9 | 3, antes do merge | não | 4 (#22, #23, #24, #16) |
 | 16/11/2026 | casa-criativa | ciclo de MVP | 10 → (tema escuro falso) → 10 | 5, antes do merge | não | 2 (#65, #47) |
+| 16/11/2026 | calculadora | ciclo de MVP | 9 → 6 → 9 (9 Parcial) | 4, antes do merge | sim (Netlify, #29) | 5 (#37, #18, #30, #31, #23) |
+| 16/11/2026 | be-the-hero | ciclo de MVP | 9 → 8 → 9 | 2, antes do merge | não | 3 (#37, #15, #17) |
+| 16/11/2026 | jobs-calc | ciclo de MVP | 9 → (escuro inexistente) → 9 | 2, antes do merge | não | 5 (#31, #10 e #20, #26, #11, #12) |
+| 16/11/2026 | cm-quiz-app | ciclo de MVP | 9 → 8 → 8 (Finalizado sim) | 0 | não | 4 (#37, #14, #16, #32) |
+| 16/11/2026 | letmeask | ciclo de MVP | 9 → 7 → 9 | 3, antes do merge | não (build antiga no ar) | 7 (#27, #12, #17, #14, #22, #23, #24) |
+| 16/11/2026 | petshop | ciclo de MVP | 10 → 7 → 9 | 3, antes do merge | não (Pages desligado) | 2 (Pages, #21) |
 
 Leitura de 15/11: nos 3 ciclos de MVP, a revisão independente achou 11 erros, todos antes do merge na sprint. Os 2 repositórios que chegaram à produção no dia foram os em que o responsável mesclou durante a verificação, junto com a sessão.
 
@@ -46,6 +52,11 @@ Leitura da madrugada de 16/11 (8 ciclos de MVP):
 - **A revisão independente achou 32 erros em 8 repositórios** (média 4). Nos 3 primeiros ela rodou depois do merge e exigiu PR de correção; depois que virou regra do brief, rodou antes, e nada errado chegou à sprint.
 - **Teste de tema escuro falso em 5 repositórios**, embora o aprendizado já estivesse escrito: os agentes liam o `aprendizados.md` de um clone local de 09/11.
 - **Nenhum chegou à produção no dia.** O gargalo mudou: depois dos 33 merges na principal, o que falta é hospedagem (Pages desligado, Render com nome de outra conta, Streamlit privado), não merge.
+
+Leitura do lote 3 (16/11, 01h20–02h10, 6 ciclos):
+- A diferença entre a nota declarada e a régua continua (1 a 3 critérios), mas a revisão independente rodou antes do merge em todos, com 0 a 4 achados.
+- Em 2 repositórios (calculadora e letmeask), o agente manteve um achado da revisão sem corrigir. Desde 02h08, o brief diz: achado não corrigido vai com o porquê no PR, e o PR não é mesclado sem a DG github decidir.
+- O critério 9 foi revisto em 14 repositórios pela regra segura da engenharia#33: 7 voltaram para Parcial, 1 ficou "Parcial até o merge", 4 seguem Atende com contagem atual.
 
 ## Fichas
 
@@ -173,3 +184,61 @@ Leitura da madrugada de 16/11 (8 ciclos de MVP):
 - Depois: 10/10 com evidência · fora do ar.
 - Com o responsável: mesclar o #65 (#64); publicar no Render (#47); opcional: apagar 4 branches `dependabot/*` obsoletas.
 - Lição: com o ruleset exigindo o check `raiz`, uma matriz de versões de Node renomeia o job e trava o merge; usar um job à parte.
+
+### calculadora · 16/11/2026 · DG github (lote 2)
+- Tipo: ciclo de MVP; N1, React 18 com CRA 5, Jest, Playwright 1.65 e axe 4.14, Netlify.
+- Antes: declarava 9/10, mas pela régua era 6/10 (2, 3, 8 e 9 sem evidência); #29 esperando; a main no ar na Netlify.
+- Feito: #35 na sprint (4000fde, run 43802887296): `react-scripts` em devDependencies (audit de produção de 43 alertas para 0, agora no CI); e2e com 5 testes (axe nos temas Vivo e Dark, que existem, e no erro; Tab com foco medido; Ctrl+C; Esc); WCAG 2.5.3 na tecla AC; copiar o resultado (#20); `netlify.toml` e job `publicar` com build hook opcional. Depois, pela fila aprovada, #29 na main (2c166e8).
+- Revisão independente: antes do merge. 4 erros; 3 corrigidos (corrida na mensagem de cópia; conferência no DEPLOY que não provava nada; foco medido num alvo só). O quarto (critério 9 como Parcial) foi mantido como Atende pela sessão; regra ambígua, levada à engenharia#33, e a leitura segura (Parcial) vale até a decisão. 7 sugestões aplicadas.
+- Depois: 10/10 pela sessão, 9/10 pela leitura segura · a produção atualiza pela Netlify com o merge.
+- Com o responsável: build hook, segredo e "Ignore builds" na Netlify (#18); e2e no ruleset (#30); Dependabot (#31); "O que aprendi" (#23); critério 9 (engenharia#33).
+- O que travou: um push não gerou run; resolvido com commit vazio (melhor: o mesmo commit numa branch nova).
+- Lição: na Netlify, "Stopped builds" também bloqueia o build hook; para publicar só pelo CI, usar "Ignore builds" com `[ -z "$INCOMING_HOOK_URL" ]`.
+
+### be-the-hero · 16/11/2026 · DG github (lote 3)
+- Tipo: ciclo de MVP; N1, API Express + Knex, web Vite + React 18, app Expo 57 (já migrado, não congelado).
+- Antes: declarava 9/10, mas pela régua era 8/10 (critério 8 sem axe no Playwright); nenhum PR esperando (o #26 entrou pela fila); fora do ar.
+- Feito: #30 na `developer/sprint-2026-11-19` (2fb73fe, run 43803813013; backend, frontend, mobile e e2e verdes): axe nas 4 telas e teclado (o teste falha sem `alt`); seed e dados fictícios nos testes e no README (#29); better-sqlite3 13.2 com `ignore-scripts=true` no `.npmrc` (#22); API testada também no PostgreSQL; testes de rede e espera no web; workflow duplicado removido. #37 (sprint → master) aberto, não mesclado por ter surgido depois da aprovação.
+- Revisão independente: antes do merge. 2 erros (contagem de testes no PostgreSQL e "web 5" no plano), corrigidos em 4bc4709; o resto das sugestões virou a #36.
+- Depois: 9/10 (critério 9 Parcial, pela engenharia#33) · fora do ar.
+- Com o responsável: mesclar o #37 (#31); Neon e Render (#15); histórico dos bancos e Dependabot (#17).
+- Lição: conferir se cada mensagem de erro citada no MVP tem teste; com dependência nativa que traz binários prontos, `ignore-scripts` no `.npmrc` evita o node-gyp no Windows.
+
+### jobs-calc · 16/11/2026 · DG github (lote 3)
+- Tipo: ciclo de MVP; N1, Node 22/24, Express 4, EJS, SQLite, Playwright e axe.
+- Antes: 9/10, mas os critérios 3, 8 e 11 citavam um tema escuro que não existe; nenhum PR esperando (o #22 entrou pela fila); fora do ar (404, no-server).
+- Feito: #24 na `developer/sprint-2026-11-19` (run 43805299460: raiz, node24 e interface): POST sem `Origin` e sem `Referer` recebe 403 (#21); fundo `inert` com o diálogo aberto e axe com o diálogo aberto (#19); better-sqlite3 12 e job `node24` à parte (#15); fim do projeto "escuro" no Playwright (16 → 8 testes de interface); teste do painel vazio; DEPLOY sem push direto na master. #31 (sprint → master) aberto.
+- Revisão independente: antes do merge. 2 erros, corrigidos: o teste de Referer passava por cair no `catch` com URL inválida; o MVP citava um run anterior ao head.
+- Depois: 9/10; critério 9 Parcial (Dependabot 403 e banco com a renda mensal no histórico, #11) · fora do ar.
+- Com o responsável: mesclar o #31 (#25); fechar #10 e #20, já cumpridas; Dependabot (#26); histórico (#11); publicação (#12).
+- O que travou: nada.
+- Lição: conferir se o teste de segurança falha pelo motivo certo, com uma mutação, e não por cair num `catch`.
+
+### cm-quiz-app · 16/11/2026 · DG github (lote 3)
+- Tipo: ciclo de MVP; N1, Vue 3 + Vite 7, Node + Express, Ably.
+- Antes: declarava 9/10, mas pela régua era 8/10 (critério 8 sem Playwright e axe no CI); nenhum PR esperando (o #28 entrou pela fila); fora do ar (404).
+- Feito: #30 na `developer/sprint-2026-11-19` (7e45a85, run 43805433975: raiz, realtime-quiz e e2e com 10 testes): axe e teclado no e2e; telas em português, com `lang` e um `h1` por tela; botão "Criar" desligado sem tempo real, com aviso em 20 s; falha de rede tratada; Vite 7 e audit 0; Font Awesome Free no lugar do Pro; lint da raiz corrigido e o CI confere o `dist` versionado; README reescrito, sem os contatos do autor original. #37 (sprint → main) aberto.
+- Revisão independente: antes do merge, sem erros; 7 de 8 sugestões aplicadas em 3f07456; a da sala sem host virou a #36.
+- Depois: 8/10, Finalizado sim (o 3 depende da chave do Ably, #14; o 9 voltou para Parcial no #39, porque os alertas estão desligados, conferido às 01h43) · fora do ar.
+- Com o responsável: mesclar o #37 (#38); chave do Ably (#14); Blueprint no Render (#16); Dependabot e e2e no ruleset (#32).
+- O que travou: a checagem do `dist` falhou por CRLF; resolvido com `.gitattributes` `eol=lf`.
+- Lição: no Playwright, `page.route('**/auth')` não pega `/auth?rnd=`; usar `**/auth*`.
+
+### letmeask · 16/11/2026 · DG github (lote 3)
+- Tipo: ciclo de MVP; N1, React 18, Vite 8 e Firebase 11 (compat).
+- Antes: declarava 9/10, mas pela régua era 7/10 (2 sem meta; 8 sem axe no navegador; 3 Parcial); nenhum PR esperando (o #20 entrou pela fila); a build no ar (letmeask-aulas.web.app) é antiga.
+- Feito: #21 na `developer/sprint-2026-11-19` (run 43807579877: raiz, regras e e2e): e2e com duas contas nos emuladores de Auth e RTDB (projeto demo-letmeask), em desktop e a 375 px, só pelo teclado; o axe achou 3 defeitos reais, corrigidos (contraste do contador de 2,9 para 5,0; WCAG 2.5.3 no botão de curtir; código da sala sobre o "Encerrar" no celular); Tab preso no diálogo; firebase-tools fixado; Pages condicionado a `PAGES_VIA_ACTIONS`. #27 (sprint → main) aberto.
+- Revisão independente: antes do merge. 3 erros: critério 9 como Atende, firebase-tools sem versão, título da #17. O agente corrigiu os 2 últimos e manteve o 9; a DG github corrige para Parcial (engenharia#33).
+- Depois: 9/10 · fora do ar com a build nova.
+- Com o responsável: mesclar o #27; domínios e deploy no Firebase (#12); Variables e Pages (#17); fluxo no Firebase real (#14); e2e no ruleset (#22); restringir a chave da API (#23); Dependabot (#24).
+- O que travou: sem Java local, o e2e e as regras só rodaram no CI.
+- Lição: o emulador de Auth põe uma faixa fora dos landmarks, e o axe acusa `region`; usar `useEmulator(url, { disableWarnings: true })`.
+
+### petshop · 16/11/2026 · DG github (lote 3)
+- Tipo: ciclo de MVP; N1, Next.js 16 estático, React 19, Tailwind 3, Vitest, Playwright e axe.
+- Antes: declarava 10/10, mas 3, 6 e 9 sem evidência; #19 retido porque o deploy não tinha condição e o Pages está desligado.
+- Feito: #20 na `developer/sprint-2026-11-12` (run 43807684595): deploy condicionado a `PAGES_VIA_ACTIONS`; patches e audit 0; e2e com 13 testes (WhatsApp por clique e teclado, mensagem com o nome do serviço, navegação, 404 com axe, AOS sem JS, 375 px com axe, WCAG 2.5.3); 404 em português; AOS visível sem JS; 459 px de rolagem horizontal no celular, corrigidos; nome acessível do "Entrar em contato". Depois, com o deploy condicionado e dentro da fila aprovada, #19 na main (deploy pulado).
+- Revisão independente: antes do merge. 3 erros, corrigidos: o AOS piscava; o teste de 375 px mascarava a rolagem horizontal; o run citado era de um commit antigo.
+- Depois: 9/10, critério 9 Parcial (Dependabot 403, #21, engenharia#33) · fora do ar até ligar o Pages.
+- Com o responsável: Pages → GitHub Actions; Variable `PAGES_VIA_ACTIONS=true` e rodar o workflow; Dependabot (#21).
+- Lição: um teste que neutraliza a animação antes de medir o layout esconde o defeito que deveria pegar.
