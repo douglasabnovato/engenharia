@@ -24,6 +24,8 @@ O CI de todos foi conferido às 09h08 e não há conflito. Para cada um, abra o 
 
 aula-de-programacao#36, be-the-hero#37, biblioteca#26, calculadora#37, casa-criativa#65, catalogo-acai#35, cm-quiz-app#37, coin-wallet#43, components#53, controle-financas#46, dashboards#28, dev-radar#80, douglasabnovato#62, douglasabnovato.dev#276, e-commerce-t-shirt#41, engenharia#2, facil-admin-gestao#42, facil-admin-para-voce#37, facil-admin-plataforma#40, headset#38, instagram-feed#108, jobs-calc#31, learning-portal-fiori-sap#34, letmeask#27, movies#104, my-money-app#36, niky#39, restaurante-churrascaria#34, rocket-q#21, signature-generator#118, studio-d#61, sushibar#30, ux-design#50.
 
+**Mescle em lotes de 5, com uns 5 minutos entre eles.** Em 16/11, cerca de 30 merges em 4 minutos fizeram os deploys levarem 403 no push para o `gh-pages` (tarefa A). Se um deploy falhar com 403, abra o run e clique em **Re-run failed jobs**.
+
 Atalho por linha de comando, um por vez:
 
 ```bash
@@ -101,7 +103,7 @@ Esta parte traz o que sobra depois da Parte 1. **Render** quer dizer criar o ser
 | dashboards | #10 decidir se publica a versão Java no Render | sim |
 | dev-radar | #61 Render | sim, depois do Render |
 | doe-sangue-salve-vidas | #22 (Parte 1); #16 Render; #10 fica com a sessão, depois do Render | não hoje |
-| douglasabnovato | #56 o 403 (espere a tarefa A); #46 confirmar cargo, marcos e selos; #47 mandar um convite válido do Discord; #44 validar | sim, depois do 403 |
+| douglasabnovato | #56 fechar: o 403 foi passageiro, e o diagnóstico está na issue; #46 confirmar cargo, marcos e selos; #47 mandar um convite válido do Discord; #44 validar | sim |
 | douglasabnovato.dev | #253 e #270 (Parte 1); #252 validar; #265 e #267 decisões de produto | sim |
 | e-commerce-t-shirt | #16 e #28 publicar no alwaysdata pelo CI (segredos seus); #17 validar | sim, depois da publicação |
 | engenharia | #2 merge; #16 ativar as skills em todas as sessões; #17 ligar o hook que bloqueia force push; #33 decidir o critério 9 | — |
@@ -115,7 +117,7 @@ Esta parte traz o que sobra depois da Parte 1. **Render** quer dizer criar o ser
 | jobs-calc | #11 decidir o histórico com o banco; #12 Render | sim, depois do Render |
 | learning-portal-fiori-sap | #3 Pages (1.5); #17 confirmar a meta; #15 fica com a sessão, depois do Pages | sim |
 | letmeask | #12, #14 e #17 confirmar o Firebase e escolher a hospedagem (Pages ou Firebase Hosting); #23 restringir a chave do Firebase aos endereços do app, no console do Google Cloud | não hoje: depende do Firebase |
-| movies | #98 o 403 (espere a tarefa A); #59 validar; #57 e #83 ficam com a sessão | sim, depois do 403 |
+| movies | #98 fechar: o deploy refeito passou às 09h19, e o site dá 200; #59 validar; #57 e #83 ficam com a sessão | sim |
 | my-money-app | #18 Render | sim, depois do Render |
 | niky | #21 republicar no Render; #23 rodar a Lambda e guardar os prints | não hoje |
 | oxe-online | #11 Pages (1.5); #19 fica com a sessão; merge do #18 depois da tarefa C | sim |
@@ -123,7 +125,7 @@ Esta parte traz o que sobra depois da Parte 1. **Render** quer dizer criar o ser
 | proffy | #26 Render com nome próprio; #28 decidir o histórico com os telefones; #36 merge do ciclo antigo | sim, depois do Render |
 | restaurante-churrascaria | #30 dizer se o cliente é real; #2 publicar as regras do Firestore; #16 confirmar a meta | sim, depois do #30 e do #2 |
 | rocket-q | #17 Render pelo Blueprint | sim, depois do Render |
-| signature-generator | #112 o 403 (espere a tarefa A); #100 confirmar a meta; #96 validar; #68 e #72 confirmar o fechamento ou reabrir | sim, depois do 403 |
+| signature-generator | #112 fechar: o deploy refeito passou às 09h19, e o site dá 200; #100 confirmar a meta; #96 validar; #68 e #72 confirmar o fechamento ou reabrir | sim |
 | studio-d | #52 e #53 decidir o Dependabot; #10 e #54 revisar os roteiros antes de gravar | sim |
 | sushibar | #10 Pages (1.5); #15 decidir se o cardápio e o WhatsApp seguem ilustrativos | sim |
 | ux-design | #46 (Parte 1); #31 confirmar os clientes citados; #47 número do WhatsApp; #39 decidir se enxuga o histórico (680 MB); #32 validar | sim, depois do #46 |
