@@ -44,6 +44,12 @@ Datas e horas sempre no horário de Brasília (`date` no Git Bash).
 | 16/11/2026 | cm-quiz-app | ciclo de MVP | 9 → 8 → 8 (Finalizado sim) | 0 | não | 4 (#37, #14, #16, #32) |
 | 16/11/2026 | letmeask | ciclo de MVP | 9 → 7 → 9 | 3, antes do merge | não (build antiga no ar) | 7 (#27, #12, #17, #14, #22, #23, #24) |
 | 16/11/2026 | petshop | ciclo de MVP | 10 → 7 → 9 | 3, antes do merge | não (Pages desligado) | 2 (Pages, #21) |
+| 16/11/2026 | rocket-q | ciclo de MVP | 10 → 6 → 9 | 4, antes do merge | não (o link serve outro código) | 4 (#21, #17, #18, #20) |
+| 16/11/2026 | my-money-app | ciclo de MVP | 10 → 7 → 9 | 2, antes do merge | não | 5 (#36, #29, #30, #18, #17 e #26) |
+| 16/11/2026 | dashboards | ciclo de MVP | 10 → (8 e 9 inflados) → 9 | 0 | versão anterior no ar; entra com o #28 | 4 (#28, #23, #10, #19) |
+| 16/11/2026 | aula-de-programacao | ciclo de MVP | 9 → 8 → 9 | 2, antes do merge (1 contestado com evidência) | versão anterior no ar; entra com o #36 | 5 (#36, #33, #21, #29, #25 e #26) |
+| 16/11/2026 | douglasabnovato (perfil) | ciclo de MVP | 9 → (8 e 9 sem evidência) → 8 | 5 (1 recusado com o porquê) | versão anterior no ar; entra com o #62 | 6 (#62, #56, #46, #47, #57, #44) |
+| 16/11/2026 | ux-design | ciclo de MVP | 9 → 8 → 9 | 3, antes do merge | versão anterior no ar; entra com o #50 | 6 (#46, #31, #50, #45, #47, #41) |
 
 Leitura de 15/11: nos 3 ciclos de MVP, a revisão independente achou 11 erros, todos antes do merge na sprint. Os 2 repositórios que chegaram à produção no dia foram os em que o responsável mesclou durante a verificação, junto com a sessão.
 
@@ -57,6 +63,11 @@ Leitura do lote 3 (16/11, 01h20–02h10, 6 ciclos):
 - A diferença entre a nota declarada e a régua continua (1 a 3 critérios), mas a revisão independente rodou antes do merge em todos, com 0 a 4 achados.
 - Em 2 repositórios (calculadora e letmeask), o agente manteve um achado da revisão sem corrigir. Desde 02h08, o brief diz: achado não corrigido vai com o porquê no PR, e o PR não é mesclado sem a DG github decidir.
 - O critério 9 foi revisto em 14 repositórios pela regra segura da engenharia#33: 7 voltaram para Parcial, 1 ficou "Parcial até o merge", 4 seguem Atende com contagem atual.
+
+Leitura do lote 4 (16/11, 02h10–03h05, 6 ciclos):
+- A revisão independente achou 0 a 5 erros por repositório, e em 2 deles (dashboards e cm-quiz-app, antes) nenhum. Pela primeira vez, 2 achados foram contestados com evidência e decididos pela DG github, como pede o brief desde 02h08.
+- Repositórios no ar (aula-de-programacao, dashboards, perfil, ux-design) seguem com a versão anterior até o merge na principal.
+- Dados de terceiros voltaram a aparecer: imagens do catálogo do ux-design (#46), em site público.
 
 ## Fichas
 
@@ -228,7 +239,7 @@ Leitura do lote 3 (16/11, 01h20–02h10, 6 ciclos):
 - Tipo: ciclo de MVP; N1, React 18, Vite 8 e Firebase 11 (compat).
 - Antes: declarava 9/10, mas pela régua era 7/10 (2 sem meta; 8 sem axe no navegador; 3 Parcial); nenhum PR esperando (o #20 entrou pela fila); a build no ar (letmeask-aulas.web.app) é antiga.
 - Feito: #21 na `developer/sprint-2026-11-19` (run 43807579877: raiz, regras e e2e): e2e com duas contas nos emuladores de Auth e RTDB (projeto demo-letmeask), em desktop e a 375 px, só pelo teclado; o axe achou 3 defeitos reais, corrigidos (contraste do contador de 2,9 para 5,0; WCAG 2.5.3 no botão de curtir; código da sala sobre o "Encerrar" no celular); Tab preso no diálogo; firebase-tools fixado; Pages condicionado a `PAGES_VIA_ACTIONS`. #27 (sprint → main) aberto.
-- Revisão independente: antes do merge. 3 erros: critério 9 como Atende, firebase-tools sem versão, título da #17. O agente corrigiu os 2 últimos e manteve o 9; a DG github corrige para Parcial (engenharia#33).
+- Revisão independente: antes do merge. 3 erros: critério 9 como Atende, firebase-tools sem versão, título da #17. O agente corrigiu os 2 últimos e manteve o 9; a DG github corrigiu para Parcial no #28 (d5d8612).
 - Depois: 9/10 · fora do ar com a build nova.
 - Com o responsável: mesclar o #27; domínios e deploy no Firebase (#12); Variables e Pages (#17); fluxo no Firebase real (#14); e2e no ruleset (#22); restringir a chave da API (#23); Dependabot (#24).
 - O que travou: sem Java local, o e2e e as regras só rodaram no CI.
@@ -242,3 +253,57 @@ Leitura do lote 3 (16/11, 01h20–02h10, 6 ciclos):
 - Depois: 9/10, critério 9 Parcial (Dependabot 403, #21, engenharia#33) · fora do ar até ligar o Pages.
 - Com o responsável: Pages → GitHub Actions; Variable `PAGES_VIA_ACTIONS=true` e rodar o workflow; Dependabot (#21).
 - Lição: um teste que neutraliza a animação antes de medir o layout esconde o defeito que deveria pegar.
+
+### rocket-q · 16/11/2026 · DG github (lote 4)
+- Tipo: ciclo de MVP; N1, Node 22, Express 4, EJS, SQLite e Playwright.
+- Antes: declarava 10/10, mas pela evidência eram 6/10; nenhum PR esperando (o #15 entrou pela fila). `rocket-q.onrender.com` dá 200, mas serve outro código (outro `title`, `x-powered-by: Express`, sem os cabeçalhos do helmet).
+- Feito: `developer/sprint-2026-11-19` criada; #16 na sprint (195652b, run 43808289685: raiz com 18 testes e 0 pulados, e2e com 5): axe e teclado a 1280 e 375 px; lista de perguntas atualizada a cada 15 s (#10), com teste que falha sem a mudança; view morta removida; link que não é deste código retirado. #21 (sprint → main) aberto.
+- Revisão independente: antes do merge. 4 erros, corrigidos (dois testes sem esperar a consulta; aviso repetido que o leitor de tela não anunciava; Node 22.12+ exigido pelo e2e), mais 5 sugestões.
+- Depois: 9/10, critério 9 Parcial (403, engenharia#33, #18) · fora do ar com este código.
+- Com o responsável: mesclar o #21; Blueprint no Render (#17); Dependabot (#18); e2e no ruleset (#20).
+- Lição: um 200 com outro `title` e sem os cabeçalhos do helmet mostra que o link publicado não roda este código; conferir os cabeçalhos, não só o status.
+
+### my-money-app · 16/11/2026 · DG github (lote 4)
+- Tipo: ciclo de MVP; N1, React 18 + Redux com Vite; API Express 5 + Mongoose.
+- Antes: declarava 10/10, mas pela régua era 7/10 (3 e 8 sem Playwright e axe no CI; 9 só com o audit); nenhum PR esperando (o #27 entrou pela fila); fora do ar (404).
+- Feito: `developer/sprint-2026-11-19` criada; #34 na sprint (run 43809661371: backend, frontend, e2e e auditoria): Mongoose 8.24.9 (a 8.24.4 tinha 4 alertas altos); e2e com axe (fluxo, cadastro só com teclado, erro de validação); o axe achou 3 problemas, corrigidos (`heading-order`, #24; abas sem `tablist`; contraste do aviso durante a animação); validação da API em português (#23); código morto e CI duplicado removidos; DEPLOY novo. #36 (sprint → main) aberto.
+- Revisão independente: antes do merge. 2 erros de documentação, corrigidos; 7 de 9 sugestões aplicadas; a do `retries` virou a #35.
+- Depois: 9/10, critério 9 Parcial (403, engenharia#33, #29) · fora do ar; o nome `my-money-api` pode estar ocupado no Render.
+- Com o responsável: mesclar o #36; Dependabot (#29); e2e no ruleset (#30); publicação (#18); fechar #17 e #26, já cumpridas.
+- Lição: com `reducedMotion: 'reduce'` no Playwright, o axe não vê a animação normal; correção feita só sob `prefers-reduced-motion` não vale para todos.
+
+### dashboards · 16/11/2026 · DG github (lote 4)
+- Tipo: ciclo de MVP; N1, portal estático (HTML, Tailwind, Playwright e axe) e versão Java (Spring Boot e JSF).
+- Antes: declarava 10/10, mas os critérios 8 ("claro e escuro" sem `prefers-color-scheme`) e 9 estavam inflados; nenhum PR esperando (o #20 entrou pela fila); no ar (Pages legado, 200).
+- Feito: #27 na `developer/sprint-2026-11-19` (run 43810387913: build e portal): `<main>` no Analytics v1; títulos em ordem nos 3 dashboards; o axe barra também as violações moderadas (#16), com teste que falha sem a correção; 13 testes Playwright; axe a 1280 e 375 px. #28 (sprint → main) aberto.
+- Revisão independente: antes do merge, sem erros; 7 de 9 sugestões aplicadas em 3285c1a.
+- Depois: 9/10, critério 9 Parcial (403, engenharia#33, #23) · o portal publicado é idêntico à main (md5); o ciclo entra no ar com o #28.
+- Com o responsável: mesclar o #28 (#29); Dependabot (#23); publicar a versão Java (#10); fechar a #19, já cumprida.
+- Lição: o @axe-core/playwright 4.14 exige Node >=22.12; dizer isso no README.
+
+### aula-de-programacao · 16/11/2026 · DG github (lote 4)
+- Tipo: ciclo de MVP; N1, site estático em HTML e JS, Playwright e axe, Pages legado.
+- Antes: declarava 9/10, mas pela régua era 8/10 (critério 8 sem axe no navegador); nenhum PR esperando (o #30 entrou pela fila); no ar (200).
+- Feito: `developer/sprint-2026-11-19` criada; #35 na sprint (runs 43810626944 e 43810770903: 18 testes Playwright, nenhum pulado): axe em 4 testes (painel, busca, aula real e erro); WCAG 2.5.3 nos botões de módulo; link direto `#aula-N` com `popstate` (#22); apagar a busca volta os módulos ao estado anterior (#27); DEPLOY novo. #36 (sprint → main) aberto.
+- Revisão independente: antes do merge. 2 achados: o `#aula-N` colado com o site aberto voltava ao painel (corrigido com teste); o outro dizia que o axe não acharia o problema dos botões, e o agente contestou com a execução local do axe; a DG github aceitou, porque a correção tem teste que falha sem ela. Primeiro achado contestado pela regra nova. 6 sugestões aplicadas.
+- Depois: 9/10, critério 9 Parcial (403, engenharia#33, #33) e vídeos pendentes (#21) · produção igual à main (md5) até o #36.
+- Com o responsável: mesclar o #36; Dependabot (#33); vídeos (#21); fechar a #29; decidir #25 e #26.
+- Lição: link por hash numa página única precisa tratar o `popstate`.
+
+### douglasabnovato (perfil) · 16/11/2026 · DG github (lote 4)
+- Tipo: ciclo de MVP; N1, README de perfil com Node, `node --test`, Playwright e axe.
+- Antes: 9/10, com o 8 e o 9 sem a evidência da régua; nenhum PR esperando; perfil no ar.
+- Feito: #61 na `developer/sprint-2026-11-19` (0e6bfa2; runs 43811017927 e 43811158637, verificar): axe e teclado; teste com as imagens fora do ar; animação clara e escura com `<picture>`; verificador de títulos (#48); Actions fixadas por SHA e `dependabot.yml` (#49); DEPLOY novo. #62 (sprint → master) aberto.
+- Revisão independente: 5 achados; 4 corrigidos. O quinto (axe no tema escuro) o agente recusou pela regra 3 do brief, explicou no PR e não mesclou; a DG github decidiu (o perfil não tem CSS escuro, só a imagem troca, com teste), registrou no PR e mesclou.
+- Depois: 8/10; 9 Parcial (403, #57, engenharia#33) e 12 Parcial (#46).
+- Com o responsável: mesclar o #62; Dependabot (#57); animação 403 (#56); cargo e marcos (#46); link do Discord (#47); validação (#44).
+- Lição: `String.replace` com um texto que contém `` $` `` duplica o arquivo; usar `replace(a, () => b)`.
+
+### ux-design · 16/11/2026 · DG github (lote 4)
+- Tipo: ciclo de MVP; N1, site estático em HTML, CSS e JS, Playwright e axe, Pages legado.
+- Antes: 9/10, com o critério 8 só com Lighthouse e teclado; nenhum PR esperando (o #42 entrou pela fila); no ar.
+- Feito: `developer/sprint-2026-11-19` criada; #49 na sprint (run 43814144584, 20 testes): axe no catálogo, no filtro, no case e no carrossel; Pausar e Retomar no carrossel (WCAG 2.2.2); o link `wa.me/55SEUNUMERO` some enquanto não há número; README e meta com 61 projetos; DEPLOY novo. Clone com `--filter=blob:none`, sem commit no clone local. #50 (sprint → main) aberto.
+- Revisão independente: antes do merge. 3 erros, corrigidos (marcadores de rascunho `CI_RUN` e `PR_*` esquecidos; frase falsa sobre o clone); 4 sugestões aplicadas.
+- Depois: 9/10, critério 9 Parcial (403, #45, engenharia#33; #31; #46) · no ar (Pages legado, igual à main por md5); o site soma cerca de 830 MB, perto do limite de 1 GB do Pages (#33, #34).
+- Com o responsável: imagens com dados de terceiros no site público (#46, citadas só pelo nome do arquivo); clientes (#31); mesclar o #50; Dependabot (#45); número de WhatsApp (#47); fechar a #41.
+- Lição: procurar marcadores de rascunho com `grep` antes de abrir o PR; em repositório grande, clonar com `--filter=blob:none` ou sparse-checkout.
