@@ -20,7 +20,7 @@ Faça nesta ordem. Os comandos rodam no Git Bash, dentro de um clone do `engenha
 
 ### 1.2 Mesclar os PRs sprint → principal (cerca de 1 h)
 
-O CI de todos foi conferido às 09h08 e não há conflito. Para cada um, abra o PR, olhe o resumo e clique em **Merge pull request** (merge commit, não squash). Os 33 PRs liberados:
+O CI de todos foi conferido às 09h08 e não há conflito. Para cada um, abra o PR, olhe o resumo e clique em **Merge pull request** (merge commit, não squash). Os 33 PRs liberados (mais huntweb-swapi#36 e oxe-online#18, liberados às 09h17):
 
 aula-de-programacao#36, be-the-hero#37, biblioteca#26, calculadora#37, casa-criativa#65, catalogo-acai#35, cm-quiz-app#37, coin-wallet#43, components#53, controle-financas#46, dashboards#28, dev-radar#80, douglasabnovato#62, douglasabnovato.dev#276, e-commerce-t-shirt#41, engenharia#2, facil-admin-gestao#42, facil-admin-para-voce#37, facil-admin-plataforma#40, headset#38, instagram-feed#108, jobs-calc#31, learning-portal-fiori-sap#34, letmeask#27, movies#104, my-money-app#36, niky#39, restaurante-churrascaria#34, rocket-q#21, signature-generator#118, studio-d#61, sushibar#30, ux-design#50.
 
@@ -32,7 +32,7 @@ gh pr merge 36 --repo douglasabnovato/aula-de-programacao --merge
 
 Retidos hoje:
 - **feedback-widget#31**: CI com falha na Vercel. Espere o diagnóstico (tarefa B).
-- **huntweb-swapi#36 e oxe-online#18**: o deploy roda sem a condição do Pages. Espere a tarefa C, ou ligue o Pages antes (1.4).
+- ~~huntweb-swapi#36 e oxe-online#18~~: liberados às 09h17. A tarefa C pôs o deploy sob a condição `PAGES_VIA_ACTIONS` (huntweb-swapi#44 e oxe-online#25, na sprint). CI verde, deploy pulado até você criar a variável (1.5).
 
 Antes de mesclar:
 - **facil-admin-gestao#42**: troca os degradês por cores sólidas. Confira a página.
@@ -66,6 +66,12 @@ Faça depois do merge dos PRs, porque o workflow do Pages chega com eles:
 
 ```bash
 DONO=douglasabnovato bash scripts/configurar-responsavel.sh pages huntweb-swapi oxe-online petshop sushibar learning-portal-fiori-sap facil-admin-gestao
+```
+
+No huntweb-swapi e no oxe-online, crie também a variável que libera o deploy:
+
+```bash
+for r in huntweb-swapi oxe-online; do gh variable set PAGES_VIA_ACTIONS --body true --repo douglasabnovato/$r; done
 ```
 
 E desligue o Pages antigo do douglasabnovato.dev (#270), que publica o código-fonte. O caminho é Settings → Pages → Unpublish.
