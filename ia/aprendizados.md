@@ -38,6 +38,9 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Um índice que media atividade (issues, campos) marcou 90 e caiu para 74 com os critérios de MVP; medir resultado, não volume. (portfólio, 02/11/2026)
 - GoatCounter: `data-goatcounter-click` só pega o que já está na tela quando o script carrega; com `helmet`, a CSP precisa liberar o script e o envio. (components e headset, 10/11/2026)
 - Editar uma issue não apaga o histórico de edição: dado de terceiro publicado em issue é decisão do responsável. (douglasabnovato.dev, 10/11/2026)
+- Ao revisar um MVP, conferir cada "Atende" contra a coluna de evidência da régua: no instagram-feed, os critérios 3 e 8 estavam "Atende" só com jsdom, sem Playwright nem axe. (instagram-feed, 15/11/2026)
+- Ao citar o estado de uma issue, conferir se um PR já mesclado na sprint a resolve. Nesse caso, escrever "corrigido na sprint, falta a principal". (studio-d e aircnc, 15/11/2026)
+- Nome novo (nível, sigla, rótulo) não repete um que já existe no processo: procurar o nome em todos os repositórios afetados antes de propor. (learntech-content, P-08, 15/11/2026)
 
 ## Segurança e segredos
 
@@ -48,6 +51,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Com `helmet` (`Referrer-Policy: no-referrer`), o Chrome manda `Origin: null` e uma checagem de mesma origem recusa todo POST real; rodar ao menos um POST pelo navegador antes de marcar o critério 3. (proffy, casa-criativa e jobs-calc, 09/11/2026)
 - Dados pessoais em bancos versionados e em issues públicas apareceram em 4 repositórios e 12 issues; revisar privacidade (LGPD) antes do primeiro commit. (portfólio, 02/11/2026)
 - Uma mudança removeu um acesso de demonstração intencional e foi revertida; registrar esse tipo de decisão em ADR. (portfólio, 02/11/2026)
+- Antes de avisar "tem dado pessoal", rodar `grep` no arquivo da branch: o aviso pode ter sido herdado de outra versão. (studio-d, 15/11/2026)
 
 ## Windows e Git Bash
 
@@ -67,6 +71,9 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - `python -I` ignora `PYTHONIOENCODING` e `PYTHONUTF8`; usar `python -I -X utf8` para imprimir acentos e setas no console do Windows. (coordenador, 10/11/2026)
 - Agentes em paralelo sobrescrevem arquivos de mesmo nome no scratchpad; uma subpasta por agente. (lote A, 10/11/2026)
 - `cat > arquivo` sem heredoc espera a entrada e trava o Bash até o tempo esgotar; heredoc dentro de `$( )` também quebrou: usar `--body-file`. (lotes de 10/11/2026)
+- Datar evidência, aviso e relatório com a data local (`date '+%d/%m %H:%M'`), nunca com a UTC: depois das 21h em Brasília, a UTC já é o dia seguinte. Em script, nada de `toISOString`. (portfólio e learntech-content, 15/11/2026)
+- O Git Bash pode não ter zoneinfo: `TZ=America/Sao_Paulo date` cai em GMT sem erro. Usar o `date` puro, que segue o relógio do Windows. (learntech-content, 15/11/2026)
+- Para provar que a produção roda a principal, comparar o pacote publicado com um build local. SVG com CRLF muda o hash: comparar o conteúdo com `tr -d ''`. (aircnc, 15/11/2026)
 
 ## Git e locks
 
@@ -98,6 +105,8 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - No UI5, `sort([])` não devolve a ordem original da lista. (learning-portal-fiori-sap e vizinhos, 05/11/2026)
 - `react-hooks/rules-of-hooks` acusa função `use*` importada dentro de função comum no teste; usar alias na importação, sem desligar a regra. (signature-generator e vizinhos, 06/11/2026)
 - No jsdom, em página grande, preferir `waitFor` com `getElementById` a `findByRole`. (components, 09/11/2026)
+- Teste de tema escuro só vale se o CSS tiver `prefers-color-scheme`; sem isso, ele repete o claro. (dev-radar, 15/11/2026)
+- Em teste de tempo real com duas páginas, esperar um sinal de "conectado" na tela (por exemplo, `data-tempo-real`) antes da ação. Sem isso, o evento se perde, e o `retries` esconde a falha. (instagram-feed, 15/11/2026)
 
 ## Playwright e axe
 
@@ -112,6 +121,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - A última `page.route` registrada vence: registrar a genérica antes da específica. `route.fulfill` para outra origem precisa de `Access-Control-Allow-Origin`. (douglasabnovato.dev e e-commerce-t-shirt, 10/11/2026)
 - Para testar código que só roda em produção (medição): rotear o domínio publicado para o preview local (`--host-resolver-rules`) e sobrescrever `navigator.webdriver` com `addInitScript`. (lotes de 10/11/2026)
 - README de perfil se testa de ponta a ponta renderizando pela API `POST /markdown` com o `GITHUB_TOKEN` do Actions. (douglasabnovato, 10/11/2026)
+- `aria-label` num link com texto visível diferente quebra a WCAG 2.5.3 (`label-content-name-mismatch`). Usar o texto visível como nome. (instagram-feed, 15/11/2026)
 
 ## Lighthouse e LCP
 
@@ -179,6 +189,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 ## Expo
 
 - O `zod` vulnerável vinha do `@expo/cli` 57.0.27; `npm install expo@~57.0.32` resolve dentro do mesmo SDK, sem Expo 58. Conferir o lock dos outros apps Expo 57. (aircnc, 09/11/2026)
+- Dependabot de segurança que exige rebaixar uma dependência maior (minimatch → expo 52) falha. Registrar na issue de migração, sem esperar o PR. (aircnc, 15/11/2026)
 
 ## React, Vue e Vite
 
@@ -195,6 +206,9 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - O merge de PR do Dependabot foi negado; cita-se na issue de manutenção. (aircnc e vizinhos, 06/11/2026)
 - `gh pr edit --body` foi negado a um agente, e `gh pr comment` não: para registrar algo num PR já aberto, comentar. (lote C, 10/11/2026)
 - Ligar o Pages pela API (`POST repos/<dono>/<repo>/pages`) foi negado ao coordenador como "publicar site novo", mesmo com a autorização geral; criar o ruleset pela API passou. (coordenador, 10/11/2026)
+- Aprovação dada ao orquestrador não vale nas sessões que exigem o ok no próprio chat. O orquestrador diz ao responsável onde ele precisa dizer "sim". (engenharia, 14/11/2026)
+- Tarefa agendada que para numa permissão fica em "running" sem avisar. Rodar "Run now" uma vez para aprovar as ferramentas, e o plano das 6h50 confere se as revisões rodaram. (engenharia, 15/11/2026)
+- Antes de distribuir uma tarefa de conteúdo, o orquestrador lista o que já existe no repositório de destino. Em 15/11, pediu roteiros que já estavam em rascunho desde 12/11. (engenharia, 15/11/2026)
 
 ## Issues e Projects
 
