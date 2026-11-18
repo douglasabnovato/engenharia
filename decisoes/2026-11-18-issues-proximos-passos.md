@@ -45,6 +45,23 @@ Ele também respondeu, em 18/11/2026:
 - **Fechar todas as issues sem as 3:** perderia o registro do que falta e contraria P3.
 - **Manter todas abertas e só comentar:** a fila continua longa, e o Project não mostra os próximos passos.
 
-## Resultado
+## Ajustes depois do piloto
 
-O resultado do piloto entra aqui, com a contagem antes e depois por repositório.
+O piloto rodou em 18/11/2026. O responsável aprovou os ajustes: "Ajustar e seguir".
+
+| # | Ajuste | Origem no piloto |
+|---|---|---|
+| P9 | Antes de classificar, conferir o que já está na principal (`git log origin/<sprint>..origin/<principal>` e PRs mesclados) e no site. Issue de desempenho antiga é medida de novo no site publicado antes da saída | coin-wallet: #27 e #29 "esperando o merge" já estavam na `main`. components: a #42 passou de "implementar" para "já feita" depois da medição no ar |
+| P10 | Uma issue (b) implementada e aberta só à espera do merge na principal **pode contar** entre as 3 de P1, desde que ganhe o rótulo `proximo-passo`. Só se cria issue nova quando não houver 3 boas | Sem isso, cada repositório criava cerca de 2 issues novas |
+| P11 | `depende-do-responsavel` que já se cumpriu: o comentário diz que o rótulo caducou e pede o fechamento. Ela entra na lista "Para o responsável fechar" do relatório | components#23, coin-wallet#22 e #38 |
+| P12 | Merge feature → sprint negado: o PR fica com `revisao-responsavel`, e o relatório do lote lista os PRs para o responsável mesclar em lote | Merge negado nos 3 PRs do piloto |
+| P13 | Repositório com `prettier --check` no CI: rodar o formatador antes de cada commit, inclusive em `.md` | components#59 |
+
+## Resultado do piloto
+
+| Repositório | Abertas | Fechadas com evidência | `proximo-passo` | Implementadas (PR na sprint) | `depende-do-responsavel` já cumpridas |
+|---|---|---|---|---|---|
+| coin-wallet (N2) | 13 → 12 | 3 (#27, #29; #28 não planejada) | #42, #46, #47 | #30, #39, #40 (coin-wallet#48, CI verde) | #22, #38 |
+| components (N3) | 13 → 10 | 4 (#34, #40, #42, #50) | #47, #52, #60 | #46, #48, #49 (components#59, CI verde) | #23; #41 pela metade |
+
+O rocket-q (N1) ficou para o lote 1: a abertura do agente foi recusada pelo controle de permissões.
