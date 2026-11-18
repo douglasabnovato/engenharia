@@ -22,6 +22,7 @@ Ela nasceu dos ciclos de outubro e novembro de 2026, em que 39 repositórios for
 | Ver a arquitetura de IA inteira (sessões, memória, skills, agentes, proteções) | [`ia/arquitetura-ia.md`](ia/arquitetura-ia.md) |
 | Escolher entre sessão, subagente, agendamento ou skill | [`ia/recursos.md`](ia/recursos.md) |
 | Bloquear as ações proibidas com hook | [`ia/hooks.md`](ia/hooks.md) |
+| Ver cada ambiente (Comunidade, GitHub, LearnTech), a maturidade da IA em cada um e as orientações | [`ia/ambientes/`](ia/ambientes/README.md) |
 
 ## Mapa das pastas
 
@@ -40,6 +41,7 @@ ia/
   arquitetura-ia.md    mapa da IA: camadas, sessões, protocolo, regras, skills, agentes, técnicas
   recursos.md          quando usar cada recurso avançado, custo e armadilhas
   hooks.md             hook que recusa force push, --no-verify e push na principal
+  ambientes/           Comunidade, GitHub e LearnTech: o que são, maturidade da IA, orientações
   como-trabalhamos.md  responsável, coordenador, agentes, revisor independente, permissões
   processo-repositorio.md  passos 0 a 8, decisões, limites, fases de um projeto novo
   aprendizados.md      todas as lições, por tema
