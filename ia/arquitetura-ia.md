@@ -68,6 +68,8 @@ Skill que aplica o formato: [`aviso-entre-sessoes`](../.claude/skills/aviso-entr
 
 Achado do levantamento: o `settings.json` do usuário não tem regras de permissão nem hooks. Toda proteção hoje é texto, classificador do app ou ruleset do GitHub. O hook que bloqueia está pronto em [`hooks.md`](hooks.md), com testes. Ligá-lo é a issue #17.
 
+Atualização de 18/11/2026: o `~/.claude/settings.json` agora tem `deny` (leitura de `.env`, force push, `gh pr merge`) e hooks do AmploPay (`C:\amplopay\ferramentas\hooks\`), que rodam também nas sessões do portfólio. O hook do portfólio continua desligado. Situação por ambiente em [`ambientes/README.md`](ambientes/README.md).
+
 ## Memória
 
 - Cada sessão tem a sua pasta de memória, ligada à pasta em que foi aberta. As sessões **não** leem a memória umas das outras.
