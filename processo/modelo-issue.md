@@ -37,6 +37,7 @@ Verbo no infinitivo e o resultado: "Publicar a API no Render", "Tratar erro e va
 | `mvp` | Conta para os critérios de MVP |
 | tipo (`tipo:funcionalidade`, `tipo:correcao`, `tipo:documentacao`, `tipo:qualidade`, `tipo:infraestrutura`, `tipo:conteudo`) | Sempre um |
 | `depende-do-responsavel` | Só o responsável resolve |
+| `proximo-passo` | Uma das 3 issues de próximos passos que ficam abertas no repositório ([decisão de 18/11/2026](../decisoes/2026-11-18-issues-proximos-passos.md)) |
 
 Os rótulos podem não existir no repositório: criar antes (`gh label create <nome> --repo <dono>/<repo>`).
 
@@ -54,3 +55,11 @@ Campos que o preenchimento em lote cuida: Status, Tipo, Frente (Estudo, Vitrine,
 - Se o trabalho está na sprint e ainda não foi para a principal: comentar a evidência e fechar só depois do merge.
 - "Não planejada" só com motivo real, escrito no comentário.
 - Nunca fechar issue que depende do responsável.
+
+## Fila de cada repositório
+
+Regra do responsável de 18/11/2026 ([decisão](../decisoes/2026-11-18-issues-proximos-passos.md)):
+- **3 issues `proximo-passo` abertas**, que cabem no nível atual.
+- As `depende-do-responsavel` ficam abertas à parte, comentadas com a situação e o passo a passo.
+- As demais: já feita (fecha com evidência), implementar (`feature` → sprint), não planejada (fecha com motivo) ou vira próximo passo.
+- Issue com mais de 7 dias recebe antes um comentário de análise com situação, mudanças, decisão e próximo passo.
