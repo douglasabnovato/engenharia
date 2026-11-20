@@ -14,6 +14,8 @@ Pedido do responsável em 20/11/2026: "ajuste atualize e garanta que tenhamos um
 
 Os horários são os da R7 de [`orquestracao.md`](../ia/orquestracao.md). As tarefas agendadas só rodam com o app aberto e o computador acordado.
 
+**De onde vêm as melhorias:** das propostas do modo melhoria (R21). Toda sessão sem tarefa manda uma proposta ao LIDER, que as pontua pela matriz durante a semana. Na sexta, as de maior nota com o ok do responsável viram as melhorias da semana. Assim, o ciclo semanal não depende de alguém lembrar o que melhorar.
+
 ## 2. Pós-incidente sem culpa
 
 Todo incidente gera um registro em [`decisoes/`](../decisoes/) com:

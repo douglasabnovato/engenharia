@@ -50,7 +50,7 @@ O **Líder de TODOS** (antes "DG líder", sigla `LIDER`) é o orquestrador das s
 - **arquitetura de IA** (`IA`): dona do `engenharia`;
 - **DG veb** (`VEB`): prevista, entra quando o responsável inserir o contexto.
 
-Regras R1 a R20 em `engenharia/ia/orquestracao.md`.
+Regras R1 a R21 em `engenharia/ia/orquestracao.md`.
 
 - Avisos de início e de fim de cada tarefa vão ao Líder de TODOS, no formato da skill `aviso-entre-sessoes`, com data e hora de Brasília.
 - Cada repositório tem uma sessão dona, e só ela escreve nele (R4). O `engenharia` é da arquitetura de IA; o Líder de TODOS escreve ali só relatórios e decisões, por PR.

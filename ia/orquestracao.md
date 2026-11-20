@@ -133,6 +133,38 @@ Nenhuma sessão muda de foco nem de acesso a pastas com a entrada do orquestrado
 
   Incluir ou tirar um repositório desta lista é decisão do responsável.
 
+### Ativação e melhoria contínua (20/11/2026)
+
+- **R21. Rotina de ativação e modo melhoria.** Ordem do responsável em 20/11/2026: "precisamos ter uma rotina de ativação dos codes para estarem atuando no projeto sempre / e em caso de eu nao ter dado tarefa, que cada um analise as documentacoes, analise os projetos, entenda os proprios papeis, pesquise e estude sobre arquitetura de ia, e proponha aperfeiçoamento nas nossas rotinas e processos. / os codigos so sao alterados com a minha ordem direta, mas o nosso fluxo de trabalho pode e deve ser aperfeicoado e automatizado gradativamente para EU SABER e DOMINAR oque estamos fazendo sempre".
+  - **Pulso:** uma tarefa agendada do LIDER olha as sessões donas em horários fixos. A sessão rodando não recebe nada. A parada com tarefa na fila recebe "continue" e o próximo item. A parada sem tarefa entra no modo melhoria. O pulso só manda mensagem: não decide nada pelo responsável e não escreve no GitHub.
+  - **Modo melhoria**, um ciclo de até 1 hora:
+    1. reler o papel (`CLAUDE.md`, estas regras, o próprio `ESTADO.md` ou `MVP.md`);
+    2. analisar o que travou, demorou ou se repetiu;
+    3. estudar um tema de [`estudos/`](estudos/README.md) ligado ao problema;
+    4. mandar **uma** proposta ao LIDER;
+    5. uma vez por semana, dizer se o contexto precisa de outra sessão.
+  - **Formato da proposta:**
+
+    ```
+    PROPOSTA <SIGLA> dd/mm: <título curto>
+    Problema observado: <fato com evidência>
+    Proposta: <o que muda no processo ou na rotina>
+    Ganho esperado: <métrica do ciclo-evolutivo.md>
+    Custo e risco: <esforço, tokens, o que pode dar errado>
+    Automação possível: <script, skill, hook ou tarefa agendada>
+    O que o responsável passa a saber ou dominar: <painel, relatório, regra>
+    ```
+
+  - **Limites:**
+    - nenhum código de produto muda no modo melhoria; código só muda com ordem direta do responsável;
+    - a proposta não se aplica sozinha: o LIDER registra, pontua pela matriz e leva ao relatório;
+    - com o ok do responsável, regra entra aqui por PR da arquitetura de IA, e script ou tarefa entra pela dona;
+    - rascunhos só na pasta de trabalho da sessão, fora dos repositórios.
+  - **Transparência:** toda automação nova aparece no painel ou no relatório, com o que faz, quando roda e como desligar.
+  - **Sessão nova:** a proposta diz o papel, os repositórios que passa a ter (R4), o que sai da sessão atual e a carga que justifica. Criar a sessão é do responsável. O mapa atual está em [`ambientes/mapa-de-papeis.md`](ambientes/mapa-de-papeis.md).
+
+  As propostas alimentam o ciclo semanal de [`ciclo-evolutivo.md`](../processo/ciclo-evolutivo.md).
+
 ### Conflitos e escalonamento
 
 - **R15. Regra ambígua:** quando duas sessões leem a mesma regra de jeitos diferentes, o orquestrador registra as duas leituras, adota a mais segura até decidir e abre a issue para reescrever a regra. Exemplo: a regra de merge sem CI, em 13/11/2026 (engenharia#21).

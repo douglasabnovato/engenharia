@@ -4,6 +4,11 @@ Toda mudança de regra, processo, skill, agente ou hook do `engenharia`, da mais
 
 Tipos: **Novo**, **Mudou**, **Removido**, **Corrigido**.
 
+## 20/11/2026 · rotina de ativação e modo melhoria
+
+- **Novo:** R21, rotina de ativação (pulso) e modo melhoria. Sem tarefa, a sessão analisa, estuda e manda uma proposta ao LIDER. Código de produto só muda com ordem direta do responsável. As propostas alimentam o ciclo semanal.
+- **Novo:** [`ia/ambientes/mapa-de-papeis.md`](ia/ambientes/mapa-de-papeis.md), com o mapa de sessões, repositórios e carga e a proposta de estrutura (P1: pasta própria para o LIDER).
+
 ## 20/11/2026 · laboratório de IA
 
 Ordem do responsável: "arquitetura de ia é para estudar claude ia e metologias e ferramentas para desenvolver projetos de softwares e produtos digitais usando esses contextos".
