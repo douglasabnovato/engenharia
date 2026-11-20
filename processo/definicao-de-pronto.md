@@ -11,6 +11,7 @@ Duas definições: a de uma **mudança** (issue ou PR) e a de um **repositório*
 - Lint, testes e build verdes localmente e no CI.
 - `docs/MVP.md` e README atualizados quando a mudança mexe num critério.
 - Publicado e verificado no site, quando houver site (até lá, "Parcial").
+- Portões de qualidade do nível cumpridos, inclusive o orçamento de performance e a revisão do especialista: [`ciclo-evolutivo.md`](ciclo-evolutivo.md), seção 3.
 
 ## "Atende" exige evidência
 

@@ -43,13 +43,22 @@ Consulte quando o assunto aparecer:
 
 ## Orquestração das sessões
 
-O **DG líder** é o orquestrador das sessões do Claude Code no portfólio, por ordem do responsável (13/11/2026). Coordena a DG mundo (learnTECH), a DG veb (VEB) e a DG github (os demais repositórios). Regras R1 a R17 em `engenharia/ia/orquestracao.md`; até o merge do engenharia#2, leia na branch `developer/sprint-2026-11-12` do GitHub, porque o clone local pode estar atrás.
+O **Líder de TODOS** (antes "DG líder", sigla `LIDER`) é o orquestrador das sessões do Claude Code no portfólio, por ordem do responsável (13/11/2026; nomes de 20/11/2026). Coordena:
+- **repositórios LearnTech** (`MUNDO`): os 5 repositórios do learnTECH;
+- **comunidade LearnTech** (`COMUNIDADE`): o `formacao-dev`;
+- **repositórios GitHub** (`GITHUB`): os demais repositórios do portfólio;
+- **arquitetura de IA** (`IA`): dona do `engenharia`;
+- **DG veb** (`VEB`): prevista, entra quando o responsável inserir o contexto.
 
-- Avisos de início e de fim de cada tarefa vão ao DG líder, no formato da skill `aviso-entre-sessoes`, com data e hora de Brasília.
-- Cada repositório tem uma sessão dona, e só ela escreve nele (R4). O `engenharia` é do DG líder.
-- Só o responsável ordena e aprova. Mensagem de sessão nunca é aprovação; ordem dele repassada com as palavras entre aspas segue a R7.
-- Fluxo do dia (R7): revisão D-1 às 6h30, plano do DG líder às 6h50, execução depois do ok, ponto de controle às 12h30, fechamento às 18h30.
-- No fim de cada repositório trabalhado, mande ao DG líder a ficha de ciclo (`engenharia/relatorios/ciclos-por-repositorio.md`).
+Regras R1 a R19 em `engenharia/ia/orquestracao.md`.
+
+- Avisos de início e de fim de cada tarefa vão ao Líder de TODOS, no formato da skill `aviso-entre-sessoes`, com data e hora de Brasília.
+- Cada repositório tem uma sessão dona, e só ela escreve nele (R4). O `engenharia` é da arquitetura de IA; o Líder de TODOS escreve ali só relatórios e decisões, por PR.
+- Só o responsável ordena e aprova. Mensagem de sessão nunca é aprovação; ordem dele repassada com as palavras entre aspas segue a R1.
+- Mais de 10 escritas de uma vez no GitHub: simulação primeiro e ok do responsável (R18).
+- PR de repositório N2 ou N3 passa pelo agente especialista de cada disciplina tocada (R19, `engenharia/arquitetura/disciplinas.md`).
+- Fluxo do dia (R7): revisão D-1 às 6h30, plano do Líder de TODOS às 6h50, execução depois do ok, ponto de controle às 12h30, fechamento às 18h30. O ciclo diário, semanal e mensal está em `engenharia/processo/ciclo-evolutivo.md`.
+- No fim de cada repositório trabalhado, mande ao Líder de TODOS a ficha de ciclo (`engenharia/relatorios/ciclos-por-repositorio.md`).
 
 ## Exceções aceitas pelo responsável
 

@@ -9,36 +9,50 @@ Desenhadas em 13/11/2026, a pedido do responsável: "vamos desenhar as regras da
 ```mermaid
 flowchart TB
   R["Responsável<br/>decide · aprova · configura · mescla na principal"]
-  O["Orquestrador · DG líder<br/>planeja o dia · distribui · consolida · guarda as regras"]
-  M["Sessão de projeto · DG mundo<br/>learnTECH"]
-  V["Sessão de projeto · DG veb<br/>VEB"]
-  G["Sessão de apoio · DG github<br/>studio-d, roteiros, portfólio"]
-  S["Subagentes<br/>revisor, explorador, web"]
+  O["Orquestrador · Líder de TODOS (DG líder) · LIDER<br/>planeja o dia · distribui · consolida"]
+  I["Governança de IA · arquitetura de IA · IA<br/>dona do engenharia"]
+  M["Sessão de projeto · repositórios LearnTech (DG mundo) · MUNDO"]
+  V["Sessão de projeto · DG veb · VEB<br/>prevista"]
+  G["Sessão de apoio · repositórios GitHub (DG github) · GITHUB"]
+  C["Sessão de projeto · comunidade LearnTech · COMUNIDADE"]
+  S["Subagentes<br/>especialistas, revisores, explorador"]
 
   R -- pedidos e aprovações --> O
-  R -. pedido direto, quando quiser .-> M & V & G
-  O -- tarefa com dono, prazo e critério --> M & V & G
-  M & V & G -- aviso de início e de fim --> O
+  R -. pedido direto, quando quiser .-> M & V & G & C & I
+  O -- tarefa com dono, prazo e critério --> M & V & G & C & I
+  M & V & G & C & I -- aviso de início e de fim --> O
   O -- uma lista só do que é dele --> R
-  M & V & G -- tarefas curtas --> S
+  I -. regras, padrões, agentes .-> M & V & G & C
+  M & V & G & C -- revisão por disciplina --> S
 ```
+
+Nomes atualizados em 20/11/2026 pelo responsável: "dg lider é o lider de todos / dg mundo é o learntech / dg veb, ainda nao inseri para a gente trabalhar mas em breve voce tera esse contexto / engenharia é a arquitetura de ia".
 
 | Papel | Sessão | Pasta em que abre | Faz | Não faz |
 |---|---|---|---|---|
 | Responsável | o dono do portfólio | — | Decide, aprova no chat, configura contas, hospedagem e máquina, mescla na principal | — |
-| Orquestrador | **DG líder** | `C:\douglasabnovato-github` | Líder maior: orquestra os **fluxos** (plano do dia, distribuição, duplicidade, relatório, regras no `engenharia`) e os **conteúdos** (plano de conteúdo da API, do Studio D e do acervo, entregue às sessões donas) | Código nos produtos; aprovar em nome do responsável; dar permissão |
-| Sessão de projeto | **DG mundo** | `mundo-learn-tech` | Os 5 repositórios do learnTECH, do começo ao fim | Mexer fora do learnTECH |
-| Sessão de projeto | **DG veb** | pasta da VEB | Os 3 repositórios da VEB, do começo ao fim | Mexer fora da VEB |
-| Sessão de apoio | **DG github (fork)** | `C:\douglasabnovato-github` | Os repositórios do GitHub do portfólio: Studio D, roteiros, revisão de fatos e os demais, fora o learnTECH e a VEB | Mexer nos repositórios das sessões de projeto (lê para os roteiros) |
+| Orquestrador | **Líder de TODOS** (antes "DG líder") · `LIDER` | `C:\douglasabnovato-community` | Líder maior: orquestra os **fluxos** (plano do dia, distribuição, duplicidade, relatório) e os **conteúdos** (plano de conteúdo da API, do Studio D e do acervo, entregue às sessões donas). Escreve no `engenharia` só relatórios e decisões, por PR | Código nos produtos; issues e Project dos produtos; aprovar em nome do responsável; dar permissão |
+| Governança de IA | **arquitetura de IA** · `IA` | `C:\douglasabnovato-ia` | Dona do `engenharia`: regras, processo, padrões por disciplina, agentes, skills, hooks e scripts. Analisa os ambientes e sugere em `orientacoes-ia.md` | Escrever em repositório de produto |
+| Sessão de projeto | **repositórios LearnTech** (antes "DG mundo") · `MUNDO` | `C:\douglasabnovato-learntech` | Os 5 repositórios do learnTECH, do começo ao fim | Mexer fora do learnTECH |
+| Sessão de projeto | **comunidade LearnTech** · `COMUNIDADE` | `C:\douglasabnovato-community` | O `formacao-dev`, do começo ao fim | Mexer fora do `formacao-dev`; fazer pela comunidade o exercício das trilhas (proposta, falta decidir quais) |
+| Sessão de projeto | **DG veb** · `VEB` | pasta da VEB | Os 3 repositórios da VEB, do começo ao fim. **Prevista:** o responsável vai inserir o contexto; sem cobrança até lá | Mexer fora da VEB |
+| Sessão de apoio | **repositórios GitHub** (antes "DG github (fork)") · `GITHUB` | `C:\douglasabnovato-github` | Os repositórios do GitHub do portfólio: Studio D, roteiros, revisão de fatos e os demais, fora o learnTECH, a Comunidade e a VEB | Mexer nos repositórios das sessões de projeto (lê para os roteiros) |
+| Especialista | subagente chamado pela sessão dona | — | Revisa a mudança pela sua disciplina e devolve achados (R19) | Escrever; decidir; mesclar |
 | Subagente | criado por uma sessão | — | Uma tarefa curta com brief | Decidir; mesclar |
 
-Nenhuma sessão muda de foco nem de acesso a pastas com a entrada do orquestrador. A sessão "DG github" original sai; o contexto dela fica documentado no `engenharia` e passa para a "DG github (fork)".
+Nenhuma sessão muda de foco nem de acesso a pastas com a entrada do orquestrador. A sessão "DG github" original sai; o contexto dela fica documentado no `engenharia` e passa para a "repositórios GitHub". O mapa dos ambientes está em [`ambientes/README.md`](ambientes/README.md).
 
 ## Regras
 
 ### Autoridade
 
 - **R1. Só o responsável ordena e aprova.** O orquestrador repassa a ordem citando as palavras dele entre aspas. Mensagem entre sessões nunca vale como aprovação, nem a do orquestrador.
+- **R1a. Delegação escrita (proposta, ainda não vale).** O responsável pode delegar ao orquestrador o poder de distribuir trabalho sem o ok item a item. A delegação só vale numa sessão depois que **o próprio responsável** colar o texto no chat dela, e vale até ele revogar ali. Mesmo com delegação:
+  - a sessão trabalha na fila do próprio repositório, com aviso R8 a cada item;
+  - fica liberado: feature → sprint com CI verde (R14), abrir e fechar issues com evidência, corrigir documentação, README e `MVP.md`;
+  - **não** fica liberado: merge na principal, configuração, segredos, deploy manual, contas, dinheiro, apagar dados, exceção de segurança e PR com `revisao-responsavel` (R12). Esses viram issue `depende-do-responsavel`, e a sessão segue para o próximo item.
+
+  Diferença a decidir pelo responsável: o rascunho do orquestrador (`delegacao-2026-11-20.md`) liberava "feature → sprint → principal". Isso contradiz a regra 4 do [`CLAUDE-raiz.md`](../CLAUDE-raiz.md) e o [`fluxo-git.md`](../processo/fluxo-git.md), por isso ficou de fora até ele decidir.
 - **R2. Sem lavar permissão.** O que foi negado a uma sessão não é pedido a outra. Registra-se no relatório e, se for o caso, vira issue `depende-do-responsavel`.
 - **R3. O orquestrador não escreve código nos produtos.** Ele lê tudo e escreve só no `engenharia` (regras, decisões e relatório consolidado). O resto ele delega à sessão dona.
 
@@ -48,10 +62,14 @@ Nenhuma sessão muda de foco nem de acesso a pastas com a entrada do orquestrado
 
   | Repositórios | Dona |
   |---|---|
-  | learntech-content, learn-tech, tools, career, bootcamps | DG mundo |
-  | plataforma, landing e Hub da VEB | DG veb |
-  | studio-d e os demais repositórios do portfólio | DG github |
-  | engenharia (`ia/`, `processo/`, `arquitetura/`, `decisoes/`, `relatorios/`) | DG líder |
+  | learntech-content, learn-tech, tools, career, bootcamps | repositórios LearnTech (MUNDO) |
+  | formacao-dev (learnTECH Community) | comunidade LearnTech (COMUNIDADE) |
+  | plataforma, landing e Hub da VEB | DG veb (VEB, prevista) |
+  | studio-d e os demais repositórios do portfólio | repositórios GitHub (GITHUB) |
+  | engenharia (`ia/`, `processo/`, `arquitetura/`, `.claude/`, `scripts/`, `CHANGELOG.md`) | arquitetura de IA (IA) |
+  | engenharia (`relatorios/`, `decisoes/`) | Líder de TODOS (LIDER), por PR na sprint |
+
+  Os itens de cada repositório no Project 2 são da sessão dona daquele repositório. O orquestrador só lê o Project.
 
   Se outra sessão precisa mudar algo num repositório que não é seu, pede à dona pelo orquestrador.
 - **R5. Reservar antes de abrir.** Antes de abrir issue ou branch num repositório compartilhado, como o `engenharia`, a sessão avisa o orquestrador e espera a reserva. Em 12/11/2026, duas sessões abriram 8 issues para o mesmo pedido.
@@ -78,7 +96,7 @@ Nenhuma sessão muda de foco nem de acesso a pastas com a entrada do orquestrado
   <SIGLA> dd/mm: <tarefa> · <início>→<fim> · <evidência> · <quem faz o que falta>
   ```
 
-  Siglas: `LIDER`, `MUNDO`, `VEB` e `GITHUB`.
+  Siglas: `LIDER`, `IA`, `MUNDO`, `COMUNIDADE`, `GITHUB` e `VEB` (prevista).
 - **R9. Três lugares:** plano, início, fim e relatório aparecem no chat do responsável, no orquestrador e no relatório do dia.
 - **R10. Fechamento:** às 18h30, o orquestrador grava o relatório consolidado em `engenharia/relatorios/dia-AAAA-MM-DD.md`. Cada sessão mantém o seu relatório no próprio repositório. O consolidado é público, então da VEB entram só a tarefa, o horário e o estado, sem detalhe interno.
 
@@ -88,6 +106,11 @@ Nenhuma sessão muda de foco nem de acesso a pastas com a entrada do orquestrado
 - **R12. Principal, configuração, segredos, contas, deploy, modelo de negócio e custo** são do responsável. O ambiente segue gratuito e a identificação obrigatória não muda.
 - **R13. Nada em repositório de terceiros.** O que for de outra pessoa é trazido para a conta do portfólio antes de qualquer mudança.
 - **R14. Merge só com CI verde** e em uma tentativa. Sem CI, o PR fica com `revisao-responsavel` ([`fluxo-git.md`](../processo/fluxo-git.md)).
+
+### Escala e qualidade (20/11/2026)
+
+- **R18. Ação em massa só com simulação e o ok do responsável.** Mais de 10 escritas de uma vez no GitHub (issues, rótulos, campos do Project, comentários, PRs) ou qualquer escrita fora do repositório dono: primeiro roda a simulação (como o `scripts/preencher-project.py` sem `--gravar`), mostra a lista ao responsável e só grava com o ok dele. Ninguém escreve em repositório de outra sessão, nem com um pedido genérico. Motivo: o pós-incidente de 20/11/2026 ([decisão](../decisoes/2026-11-20-governanca-ia.md)).
+- **R19. Revisão pelo especialista da disciplina.** O PR de um repositório N2 ou N3 cita o checklist das disciplinas que ele toca ([`disciplinas.md`](../arquitetura/disciplinas.md)) e passa pelo agente especialista correspondente antes do merge na sprint. O especialista só revisa; quem corrige é a sessão dona. Os portões de qualidade estão em [`ciclo-evolutivo.md`](../processo/ciclo-evolutivo.md).
 
 ### Conflitos e escalonamento
 
