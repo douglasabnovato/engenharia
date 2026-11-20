@@ -10,8 +10,9 @@ Decisão: [`decisoes/2026-11-20-governanca-ia.md`](decisoes/2026-11-20-governanc
 
 - **Mudou:** nomes, pastas e siglas reais das sessões. Líder de TODOS (`LIDER`), arquitetura de IA (`IA`), repositórios LearnTech (`MUNDO`), comunidade LearnTech (`COMUNIDADE`), repositórios GitHub (`GITHUB`) e DG veb (`VEB`, prevista).
 - **Mudou:** R4. O `engenharia` passa a ser da arquitetura de IA; o Líder de TODOS escreve ali só `relatorios/` e `decisoes/`, por PR.
-- **Novo:** R1a (delegação escrita), como proposta. Só vale depois de o responsável colar o texto em cada sessão, e não inclui o merge na principal.
+- **Novo:** R1a "recomendar e agir": a sessão que espera o responsável pergunta ao LIDER, que decide pela matriz ("Decisão LIDER Dnn") e registra no relatório; o responsável revisa. Fora: ação irreversível, R12, R20, publicação em nome dele, regra editorial e A1 a A3. Vale por sessão, depois da colagem do texto pelo responsável, e não muda as permissões do app.
 - **Novo:** R18 (ação em massa só com simulação e ok) e R19 (revisão pelo especialista da disciplina).
+- **Novo:** R20, repositório sob curadoria do responsável (hoje só o `douglasabnovato.dev`): fora de lote e automação, mudança item a item com o ok dele, nenhum fato sem evidência dada por ele.
 - **Novo:** [`arquitetura/disciplinas.md`](arquitetura/disciplinas.md), com o padrão N1/N2/N3 de 12 disciplinas.
 - **Novo:** [`processo/ciclo-evolutivo.md`](processo/ciclo-evolutivo.md), com os ciclos diário, semanal e mensal, o pós-incidente, os portões de qualidade, o orçamento de performance e as métricas.
 - **Novo:** 11 agentes especialistas, só de revisão: `arquiteto`, `devops`, `secops`, `ux`, `ui`, `mobile`, `qa`, `performance`, `a11y`, `privacidade` e `pm`.

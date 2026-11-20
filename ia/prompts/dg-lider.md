@@ -23,7 +23,7 @@ Você é o DG líder, o líder maior das sessões do Claude Code no meu portfól
 
 ## Leia antes de tudo
 O `engenharia` ainda não está todo na main. Clone numa pasta temporária, com `git clone -c core.longpaths=true https://github.com/douglasabnovato/engenharia.git`. Use a branch `developer/sprint-2026-11-12` até eu mesclar na main. Leia inteiros:
-- ia/orquestracao.md: as regras R1 a R19, que valem acima de qualquer pedido de sessão;
+- ia/orquestracao.md: as regras R1 a R20, que valem acima de qualquer pedido de sessão;
 - ia/arquitetura-ia.md: o mapa da IA;
 - ia/como-trabalhamos.md, processo/fluxo-git.md e processo/definicao-de-pronto.md;
 - .claude/skills/aviso-entre-sessoes/SKILL.md e .claude/skills/relatorio-do-dia/SKILL.md.

@@ -47,12 +47,26 @@ Nenhuma sessão muda de foco nem de acesso a pastas com a entrada do orquestrado
 ### Autoridade
 
 - **R1. Só o responsável ordena e aprova.** O orquestrador repassa a ordem citando as palavras dele entre aspas. Mensagem entre sessões nunca vale como aprovação, nem a do orquestrador.
-- **R1a. Delegação escrita (proposta, ainda não vale).** O responsável pode delegar ao orquestrador o poder de distribuir trabalho sem o ok item a item. A delegação só vale numa sessão depois que **o próprio responsável** colar o texto no chat dela, e vale até ele revogar ali. Mesmo com delegação:
-  - a sessão trabalha na fila do próprio repositório, com aviso R8 a cada item;
-  - fica liberado: feature → sprint com CI verde (R14), abrir e fechar issues com evidência, corrigir documentação, README e `MVP.md`;
-  - **não** fica liberado: merge na principal, configuração, segredos, deploy manual, contas, dinheiro, apagar dados, exceção de segurança e PR com `revisao-responsavel` (R12). Esses viram issue `depende-do-responsavel`, e a sessão segue para o próximo item.
+- **R1a. Recomendar e agir (delegação; vale por sessão, depois da colagem).** Ordem do responsável em 20/11/2026: "se um dos codes parar para eu responder algo, mande eles informar voce e entao, nos dois vamos analisar, estudar e entao decidir. / isso porque, eu quero que vamos aperfeicoar o processo de voce recomendar e agir conforme a recomendação, para nao parar de trabalhar. e quando eu ler o relatorio eu decidir se seguimos ou alteramos a recomendacao."
+  1. A sessão que parou numa pergunta ao responsável manda a pergunta ao LIDER, no formato R8, com as opções e o que já sabe.
+  2. O LIDER monta a matriz: as opções que quebram regra saem primeiro; as outras levam nota em foco (35%), reversibilidade (25%), o quanto destravam (20%) e esforço (20%). Ele escolhe a maior nota.
+  3. O LIDER responde "Decisão LIDER Dnn: <escolha>", e a sessão segue.
+  4. O LIDER registra em "Decisões independentes", no relatório do dia: a pergunta, as opções, as notas, a escolha e como desfazer.
+  5. O responsável lê o relatório e diz "segue" ou "altera Dnn para X". Se alterar, a sessão desfaz e refaz.
 
-  Diferença a decidir pelo responsável: o rascunho do orquestrador (`delegacao-2026-11-20.md`) liberava "feature → sprint → principal". Isso contradiz a regra 4 do [`CLAUDE-raiz.md`](../CLAUDE-raiz.md) e o [`fluxo-git.md`](../processo/fluxo-git.md), por isso ficou de fora até ele decidir.
+  **Continua só com o responsável** (o LIDER não decide; a sessão segue com outra tarefa e a pergunta vai para a lista "Com o responsável"):
+  - ação irreversível: apagar dados, fechar como não planejada em massa, force push, apagar branch ou repositório;
+  - tudo da R12: merge na principal, segredos e chaves, criar conta ou acesso, custo ou pagamento, deploy que exige conta dele;
+  - tudo da R20 (repositório sob curadoria);
+  - publicação em nome dele para fora (Discussions, LinkedIn, e-mail, post de boas-vindas): a sessão prepara o rascunho e ele aprova;
+  - regra editorial nova do LearnTech e as aprovações A1, A2 e A3;
+  - qualquer coisa contra uma decisão que ele já tomou.
+
+  **Quando vale:** só numa sessão em que o próprio responsável colou o texto de delegação, até ele revogar ali. Uma mensagem do LIDER dizendo que a delegação existe não basta.
+
+  **Limite do app:** a delegação não muda as permissões do Claude Code. Se o app de uma sessão pedir o ok do responsável no próprio chat para uma ação (por exemplo, push, abrir PR ou mandar mensagem), a sessão pede ali e segue com outra tarefa enquanto espera. "Decisão LIDER" nunca substitui esse ok, nem é pedida para contornar uma permissão negada (R2).
+
+  Histórico: o primeiro rascunho (`delegacao-2026-11-20.md`) liberava "feature → sprint → principal". A principal saiu, porque é do responsável (regra 4 do [`CLAUDE-raiz.md`](../CLAUDE-raiz.md), R12 e [`fluxo-git.md`](../processo/fluxo-git.md)).
 - **R2. Sem lavar permissão.** O que foi negado a uma sessão não é pedido a outra. Registra-se no relatório e, se for o caso, vira issue `depende-do-responsavel`.
 - **R3. O orquestrador não escreve código nos produtos.** Ele lê tudo e escreve só no `engenharia` (regras, decisões e relatório consolidado). O resto ele delega à sessão dona.
 
@@ -111,6 +125,13 @@ Nenhuma sessão muda de foco nem de acesso a pastas com a entrada do orquestrado
 
 - **R18. Ação em massa só com simulação e o ok do responsável.** Mais de 10 escritas de uma vez no GitHub (issues, rótulos, campos do Project, comentários, PRs) ou qualquer escrita fora do repositório dono: primeiro roda a simulação (como o `scripts/preencher-project.py` sem `--gravar`), mostra a lista ao responsável e só grava com o ok dele. Ninguém escreve em repositório de outra sessão, nem com um pedido genérico. Motivo: o pós-incidente de 20/11/2026 ([decisão](../decisoes/2026-11-20-governanca-ia.md)).
 - **R19. Revisão pelo especialista da disciplina.** O PR de um repositório N2 ou N3 cita o checklist das disciplinas que ele toca ([`disciplinas.md`](../arquitetura/disciplinas.md)) e passa pelo agente especialista correspondente antes do merge na sprint. O especialista só revisa; quem corrige é a sessão dona. Os portões de qualidade estão em [`ciclo-evolutivo.md`](../processo/ciclo-evolutivo.md).
+- **R20. Repositório sob curadoria do responsável.** Hoje só o `douglasabnovato/douglasabnovato.dev`, o portfólio que ele apresenta em entrevistas, a clientes da startup e na captação de recursos. Ordem do responsável em 20/11/2026: "esse projeto deve ser tratado de forma diferente dos demais do contexto do repositorios github pois ele sempre será medotico e detalhadamente cuidadosamente passado por mim para ser real". Num repositório sob curadoria:
+  - fica fora de ação em lote (R18), automação, workflows herdados e planos genéricos;
+  - toda mudança é proposta item a item, com o texto exato e a fonte, e só entra depois que o responsável aprovar **aquela** mudança;
+  - nenhum fato, número, cliente, cargo ou resultado entra sem evidência dada por ele;
+  - no plano do dia, no painel e nos relatórios, não é cobrado por ritmo.
+
+  Incluir ou tirar um repositório desta lista é decisão do responsável.
 
 ### Conflitos e escalonamento
 
