@@ -4,6 +4,24 @@ Toda mudança de regra, processo, skill, agente ou hook do `engenharia`, da mais
 
 Tipos: **Novo**, **Mudou**, **Removido**, **Corrigido**.
 
+## 20/11/2026 · laboratório de IA
+
+Ordem do responsável: "arquitetura de ia é para estudar claude ia e metologias e ferramentas para desenvolver projetos de softwares e produtos digitais usando esses contextos".
+
+- **Novo:** [`ia/estudos/`](ia/estudos/README.md), trilha de 9 estudos, cada um com experimento num contexto real e métrica:
+  1. contexto e memória;
+  2. skills, subagentes e hooks;
+  3. MCP;
+  4. tarefas agendadas e workflows;
+  5. Claude API e Agent SDK;
+  6. prompt e contexto;
+  7. avaliação;
+  8. metodologias;
+  9. custo e desempenho.
+- **Novo:** [`ia/avaliacoes/`](ia/avaliacoes/README.md), com o formato dos gabaritos dos agentes e a situação de cada um.
+- **Novo:** 3 revisores de conteúdo, só de leitura, para o learnTECH: `revisor-pedagogia`, `revisor-storytelling` e `revisor-marketing`.
+- **Novo:** do estudo ao artigo, uma proposta por semana para a sessão repositórios LearnTech publicar.
+
 ## 20/11/2026 · governança da arquitetura de IA (F1)
 
 Decisão: [`decisoes/2026-11-20-governanca-ia.md`](decisoes/2026-11-20-governanca-ia.md).

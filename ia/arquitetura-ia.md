@@ -116,6 +116,7 @@ Memórias da DG mundo em 12/11/2026, e o destino proposto para cada uma:
 | [`revisor-independente`](../.claude/agents/revisor-independente.md) | Lê só o diff e o plano e aponta problemas de correção | o mais capaz; só leitura |
 | [`revisor-de-fatos`](../.claude/agents/revisor-de-fatos.md) | Confere números, datas e nomes de um documento contra as fontes | o mais capaz; leitura e `gh` |
 | [`explorador`](../.claude/agents/explorador.md) | Varre muitos arquivos ou repositórios e devolve só a conclusão | modelo mais barato; só leitura |
+| [`revisor-pedagogia`](../.claude/agents/revisor-pedagogia.md), [`revisor-storytelling`](../.claude/agents/revisor-storytelling.md), [`revisor-marketing`](../.claude/agents/revisor-marketing.md) | Revisam o conteúdo do learnTECH antes de publicar: ensino, narrativa e comunicação. Só leitura; quem corrige é a repositórios LearnTech | modelo da sessão; Read, Grep, Glob |
 
 ### Especialistas por disciplina (20/11/2026)
 
