@@ -26,6 +26,7 @@ Ela nasceu dos ciclos de outubro e novembro de 2026, em que 39 repositórios for
 | Saber o padrão mínimo de cada disciplina (DevOps, SecOps, UX, UI, mobile, QA, performance...) por nível | [`arquitetura/disciplinas.md`](arquitetura/disciplinas.md) |
 | Entender o ciclo de melhoria, os portões de qualidade e o orçamento de performance | [`processo/ciclo-evolutivo.md`](processo/ciclo-evolutivo.md) |
 | Ver o que mudou nas regras | [`CHANGELOG.md`](CHANGELOG.md) |
+| Estudar o Claude, as ferramentas e as metodologias, com experimentos medidos | [`ia/estudos/`](ia/estudos/README.md) e [`ia/avaliacoes/`](ia/avaliacoes/README.md) |
 
 ## Mapa das pastas
 
@@ -41,7 +42,7 @@ arquitetura/
   modelo-analise.md    especificação, requisitos com critério de aceite, defeitos com severidade
   deploy/              Render + Atlas; Pages, Vercel e Netlify
 ia/
-  orquestracao.md      orquestrador, sessões donas e regras R1 a R20
+  orquestracao.md      orquestrador, sessões donas e regras R1 a R21
   prompts/dg-lider.md  prompt para criar a sessão orquestradora
   arquitetura-ia.md    mapa da IA: camadas, sessões, protocolo, regras, skills, agentes, técnicas
   recursos.md          quando usar cada recurso avançado, custo e armadilhas
@@ -51,6 +52,8 @@ ia/
   processo-repositorio.md  passos 0 a 8, decisões, limites, fases de um projeto novo
   aprendizados.md      todas as lições, por tema
   briefs/              modelos de brief para agentes (ciclo completo e ciclo curto)
+  estudos/             laboratório: trilha de 9 temas, cada um com experimento e métrica
+  avaliacoes/          gabaritos dos agentes e das skills
   historico/           contexto de sessões encerradas (ex.: DG github original)
 processo/
   fluxo-git.md         feature → sprint → principal; ruleset da principal
@@ -61,7 +64,7 @@ processo/
 decisoes/              decisões datadas, com opções e justificativa
 .claude/
   skills/              relatorio-do-dia, ciclo-repositorio, evidencia-atende, revisao-de-fatos, aviso-entre-sessoes
-  agents/              revisores (independente, de fatos), explorador e 11 especialistas por disciplina
+  agents/              revisores (independente, de fatos, conteúdo), explorador e 11 especialistas por disciplina
 scripts/               estado, relatório, Project e configuração (ver scripts/README.md)
 ```
 
