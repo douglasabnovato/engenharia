@@ -193,7 +193,10 @@ Outras regras da passagem e onde elas já estão:
 - **contas de demonstração e chave TMDB do `movies`:** o risco foi aceito pelo responsável; o registro está em [`padroes.md`](../arquitetura/padroes.md), seção 4;
 - **roadmap.sh no `formacao-dev`:** entra só por link (ADR 001 do repositório).
 
-Falta trazer as memórias da DG mundo (`dg-mundo.md` item 27). Elas cobrem o fluxo do dia, a hora local, a ficha de ciclo, o Dependabot, as regras de negócio e os logos. A passagem lista só os temas, sem o texto das regras; quem as tem é o Samsung.
+As memórias da DG mundo (`dg-mundo.md` item 27) chegaram em 21/11/2026 e foram para estes lugares:
+- a hora de Brasília e a correção do Dependabot no próximo ciclo: [`padroes.md`](../arquitetura/padroes.md);
+- os logos e a exceção do deploy: [`ambientes/learntech.md`](ambientes/learntech.md);
+- o resto já estava coberto.
 
 ### Conflitos e escalonamento
 

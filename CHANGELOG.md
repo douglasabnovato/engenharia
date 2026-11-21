@@ -12,6 +12,9 @@ Pedido do LIDER em 21/11, pela delegação "recomendar e agir", a partir da [pas
 - **Novo:** R23, respostas com `repo#N` e numeração contínua (16/11).
 - **Novo:** R24, escopo de 41 repositórios, `figma-design` fora, apps móveis antigos congelados, PRs de terceiros intocados e clones locais com o índice quebrado.
 - **Novo:** em [`arquitetura/padroes.md`](arquitetura/padroes.md), as contas de demonstração e a chave do TMDB do `movies` aceitas pelo responsável.
+- **Novo:** regras da DG mundo, a partir das memórias dela:
+  - data e hora de Brasília para todo o portfólio, e a correção do Dependabot no próximo ciclo, sem tocar na principal, em `padroes.md`;
+  - logos e exceção do deploy em [`ia/ambientes/learntech.md`](ia/ambientes/learntech.md).
 
 ## 20/11/2026 · rotina de ativação e modo melhoria
 
