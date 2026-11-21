@@ -4,6 +4,18 @@ Toda mudança de regra, processo, skill, agente ou hook do `engenharia`, da mais
 
 Tipos: **Novo**, **Mudou**, **Removido**, **Corrigido**.
 
+## 21/11/2026 · regras do Samsung no engenharia
+
+Pedido do LIDER em 21/11, pela delegação "recomendar e agir", a partir da [passagem Samsung → Acer](relatorios/passagem-samsung-2026-11-21/README.md) (engenharia#52).
+
+- **Novo:** R22. Com o plano aprovado pelo responsável, a sessão roda os comandos `gh` de configuração e merge (16/11: "da proxima vez, faca"). Código de produto só muda com ordem direta (20/11).
+- **Novo:** R23, respostas com `repo#N` e numeração contínua (16/11).
+- **Novo:** R24, escopo de 41 repositórios, `figma-design` fora, apps móveis antigos congelados, PRs de terceiros intocados e clones locais com o índice quebrado.
+- **Novo:** em [`arquitetura/padroes.md`](arquitetura/padroes.md), as contas de demonstração e a chave do TMDB do `movies` aceitas pelo responsável.
+- **Novo:** regras da DG mundo, a partir das memórias dela:
+  - data e hora de Brasília para todo o portfólio, e a correção do Dependabot no próximo ciclo, sem tocar na principal, em `padroes.md`;
+  - logos e exceção do deploy em [`ia/ambientes/learntech.md`](ia/ambientes/learntech.md).
+
 ## 20/11/2026 · rotina de ativação e modo melhoria
 
 - **Novo:** R21, rotina de ativação (pulso) e modo melhoria. Sem tarefa, a sessão analisa, estuda e manda uma proposta ao LIDER. Código de produto só muda com ordem direta do responsável. As propostas alimentam o ciclo semanal.

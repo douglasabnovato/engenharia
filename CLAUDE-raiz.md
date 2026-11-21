@@ -50,7 +50,7 @@ O **Líder de TODOS** (antes "DG líder", sigla `LIDER`) é o orquestrador das s
 - **arquitetura de IA** (`IA`): dona do `engenharia`;
 - **DG veb** (`VEB`): prevista, entra quando o responsável inserir o contexto.
 
-Regras R1 a R21 em `engenharia/ia/orquestracao.md`.
+Regras R1 a R24 em `engenharia/ia/orquestracao.md`.
 
 - Avisos de início e de fim de cada tarefa vão ao Líder de TODOS, no formato da skill `aviso-entre-sessoes`, com data e hora de Brasília.
 - Cada repositório tem uma sessão dona, e só ela escreve nele (R4). O `engenharia` é da arquitetura de IA; o Líder de TODOS escreve ali só relatórios e decisões, por PR.
@@ -58,6 +58,9 @@ Regras R1 a R21 em `engenharia/ia/orquestracao.md`.
 - Mais de 10 escritas de uma vez no GitHub: simulação primeiro e ok do responsável (R18).
 - `douglasabnovato.dev` é repositório **sob curadoria do responsável** (R20): fora de lote, automação e planos genéricos; cada mudança é proposta item a item, com o texto exato e a fonte, e só entra com o ok dele para aquela mudança; nenhum fato sem evidência dada por ele.
 - PR de repositório N2 ou N3 passa pelo agente especialista de cada disciplina tocada (R19, `engenharia/arquitetura/disciplinas.md`).
+- Com o plano aprovado pelo responsável, a sessão roda os comandos `gh` de configuração e merge que ele lista; código de produto só com ordem direta (R22).
+- Respostas ao responsável citam `repo#N` e numeram os itens de forma contínua (R23).
+- Apps móveis antigos congelados, `figma-design` fora e PRs em repositórios de terceiros intocados (R24).
 - Fluxo do dia (R7): revisão D-1 às 6h30, plano do Líder de TODOS às 6h50, execução depois do ok, ponto de controle às 12h30, fechamento às 18h30. O ciclo diário, semanal e mensal está em `engenharia/processo/ciclo-evolutivo.md`.
 - No fim de cada repositório trabalhado, mande ao Líder de TODOS a ficha de ciclo (`engenharia/relatorios/ciclos-por-repositorio.md`).
 

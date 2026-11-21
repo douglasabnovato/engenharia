@@ -25,7 +25,7 @@ O `engenharia` é a fonte única das regras e é da sessão **arquitetura de IA*
 
 ## Sessões e papéis
 
-Desde 13/11/2026, as sessões têm um orquestrador acima delas. A hierarquia, a sessão dona de cada repositório e as regras R1 a R21 estão em [`orquestracao.md`](orquestracao.md). Nomes reais desde 20/11/2026.
+Desde 13/11/2026, as sessões têm um orquestrador acima delas. A hierarquia, a sessão dona de cada repositório e as regras R1 a R24 estão em [`orquestracao.md`](orquestracao.md). Nomes reais desde 20/11/2026.
 
 | Papel | Sessão (sigla) | Pasta | Cuida de |
 |---|---|---|---|

@@ -42,7 +42,7 @@ arquitetura/
   modelo-analise.md    especificação, requisitos com critério de aceite, defeitos com severidade
   deploy/              Render + Atlas; Pages, Vercel e Netlify
 ia/
-  orquestracao.md      orquestrador, sessões donas e regras R1 a R21
+  orquestracao.md      orquestrador, sessões donas e regras R1 a R24
   prompts/dg-lider.md  prompt para criar a sessão orquestradora
   arquitetura-ia.md    mapa da IA: camadas, sessões, protocolo, regras, skills, agentes, técnicas
   recursos.md          quando usar cada recurso avançado, custo e armadilhas

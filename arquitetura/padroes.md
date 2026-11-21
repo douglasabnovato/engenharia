@@ -64,6 +64,10 @@ Padrões de código que se repetiram e funcionaram:
 - **Validação só no servidor**, uma regra para web e mobile.
 - **Cliente HTTP único** (`lib/api.js`) por app, com a URL base vinda de variável (`VITE_API_URL`, `EXPO_PUBLIC_API_URL`).
 - **`/health`** em toda API. Mas `/health` que não toca o banco não prova a conexão: ter também uma rota ou um log que leia o banco.
+- **Data e hora de Brasília**, regra da DG mundo de 15/11/2026, que agora vale para todo o portfólio:
+  - evidência, aviso, relatório e nome de branch usam a data local;
+  - no Git Bash, use `date '+%d/%m %H:%M'` sem `TZ`. `TZ=America/Sao_Paulo` devolve GMT nesta instalação, porque falta o banco de fusos;
+  - em script Node, nunca use `toISOString().slice(0,10)`. Depois das 21h em Brasília, ele já dá o dia seguinte. Use uma função de data local, como a `hojeLocal()` de `scripts/lib/data-local.mjs` do learntech-content (learntech-content#30).
 
 ## 4. Segurança
 
@@ -87,9 +91,11 @@ Regra do responsável, 16/11/2026: "Regra geral por ADR. alertas que nao atrapal
 - **Não chega à produção** (ferramenta de desenvolvimento, build, teste): risco aceito numa ADR do repositório, com a frase acima, a data, os pacotes e a severidade, e a prova de que não chega ao site (busca no `dist`, `expo export --source-maps`). Com a ADR, o critério 9 pode ficar "Atende".
 - **Chega ao site:** entender o caminho, escolher a estratégia (atualizar, override, trocar pacote ou versão maior) e provar com lint, testes, build e e2e que a funcionalidade continua. Não vira ADR de aceite.
 - Antes de aceitar, conferir se uma versão menor do pacote pai já corrige.
+- A correção entra no próximo ciclo do repositório, pela sprint, sem commit direto na principal (DG mundo, 16/11/2026).
 
 ### Dados pessoais (LGPD)
 - Decidir na Fase 0: o que se coleta, onde fica, quem vê.
 - Nenhum dado pessoal novo em código, documentos, issues ou dados de teste. Usar e-mails e nomes fictícios.
 - Banco versionado com dados no histórico: aceitar (dados de teste) ou reescrever o histórico é decisão do responsável.
 - Contas de demonstração públicas, quando intencionais, ficam registradas em ADR para que ninguém as remova sem saber.
+- Aceitos pelo responsável até 17/11/2026 (passagem Samsung, `dg-lider.md` item 25): as contas de demonstração dos repositórios e a chave do TMDB no `movies`. Não remover nem trocar sem ordem dele.
