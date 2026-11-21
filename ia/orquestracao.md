@@ -165,6 +165,36 @@ Nenhuma sessão muda de foco nem de acesso a pastas com a entrada do orquestrado
 
   As propostas alimentam o ciclo semanal de [`ciclo-evolutivo.md`](../processo/ciclo-evolutivo.md).
 
+### Regras de 15 a 17/11 trazidas do Samsung (21/11/2026)
+
+Até 21/11, estas regras existiam só nas memórias das sessões do Samsung. Fonte: [`relatorios/passagem-samsung-2026-11-21/`](../relatorios/passagem-samsung-2026-11-21/README.md) (engenharia#52): `dg-lider.md` itens 11 a 16 e 25, `dg-github.md` item 34 e `studio-d.md` item 25. Pela R17, a regra sai da memória e passa a valer aqui para todas as sessões.
+
+- **R22. Plano aprovado: os comandos `gh` são da sessão; o código de produto só com ordem direta.** Duas ordens do responsável que valem juntas:
+  - 16/11/2026: "voce poderia ter feito todos esses codigos que voce me pediu para fazer. da proxima vez, faca." Depois que o responsável aprova o plano, a sessão roda ela mesma os comandos `gh` de configuração e de merge que o plano lista, em vez de pedir que ele os rode.
+  - 20/11/2026: "os codigos so sao alterados com a minha ordem direta" (R21). Código de produto muda só com uma ordem dele para aquela mudança.
+
+  Limites:
+  - vale só para o que o plano aprovado lista, com o ok do próprio responsável; Decisão LIDER não basta para merge na principal (R1a);
+  - segredos, contas, cobrança e painéis fora do `gh` (Vercel, Render, Supabase e outros) seguem com ele (R12);
+  - as permissões do app e as regras de negação das configurações prevalecem; a sessão não as contorna e devolve o comando ao responsável.
+- **R23. Formato das respostas ao responsável.** Ordem de 16/11/2026: "quero o nome do repositório, quero os itens enumerados continuamente para facilitar o meu entendimento".
+  - todo item cita o repositório no formato `repo#N`;
+  - a numeração é contínua na resposta inteira e não recomeça a cada seção;
+  - também registrados na memória da DG líder, sem as palavras dele na passagem: os avisos de início e de fim trazem o percentual feito, e o progresso de um projeto é um índice de 0 a 100.
+- **R24. Escopo e repositórios fora do trabalho.**
+  - o contexto repositórios GitHub cobre 41 repositórios, e o `figma-design` fica fora (16/11/2026);
+  - os apps móveis antigos ficam congelados: sem construção nova, salvo ordem direta (15/11/2026);
+  - PRs abertos em repositórios de terceiros ficam como estão. Ordem de 16/11/2026: "os de terceiros, pode ficar lá. os demais, mergear" (R13);
+  - nos clones locais do `aula-de-programacao` e do `ux-design`, nenhum commit: o índice do Git deles estava quebrado no Samsung. Trabalhe num clone novo.
+
+Outras regras da passagem e onde elas já estão:
+- **alertas:** "Regra geral por ADR...", de 16/11, está em [`padroes.md`](../arquitetura/padroes.md), seção 4;
+- **campos do Project:** "preencher todos os campos" está em [`modelo-issue.md`](../processo/modelo-issue.md);
+- **contas de demonstração e chave TMDB do `movies`:** o risco foi aceito pelo responsável; o registro está em [`padroes.md`](../arquitetura/padroes.md), seção 4;
+- **roadmap.sh no `formacao-dev`:** entra só por link (ADR 001 do repositório).
+
+Falta trazer as memórias da DG mundo (`dg-mundo.md` item 27). Elas cobrem o fluxo do dia, a hora local, a ficha de ciclo, o Dependabot, as regras de negócio e os logos. A passagem lista só os temas, sem o texto das regras; quem as tem é o Samsung.
+
 ### Conflitos e escalonamento
 
 - **R15. Regra ambígua:** quando duas sessões leem a mesma regra de jeitos diferentes, o orquestrador registra as duas leituras, adota a mais segura até decidir e abre a issue para reescrever a regra. Exemplo: a regra de merge sem CI, em 13/11/2026 (engenharia#21).

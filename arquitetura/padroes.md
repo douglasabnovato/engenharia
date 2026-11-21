@@ -93,3 +93,4 @@ Regra do responsável, 16/11/2026: "Regra geral por ADR. alertas que nao atrapal
 - Nenhum dado pessoal novo em código, documentos, issues ou dados de teste. Usar e-mails e nomes fictícios.
 - Banco versionado com dados no histórico: aceitar (dados de teste) ou reescrever o histórico é decisão do responsável.
 - Contas de demonstração públicas, quando intencionais, ficam registradas em ADR para que ninguém as remova sem saber.
+- Aceitos pelo responsável até 17/11/2026 (passagem Samsung, `dg-lider.md` item 25): as contas de demonstração dos repositórios e a chave do TMDB no `movies`. Não remover nem trocar sem ordem dele.
