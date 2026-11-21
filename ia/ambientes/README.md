@@ -12,7 +12,7 @@ Levantado em 18/11/2026 pela sessão "Análise de arquitetura de IA" (pasta `C:\
 | GitHub | `C:\douglasabnovato-github` | "repositórios GitHub" | 40 repositórios de portfólio, `figma-design` e a pasta `revisao/` | [`github.md`](github.md) |
 | LearnTech | `C:\douglasabnovato-learntech` | "repositórios LearnTech" | learntech-content (API e conteúdo) e os sites learn-tech, bootcamps, career e tools | [`learntech.md`](learntech.md) |
 
-Relação com a [`orquestracao.md`](../orquestracao.md): "repositórios LearnTech" faz o papel da DG mundo, e "repositórios GitHub" o da DG github. O ambiente Comunidade **não aparece** na tabela R4: não tem sessão dona registrada nem sigla (inferido · confirmar com o responsável).
+Relação com a [`orquestracao.md`](../orquestracao.md), atualizada em 20/11/2026: "repositórios LearnTech" é a DG mundo (`MUNDO`), "repositórios GitHub" é a DG github (`GITHUB`) e "comunidade LearnTech" entrou na R4 como dona do `formacao-dev` (`COMUNIDADE`). O orquestrador "Líder de TODOS" (`LIDER`) também abre em `C:\douglasabnovato-community`, e o `engenharia` é da sessão "arquitetura de IA" (`IA`, pasta `C:\douglasabnovato-ia`).
 
 ## Maturidade da IA por ambiente
 
@@ -58,4 +58,4 @@ Pedido do responsável em 18/11/2026: "quando houver a oportunidade de aperfeiç
 | GitHub | `C:\douglasabnovato-github\orientacoes-ia.md` |
 | LearnTech | `C:\douglasabnovato-learntech\orientacoes-ia.md` |
 
-Sigla proposta para os avisos desta sessão: `IA`. Falta a confirmação do responsável e a entrada na R8.
+Sigla desta sessão nos avisos: `IA` (R8, desde 20/11/2026).
