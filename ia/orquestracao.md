@@ -157,7 +157,7 @@ Nenhuma sessão muda de foco nem de acesso a pastas com a entrada do orquestrado
     ```
 
   - **Limites:**
-    - nenhum código de produto muda no modo melhoria; código só muda com ordem direta do responsável;
+    - nenhum código de produto muda no modo melhoria; código só muda com ordem direta do responsável. Alcance definido pela [decisão 138](../decisoes/2026-11-23-decisao-138-merge-na-integracao.md): a ordem direta vale para a produção (sprint → principal) e para a configuração; o merge na integração faz parte do plano aprovado (R22);
     - a proposta não se aplica sozinha: o LIDER registra, pontua pela matriz e leva ao relatório;
     - com o ok do responsável, regra entra aqui por PR da arquitetura de IA, e script ou tarefa entra pela dona;
     - rascunhos só na pasta de trabalho da sessão, fora dos repositórios.
