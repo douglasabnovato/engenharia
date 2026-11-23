@@ -16,6 +16,7 @@ Ela nasceu dos ciclos de outubro e novembro de 2026, em que 39 repositórios for
 | Abrir uma issue | [`processo/modelo-issue.md`](processo/modelo-issue.md) |
 | Saber se algo está pronto | [`processo/definicao-de-pronto.md`](processo/definicao-de-pronto.md) |
 | Entender branches e quem mescla | [`processo/fluxo-git.md`](processo/fluxo-git.md) |
+| Liberar uma ação que precisa do responsável (ORDEM) | [`processo/ativacao-segura.md`](processo/ativacao-segura.md) |
 | Fazer o que só o dono do repositório faz | [`processo/guia-do-responsavel.md`](processo/guia-do-responsavel.md) |
 | Coordenar agentes | [`ia/como-trabalhamos.md`](ia/como-trabalhamos.md) e [`ia/briefs/`](ia/briefs/) |
 | Saber quem coordena as sessões e quem é dono de cada repositório | [`ia/orquestracao.md`](ia/orquestracao.md) |
@@ -54,6 +55,7 @@ ia/
   historico/           contexto de sessões encerradas (ex.: DG github original)
 processo/
   fluxo-git.md         feature → sprint → principal; ruleset da principal
+  ativacao-segura.md   ORDEM digitada pelo responsável no próprio canal
   modelo-issue.md      Objetivo, Motivo, Critérios, Fora desta issue; rótulos; Project
   definicao-de-pronto.md  "Atende" com evidência; "Finalizado"
   ciclo-evolutivo.md   ciclos diário, semanal e mensal; portões de qualidade; orçamento de performance
