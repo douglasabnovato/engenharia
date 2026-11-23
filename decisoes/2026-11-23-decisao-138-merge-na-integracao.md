@@ -40,12 +40,15 @@ Evidência do **C**:
 - **UI:** a tela funciona em 360 px e em 1440 px, com contraste suficiente, texto alternativo nas imagens e alvo de toque de 44 px;
 - **QA:**
   - testes e links;
-  - o check de tamanho (orçamento de performance);
+  - o check de tamanho: o orçamento de performance do bundle (`processo/ciclo-evolutivo.md`, seção 3, que entra pelo engenharia#50), como o `npm run orcamento` do learn-tech#155;
   - nenhum dado pessoal e nada da VEB.
 
 Num PR só de documentação, sem tela, o UI fica "não se aplica", com o motivo.
 
-**Quem revisa:** o Esp da disciplina ou a própria sessão dona, desde que siga o PDCA. É a leitura que o Líder de TODOS fez da frase, em 23/11/2026. A revisão pela sessão dona fica registrada como tal no comentário. O merge continua exigindo o comentário PDCA e o CI verde.
+**Quem revisa** (Decisão LIDER 144, 23/11/2026, engenharia#61):
+- o Esp da disciplina. Para UX, UI e QA, o padrão é o canal "Esp UX/UI (IHC)";
+- a própria sessão dona, só num PR que muda apenas documentação, sem código nem tela. O comentário diz que é autorrevisão;
+- o merge continua exigindo o comentário PDCA e o CI verde.
 
 O texto que vale está em [`processo/fluxo-git.md`](../processo/fluxo-git.md), "Revisão R19 em PDCA".
 
