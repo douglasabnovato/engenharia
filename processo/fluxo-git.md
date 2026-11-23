@@ -29,7 +29,7 @@ feature/AAAA-MM-DD  →  developer/sprint-<próxima quinta>  →  principal (mai
 
 | PR | Quem mescla | Condição |
 |---|---|---|
-| feature → sprint | A sessão dona, uma tentativa | CI verde e revisão do Esp da disciplina (R19); registro no Diário. Se a permissão negar, o PR fica com `revisao-responsavel` e a sessão não contorna |
+| feature → sprint | A sessão dona, uma tentativa | CI verde e revisão R19 em PDCA (abaixo); registro no Diário. Se a permissão negar, o PR fica com `revisao-responsavel` e a sessão não contorna |
 | Dependabot (patch ou minor) → principal | O responsável (o merge pelo agente foi negado) | CI verde |
 | Dependabot (major) | O responsável | Depois de revisar a migração |
 | sprint → principal | **Só o responsável**, uma vez por semana, na quinta do fechamento da sprint | CI verde e revisão. O agente abre com `revisao-responsavel` e deixa aberto |
@@ -37,6 +37,31 @@ feature/AAAA-MM-DD  →  developer/sprint-<próxima quinta>  →  principal (mai
 **Decisão 138** (23/11/2026, aprovada pelo responsável: "Aprovo a 138"): a R21 ("código só com a ordem direta dele") vale para a produção (sprint → principal) e para a configuração. O merge na integração faz parte do plano aprovado (R22). Ele faz o sprint → principal uma vez por semana, na quinta do fechamento da sprint. Registro: [`decisoes/2026-11-23-decisao-138-merge-na-integracao.md`](../decisoes/2026-11-23-decisao-138-merge-na-integracao.md).
 
 CI vermelho ou ausente bloqueia o merge pelo agente. Num repositório sem CI, o agente cola no PR a saída do build e dos testes, deixa o PR aberto com `revisao-responsavel` e abre a issue para criar o CI. (Regra esclarecida em 13/11/2026, engenharia#21.)
+
+### Revisão R19 em PDCA
+
+Complemento da decisão 138, nas palavras do responsável (23/11/2026, 17h15): "a revisao pode ser seguindo o pdca de metodologia atendendo aos principios de ux ui qa na engenharia de software."
+
+Toda revisão R19 de PR é **um comentário no PR**, nesta ordem:
+
+| Etapa | O que o comentário traz |
+|---|---|
+| **P · planejar** | O objetivo do PR e o critério de aceite, com o link da issue |
+| **D · fazer** | O que mudou: arquivos e telas |
+| **C · checar** | CI verde e a evidência de cada princípio (abaixo) |
+| **A · agir** | Os achados numerados, o veredito (aprovado, aprovado com ressalvas ou pedir mudanças) e o próximo passo, com quem faz |
+
+Evidência do **C**:
+- **UX:** o fluxo é claro e o usuário chega ao objetivo;
+- **UI:** a tela funciona em 360 px e em 1440 px, com contraste suficiente, texto alternativo nas imagens e alvo de toque de 44 px;
+- **QA:**
+  - testes e links;
+  - o check de tamanho (orçamento de performance);
+  - nenhum dado pessoal e nada da VEB.
+
+Num PR só de documentação, sem tela, o UI fica "não se aplica", com o motivo.
+
+**Quem revisa:** o Esp da disciplina ou a própria sessão dona, desde que siga o PDCA. É a leitura que o Líder de TODOS fez da frase, em 23/11/2026. A revisão pela sessão dona fica registrada como tal no comentário. O merge continua exigindo o comentário PDCA e o CI verde.
 
 ## Principal protegida
 
