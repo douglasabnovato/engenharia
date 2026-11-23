@@ -40,7 +40,7 @@ Evidência do **C**:
 - **UI:** a tela funciona em 360 px e em 1440 px, com contraste suficiente, texto alternativo nas imagens e alvo de toque de 44 px;
 - **QA:**
   - testes e links;
-  - o check de tamanho: o orçamento de performance do bundle ([`ciclo-evolutivo.md`](../processo/ciclo-evolutivo.md), seção 3), como o `npm run orcamento` do learn-tech#155;
+  - o check de tamanho: o orçamento de performance do bundle (`processo/ciclo-evolutivo.md`, seção 3, que entra pelo engenharia#50), como o `npm run orcamento` do learn-tech#155;
   - nenhum dado pessoal e nada da VEB.
 
 Num PR só de documentação, sem tela, o UI fica "não se aplica", com o motivo.
