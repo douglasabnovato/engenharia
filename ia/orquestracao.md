@@ -37,7 +37,8 @@ Nomes atualizados em 20/11/2026 pelo responsável: "dg lider é o lider de todos
 | Sessão de projeto | **comunidade LearnTech** · `COMUNIDADE` | `C:\douglasabnovato-community` | O `formacao-dev`, do começo ao fim | Mexer fora do `formacao-dev`; fazer pela comunidade o exercício das trilhas (proposta, falta decidir quais) |
 | Sessão de projeto | **DG veb** · `VEB` | pasta da VEB | Os 3 repositórios da VEB, do começo ao fim. **Prevista:** o responsável vai inserir o contexto; sem cobrança até lá | Mexer fora da VEB |
 | Sessão de apoio | **repositórios GitHub** (antes "DG github (fork)") · `GITHUB` | `C:\douglasabnovato-github` | Os repositórios do GitHub do portfólio: Studio D, roteiros, revisão de fatos e os demais, fora o learnTECH, a Comunidade e a VEB | Mexer nos repositórios das sessões de projeto (lê para os roteiros) |
-| Especialista | subagente chamado pela sessão dona | — | Revisa a mudança pela sua disciplina e devolve achados (R19) | Escrever; decidir; mesclar |
+| Esp (especialista) | sessão filha do LIDER, uma por disciplina (arquitetura de codes de 21/11/2026; engenharia#55 traz o registro completo) | `C:douglasabnovato-ia` | Revisa a mudança pela sua disciplina e devolve achados à dona (R19); escreve só na pasta de trabalho dela | Escrever em repositório; decidir; mesclar |
+| Agente especialista | subagente de `.claude/agents/`, chamado pela sessão dona ou pelo Esp | — | Uma revisão curta pelo checklist da disciplina | Escrever; decidir; mesclar |
 | Subagente | criado por uma sessão | — | Uma tarefa curta com brief | Decidir; mesclar |
 
 Nenhuma sessão muda de foco nem de acesso a pastas com a entrada do orquestrador. A sessão "DG github" original sai; o contexto dela fica documentado no `engenharia` e passa para a "repositórios GitHub". O mapa dos ambientes está em [`ambientes/README.md`](ambientes/README.md).
@@ -81,7 +82,7 @@ Nenhuma sessão muda de foco nem de acesso a pastas com a entrada do orquestrado
   | plataforma, landing e Hub da VEB | DG veb (VEB, prevista) |
   | studio-d e os demais repositórios do portfólio | repositórios GitHub (GITHUB) |
   | engenharia (`ia/`, `processo/`, `arquitetura/`, `.claude/`, `scripts/`, `CHANGELOG.md`) | arquitetura de IA (IA) |
-  | engenharia (`relatorios/`, `decisoes/`) | Líder de TODOS (LIDER), por PR na sprint |
+  | engenharia (`relatorios/`, `decisoes/`) | Líder de TODOS (LIDER), por PR na sprint. A decisão que muda regra é conduzida pelo LIDER e gravada pela arquitetura de IA, no mesmo PR da regra (exemplo: decisão 138, engenharia#59) |
 
   Os itens de cada repositório no Project 2 são da sessão dona daquele repositório. O orquestrador só lê o Project.
 
@@ -124,7 +125,7 @@ Nenhuma sessão muda de foco nem de acesso a pastas com a entrada do orquestrado
 ### Escala e qualidade (20/11/2026)
 
 - **R18. Ação em massa só com simulação e o ok do responsável.** Mais de 10 escritas de uma vez no GitHub (issues, rótulos, campos do Project, comentários, PRs) ou qualquer escrita fora do repositório dono: primeiro roda a simulação (como o `scripts/preencher-project.py` sem `--gravar`), mostra a lista ao responsável e só grava com o ok dele. Ninguém escreve em repositório de outra sessão, nem com um pedido genérico. Motivo: o pós-incidente de 20/11/2026 ([decisão](../decisoes/2026-11-20-governanca-ia.md)).
-- **R19. Revisão pelo especialista da disciplina.** O PR de um repositório N2 ou N3 cita o checklist das disciplinas que ele toca ([`disciplinas.md`](../arquitetura/disciplinas.md)) e passa pelo agente especialista correspondente antes do merge na sprint. O especialista só revisa; quem corrige é a sessão dona. Os portões de qualidade estão em [`ciclo-evolutivo.md`](../processo/ciclo-evolutivo.md).
+- **R19. Revisão pelo especialista da disciplina.** O PR de um repositório N2 ou N3 cita o checklist das disciplinas que ele toca ([`disciplinas.md`](../arquitetura/disciplinas.md)) e passa pela revisão do Esp da disciplina (ou do agente especialista, quando o Esp chamar) antes do merge na sprint. O especialista só revisa; quem corrige é a sessão dona. Os portões de qualidade estão em [`ciclo-evolutivo.md`](../processo/ciclo-evolutivo.md).
 - **R20. Repositório sob curadoria do responsável.** Hoje só o `douglasabnovato/douglasabnovato.dev`, o portfólio que ele apresenta em entrevistas, a clientes da startup e na captação de recursos. Ordem do responsável em 20/11/2026: "esse projeto deve ser tratado de forma diferente dos demais do contexto do repositorios github pois ele sempre será medotico e detalhadamente cuidadosamente passado por mim para ser real". Num repositório sob curadoria:
   - fica fora de ação em lote (R18), automação, workflows herdados e planos genéricos;
   - toda mudança é proposta item a item, com o texto exato e a fonte, e só entra depois que o responsável aprovar **aquela** mudança;
@@ -156,7 +157,7 @@ Nenhuma sessão muda de foco nem de acesso a pastas com a entrada do orquestrado
     ```
 
   - **Limites:**
-    - nenhum código de produto muda no modo melhoria; código só muda com ordem direta do responsável;
+    - nenhum código de produto muda no modo melhoria; código só muda com ordem direta do responsável. Alcance definido pela [decisão 138](../decisoes/2026-11-23-decisao-138-merge-na-integracao.md): a ordem direta vale para a produção (sprint → principal) e para a configuração; o merge na integração faz parte do plano aprovado (R22);
     - a proposta não se aplica sozinha: o LIDER registra, pontua pela matriz e leva ao relatório;
     - com o ok do responsável, regra entra aqui por PR da arquitetura de IA, e script ou tarefa entra pela dona;
     - rascunhos só na pasta de trabalho da sessão, fora dos repositórios.

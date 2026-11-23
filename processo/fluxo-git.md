@@ -29,10 +29,12 @@ feature/AAAA-MM-DD  →  developer/sprint-<próxima quinta>  →  principal (mai
 
 | PR | Quem mescla | Condição |
 |---|---|---|
-| feature → sprint | O agente, uma tentativa | CI verde. Se a permissão negar, o PR fica aberto com `revisao-responsavel` |
+| feature → sprint | A sessão dona, uma tentativa | CI verde e revisão do Esp da disciplina (R19); registro no Diário. Se a permissão negar, o PR fica com `revisao-responsavel` e a sessão não contorna |
 | Dependabot (patch ou minor) → principal | O responsável (o merge pelo agente foi negado) | CI verde |
 | Dependabot (major) | O responsável | Depois de revisar a migração |
-| sprint → principal | **Só o responsável** | CI verde e revisão. O agente abre com `revisao-responsavel` e deixa aberto |
+| sprint → principal | **Só o responsável**, uma vez por semana, na quinta do fechamento da sprint | CI verde e revisão. O agente abre com `revisao-responsavel` e deixa aberto |
+
+**Decisão 138** (23/11/2026, aprovada pelo responsável: "Aprovo a 138"): a R21 ("código só com a ordem direta dele") vale para a produção (sprint → principal) e para a configuração. O merge na integração faz parte do plano aprovado (R22). Ele faz o sprint → principal uma vez por semana, na quinta do fechamento da sprint. Registro: [`decisoes/2026-11-23-decisao-138-merge-na-integracao.md`](../decisoes/2026-11-23-decisao-138-merge-na-integracao.md).
 
 CI vermelho ou ausente bloqueia o merge pelo agente. Num repositório sem CI, o agente cola no PR a saída do build e dos testes, deixa o PR aberto com `revisao-responsavel` e abre a issue para criar o CI. (Regra esclarecida em 13/11/2026, engenharia#21.)
 
