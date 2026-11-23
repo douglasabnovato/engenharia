@@ -178,12 +178,14 @@ Até 21/11, estas regras existiam só nas memórias das sessões do Samsung. Fon
   - vale só para o que o plano aprovado lista, com o ok do próprio responsável; Decisão LIDER não basta para merge na principal (R1a);
   - segredos, contas, cobrança e painéis fora do `gh` (Vercel, Render, Supabase e outros) seguem com ele (R12);
   - as permissões do app e as regras de negação das configurações prevalecem; a sessão não as contorna e devolve o comando ao responsável.
+
+  **Leitura oficial:** a [decisão 138](../decisoes/2026-11-23-decisao-138-merge-na-integracao.md) junta esta regra com a R21 e com o [`fluxo-git.md`](../processo/fluxo-git.md). A ordem direta vale para a produção e para a configuração. O merge feature → sprint é da sessão dona, com CI verde e revisão R19. A mudança de regra fica com o ok do responsável.
 - **R23. Formato das respostas ao responsável.** Ordem de 16/11/2026: "quero o nome do repositório, quero os itens enumerados continuamente para facilitar o meu entendimento".
   - todo item cita o repositório no formato `repo#N`;
   - a numeração é contínua na resposta inteira e não recomeça a cada seção;
-  - também registrados na memória da DG líder, sem as palavras dele na passagem: os avisos de início e de fim trazem o percentual feito, e o progresso de um projeto é um índice de 0 a 100.
+  - **[A CONFIRMAR com o responsável]** registrados só na memória da DG líder, sem as palavras dele: os avisos de início e de fim trazem o percentual feito, e o progresso de um projeto é um índice de 0 a 100. Não valem como regra até ele confirmar.
 - **R24. Escopo e repositórios fora do trabalho.**
-  - o contexto repositórios GitHub cobre 41 repositórios, e o `figma-design` fica fora (16/11/2026);
+  - o `figma-design` fica fora do escopo do contexto repositórios GitHub (16/11/2026). **[A CONFIRMAR com o responsável]** o número: a memória dizia "41, figma-design fora", mas o volume de 20/11 e o painel contam o `figma-design` dentro dos 41. Ele confirma o número e a lista (achado 8 da Esp PM);
   - os apps móveis antigos ficam congelados: sem construção nova, salvo ordem direta (15/11/2026);
   - PRs abertos em repositórios de terceiros ficam como estão. Ordem de 16/11/2026: "os de terceiros, pode ficar lá. os demais, mergear" (R13);
   - nos clones locais do `aula-de-programacao` e do `ux-design`, nenhum commit: o índice do Git deles estava quebrado no Samsung. Trabalhe num clone novo.
