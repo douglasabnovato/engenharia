@@ -29,7 +29,7 @@ feature/AAAA-MM-DD  →  developer/sprint-<próxima quinta>  →  principal (mai
 
 | PR | Quem mescla | Condição |
 |---|---|---|
-| feature → sprint | A sessão dona, uma tentativa | CI verde e revisão R19 em PDCA (abaixo); registro no Diário. Se a permissão negar, o PR fica com `revisao-responsavel` e a sessão não contorna |
+| feature → sprint | A sessão dona, uma tentativa | CI verde e revisão R19 em PDCA (abaixo); registro no Diário. Se a permissão negar, o PR fica com `revisao-responsavel` e a sessão não contorna; a liberação dele segue o [protocolo de ativação segura](ativacao-segura.md) |
 | Dependabot (patch ou minor) → principal | O responsável (o merge pelo agente foi negado) | CI verde |
 | Dependabot (major) | O responsável | Depois de revisar a migração |
 | sprint → principal | **Só o responsável**, uma vez por semana, na quinta do fechamento da sprint | CI verde e revisão. O agente abre com `revisao-responsavel` e deixa aberto |
