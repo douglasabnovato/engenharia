@@ -26,6 +26,7 @@ A R21 ("código só com a ordem direta dele") vale para duas coisas: a produçã
 
 - Segredos, contas, deploy que exige conta dele e custo (R12).
 - O repositório sob curadoria, `douglasabnovato.dev` (R20): mudança item a item, com o ok dele.
+- Mudança de regra (`ia/orquestracao.md`, `CLAUDE-raiz.md`, definições de agentes e skills): o texto é do responsável, então o merge na sprint é com o ok dele, mesmo com CI verde e revisão R19 (achado 12 da Esp PM).
 - As permissões e as regras de negação do app prevalecem sobre esta decisão.
 
 Onde foi aplicada: [`processo/fluxo-git.md`](../processo/fluxo-git.md), "Quem pode mesclar o quê".
