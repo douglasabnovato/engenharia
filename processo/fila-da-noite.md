@@ -90,3 +90,20 @@ No fim: resumo de até 10 linhas com links, o número de escritas e o que fica p
 ```
 
 Cada sessão recebe a sua mensagem, com itens só dos repositórios dela (R4).
+
+## 4. Lições da noite de 23 para 24/11/2026 [A CONFIRMAR com o responsável]
+
+São Decisões LIDER tomadas durante a noite, pela delegação "recomendar e agir". Elas valem até ele confirmar ou mudar no relatório do dia. Fonte: o diário do Líder de TODOS de 23/11/2026 e os PRs engenharia#64 a #77.
+
+| Lição | O que fazer | De onde veio |
+|---|---|---|
+| **Limite por hora corrida** (Decisão LIDER 150) | No máximo 10 escritas no GitHub em qualquer janela de 60 min: push, PR, comentário, merge e issue. Passou disso, faz a simulação e deixa para ele | Ciclos de 2 a 5 min esvaziaram o limite de "10 por ciclo". A arquitetura de IA fez 13 escritas num ciclo só |
+| **1 min de folga** | Antes de escrever, conferir a hora da escrita mais antiga da janela e esperar até que ela tenha mais de 61 min | Às 02h33m18, a hora corrida teve 11 escritas por uns 20 s |
+| **Ciclo de 1 a 2 h** | Um ciclo junta o trabalho de 1 a 2 h. Trabalho curto entra no mesmo ciclo, e não abre um novo | o texto da ATIVAÇÃO do ciclo evolutivo |
+| **Sem janela, fila local** | Prepara o commit e o texto do comentário no local, numa pasta de fila com um `LEIA.md` que lista as escritas, e envia tudo quando a janela abrir | a fila das 00h32 (9 escritas: #72, #73 e #6) |
+| **R19 colada pela dona** (Decisão LIDER 149) | O Esp grava a revisão na pasta dele, e a dona cola no PR com o título "Revisão R19 em PDCA · Esp <disciplina>, colada pela dona" e o caminho do arquivo | Até ele confirmar se o Esp escreve no GitHub (`ia/arquitetura-de-codes.md`, seção 3) |
+| **R10 no texto colado** | Antes de colar, buscar nomes de outro contexto (por exemplo, a VEB). Se houver, tirar a linha e dizer no comentário que a dona tirou | 2 casos na noite, nos textos colados do #72 |
+| **A hora sai do `date`** | Toda hora de aviso e de diário vem de `date`, e não de estimativa | Os resumos dos ciclos 2 a 5 estavam adiantados. No diário, a hora estimada virou `Desvio (R-Diário, hora)` |
+| **Desvio rotulado** | O Líder marca no diário `**Desvio (Rnn):**` no começo do item, e quem desviou avisa por conta própria | a hipótese do `engenharia` (`docs/MVP.md`): a linha de base foi para 6 (Decisão LIDER 151) |
+| **Merge pela ATIVAÇÃO** | Com a ATIVAÇÃO digitada por ele, a dona mescla na integração com o CI verde e a R19 "aprovado" ou "aprovado com ressalvas", numa tentativa só. "Pedir mudanças" espera a reconferência | #66, #68 a #73 e #75 a #77 |
+| **Nunca parar** | Sem tarefa nem janela, a reserva é pesquisa, estudo ou rascunho local, sem escrita | a cobrança dele às 22h40 e o item 2 da ATIVAÇÃO |
