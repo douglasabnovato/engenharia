@@ -1,0 +1,8 @@
+{
+  "name": "engenharia-local",
+  "description": "Marketplace local do engenharia: um plugin só, na raiz do repositório (protótipo, engenharia#54)",
+  "owner": { "name": "douglasabnovato" },
+  "plugins": [
+    { "name": "engenharia", "source": "./", "description": "Regras, skills e agentes revisores do engenharia" }
+  ]
+}
