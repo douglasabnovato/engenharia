@@ -75,6 +75,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - Com `core.autocrlf=true`, o comando `file` mostra CRLF que não existe no repositório. (coin-wallet e vizinhos, 05/11/2026)
 - Conferir `git ls-files --eol` antes de reescrever um arquivo: gravar LF sobre índice CRLF troca o arquivo inteiro; nesse caso usar `git -c core.autocrlf=false add`. (dashboards, 06/11; components, 09/11/2026)
 - Variáveis com caminho (`PUBLIC_URL=/movies`) viram `C:/Program Files/Git/movies`; usar `MSYS_NO_PATHCONV=1`. (movies, 09/11/2026)
+  - Voltou em 24/11/2026: `PUBLIC_URL=/` quebrou o build e o e2e do movies no Acer, sem aviso. A regra estava aqui, mas não foi lida antes. Por isso entrou como item 25 do [checklist de autorrevisão](../processo/checklist-autorrevisao-scripts.md). O mesmo vale para `git show origin/<branch>:<arquivo>`, que dá "ambiguous argument" sem `MSYS_NO_PATHCONV=1`. (sessão GitHub e arquitetura de IA, 24/11/2026)
 - `python - <<EOF` no Git Bash corrompe acentos; gravar o script em arquivo e rodar com `PYTHONUTF8=1`. (aircnc, 09/11/2026)
 - Subir servidor com `&` no mesmo comando trava o Bash; usar comando em segundo plano separado ou o `webServer` do Playwright. (proffy e vizinhos, 09/11/2026)
 - Teste que estoura o tempo só no computador local (carga alta) não é bug; rodar só o arquivo afetado e decidir pelo CI. (signature-generator e vizinhos, 06/11/2026)
@@ -88,6 +89,8 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - `cat > arquivo` sem heredoc espera a entrada e trava o Bash até o tempo esgotar; heredoc dentro de `$( )` também quebrou: usar `--body-file`. (lotes de 10/11/2026)
 - Datar evidência, aviso e relatório com a data local (`date '+%d/%m %H:%M'`), nunca com a UTC: depois das 21h em Brasília, a UTC já é o dia seguinte. Em script, nada de `toISOString`. (portfólio e learntech-content, 15/11/2026)
 - O Git Bash pode não ter zoneinfo: `TZ=America/Sao_Paulo date` cai em GMT sem erro. Usar o `date` puro, que segue o relógio do Windows. (learntech-content, 15/11/2026)
+- No Acer, `python` e `python3` são só o atalho da Microsoft Store ("Python was not found"). Os scripts `.py` e os testes do hook rodam só no CI. Para os links, usar `node scripts/verificar_links.mjs`. (arquitetura de IA, 23/11/2026; engenharia#58 e #66)
+- Barra invertida escrita pelo terminal (heredoc, `node -e` ou `sed`) se perde no caminho: `\\` vira `\`, e a regex muda sem erro. Conferir o arquivo gravado com `grep -cF '\' <arquivo>` e, para texto com barra, usar o Edit. O `grep -c '\\'` dá "Trailing backslash" no Git Bash. (formacao-dev#359; engenharia#66, #73 e #80, 23 e 24/11/2026)
 - Para provar que a produção roda a principal, comparar o pacote publicado com um build local. SVG com CRLF muda o hash: comparar o conteúdo com `tr -d '
 '`. (aircnc, 15/11/2026)
 - No Git Bash, `TZ=` com nome de fuso cai em UTC sem aviso. Usar o `date` local e conferir o horário antes de escrever. (portfólio, 16/11/2026)
