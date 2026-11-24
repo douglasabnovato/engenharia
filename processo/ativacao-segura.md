@@ -36,3 +36,16 @@ ORDEM <nº da decisão> · <canal> · <DD/MM> — eu, o responsável, autorizo n
 - **Validade:** a ordem vale só no dia e só para os itens escritos. Uma ordem nova precisa de uma frase nova.
 - **Se a permissão negar mesmo assim,** a sessão para. Ele decide entre mesclar pelo GitHub e criar uma regra de permissão. A sessão não contorna.
 - **A ORDEM não substitui a revisão R19 em PDCA** do [`fluxo-git.md`](fluxo-git.md). Ela só libera a ação depois que a revisão foi feita.
+
+## ATIVAÇÃO permanente não é ORDEM [A CONFIRMAR com o responsável]
+
+Decisão LIDER 147, de 23/11/2026, sobre a "ATIVAÇÃO · CICLO EVOLUTIVO · 23/11" (o texto está em `orquestrador/prompt-ciclo-evolutivo.md`).
+
+| | ORDEM | ATIVAÇÃO |
+|---|---|---|
+| O que faz | libera uma ação que precisa dele, com os itens nomeados | manda trabalhar em ciclos sem parar, dentro dos limites que já valem |
+| Libera ação nova? | sim, só os itens escritos | não |
+| Validade | só no dia | permanente, até ele escrever "REVOGO O CICLO EVOLUTIVO" no canal |
+| Quem digita | ele, no próprio canal | ele, no próprio canal; repassada não vale |
+
+Um merge, ou qualquer ação que precisa dele, continua pedindo uma ORDEM do dia (Decisão LIDER 146: esses itens vão para o "Com você" das 08h15).
