@@ -69,3 +69,17 @@ test('linha de comando: pasta inexistente sai com 1 e diz o motivo', () => {
   assert.equal(r.status, 1);
   assert.match(r.stdout, /Pasta não encontrada/);
 });
+
+test('caixa com a raiz relativa ".": os 4 casos', () => {
+  const raiz = montar({
+    'a.md': '[1](README.MD) [2](Pasta/b.md) [3](pasta/B.md) [4](PASTA/)',
+    'readme.md': '', 'pasta/b.md': '',
+  });
+  const antes = process.cwd();
+  process.chdir(raiz);
+  try {
+    assert.deepEqual(linksQuebrados('.'), [['a.md', 'README.MD'], ['a.md', 'Pasta/b.md'], ['a.md', 'pasta/B.md'], ['a.md', 'PASTA/']]);
+  } finally {
+    process.chdir(antes);
+  }
+});

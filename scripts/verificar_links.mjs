@@ -7,7 +7,7 @@
 // Links externos (http, https, mailto) e âncoras puras (#secao) não são conferidos.
 // A caixa das letras é conferida também no Windows, como no CI (Linux).
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
-import { join, normalize, relative, sep } from 'node:path';
+import { join, normalize, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const LINK = /\[[^\]]*\]\(([^)\s]+)\)/g;
@@ -24,7 +24,8 @@ function* arquivosMd(pasta) {
 /** Existe com a mesma caixa em cada parte do caminho (o disco do Windows ignora a caixa). */
 export function existeComCaixa(caminho) {
   if (!existsSync(caminho)) return false;
-  const partes = caminho.split(sep);
+  // Caminho absoluto: assim a 1ª parte depois do disco também é conferida (raiz ".").
+  const partes = resolve(caminho).split(sep);
   for (let i = 1; i < partes.length; i++) {
     const nome = partes[i];
     if (nome === '' || nome === '.' || nome === '..') continue;
