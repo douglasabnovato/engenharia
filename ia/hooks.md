@@ -15,6 +15,7 @@ Script: [`scripts/hooks/bloquear_proibidos.py`](../scripts/hooks/bloquear_proibi
 | Push direto na principal | `git push origin main`, `HEAD:master`, `heads/main`, `x:refs/heads/main`, `--repo=origin main` | `CLAUDE.md`, regras 3 e 4 |
 | Apagar branch remota | `git push --delete origin x`, `git push origin :x`, `git push --prune` | [`como-trabalhamos.md`](como-trabalhamos.md) |
 | Reescrever histórico | `git filter-repo`, `git-filter-repo`, `git filter-branch` | [`padroes.md`](../arquitetura/padroes.md), seção 4 |
+| Merge fora da integração [A CONFIRMAR com o responsável] | `gh pr merge` com base `main` ou `master`; `gh pr merge` quando o hook não consegue conferir a base; `gh api ... pulls/N/merge` | R12, decisão 138, proposta P3 de [`fila-da-noite.md`](../processo/fila-da-noite.md) |
 
 Como ele lê o comando:
 - Respeita as aspas. Por isso `git commit -m "proibido --no-verify"` e `echo git push --force` passam: são texto, não comando.
@@ -22,6 +23,8 @@ Como ele lê o comando:
 - Pula o que vem antes do comando de verdade: `VAR=1`, `env`, `sudo`, `timeout 60`, `xargs`, `if`, `then`, `(`, `{`, `!` e o `if ($?) {` do PowerShell.
 - Confere de novo o texto passado a `bash -c`, `sh -c`, `powershell -Command` e `cmd /c`, e o que está dentro de `$( )` e de crases.
 - Aceita o caminho completo do `git.exe`, com ou sem aspas.
+
+No `gh pr merge`, o hook pergunta a base ao GitHub (`gh pr view --json baseRefName`, até 20 s). Se não conseguir, recusa. Com o hook ligado, uma regra de permissão para o `gh pr merge` deixaria de liberar a `main`, porque a recusa do hook vale mais que a permissão. Criar essa regra é configuração do responsável (R12).
 
 Quando recusa, o hook devolve `permissionDecision: deny` com o motivo, e o agente vê a mensagem. Por exemplo: "Bloqueado pelo hook do portfólio: Push direto na principal é proibido: use PR (CLAUDE.md, regras 3 e 4)."
 
@@ -39,12 +42,13 @@ Por isso o hook soma às outras camadas, não substitui: texto, classificador, h
 python -m unittest discover -s scripts/hooks -v
 ```
 
-São 6 testes:
+São 12 testes:
 - 49 comandos que devem ser bloqueados, inclusive as burlas achadas pela revisão independente (quebra de linha, `bash -c`, `commit -n`, `--prune`);
 - 22 comandos que devem passar;
 - a saída JSON de recusa;
 - entradas estranhas que não podem travar a sessão;
-- aspas sem fechar.
+- aspas sem fechar;
+- 6 do merge só na integração, com a consulta ao GitHub trocada por uma falsa (base de integração passa, principal recusa, sem base recusa, `-R` e opções com valor, merge pela API, outros `gh` sem consulta).
 
 ## Como ligar (responsável, issue #17)
 
