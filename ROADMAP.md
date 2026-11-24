@@ -31,4 +31,15 @@ A coluna "Ganho" diz que critério fecha ou que métrica move.
 | 11 | P3 (merge só na integração por hook): só depois de Python instalado, do hook testado ligado e do passo 5 | P2 | a 138 sem ORDEM por merge | engenharia#67 (em espera, Decisão LIDER 148) |
 | 12 | Agentes `dados` e `devrel` (lacunas da arquitetura de codes) | P2 | revisão de Dados e de DevRel | a abrir depois do passo 10 |
 
-Já feito em 23/11/2026: a verificação no Acer sem Python (engenharia#66) e o registro da arquitetura de codes (engenharia#68), os dois mesclados na sprint.
+Já feito na sprint de 26/11, em 23 e 24/11/2026, sem mudar regra:
+- a verificação no Acer sem Python (#66);
+- o registro da arquitetura de codes (#68) e a proposta de Dados (#73);
+- o MVP e a recontagem dos desvios (#69 e #79);
+- o plugin validado (#70);
+- o CI na `main`, sem duplicata, por SHA e com dispatch (#71, #75, #76 e #77);
+- a revisão de fatos (#72);
+- as lições da noite (#78);
+- o checklist de autorrevisão (#80 a #82, [A CONFIRMAR]);
+- os aprendizados do Acer (#83 e #84).
+
+Atualizado em 24/11/2026, às 17h50.
