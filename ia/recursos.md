@@ -15,7 +15,7 @@ Regra geral: o recurso mais simples que resolve. Cada nível acima custa tokens 
 | Subagentes em paralelo | Partes independentes de uma tarefa, que não mexem nos mesmos arquivos | Uma parte precisa do resultado da outra | Cresce com o número de agentes | Lotes de 2 a 5 agentes ([`como-trabalhamos.md`](como-trabalhamos.md)) |
 | Outra sessão (paralela) | Tarefa própria, que termina num PR ou num repositório próprio e que o responsável quer acompanhar à parte | Um pedaço da tarefa atual: use subagente | Alto: a sessão nova começa sem o contexto | Sessões por "mundo" de repositórios, coordenadas pelo orquestrador ([`orquestracao.md`](orquestracao.md)) |
 | Mensagem entre sessões | Avisar início e fim, pedir status, dividir trabalho | Pedir que outra sessão faça o que foi negado aqui | Baixo | A divisão da arquitetura de IA entre duas sessões, em 12/11/2026 |
-| Tarefa agendada | Rotina com hora certa e o mesmo pedido todo dia | Algo que acontece uma vez | Uma sessão por execução | `abertura-do-dia-*` às 7h |
+| Tarefa agendada | Rotina com hora certa e o mesmo pedido todo dia | Algo que acontece uma vez | Uma sessão por execução | `abertura-do-dia-*` às 6h30 |
 | Workflow com muitos agentes | Só com pedido explícito do responsável | Qualquer outro caso | O maior | Não usado até 12/11/2026 |
 | Navegador do app | Conferir tela, console e rede de um site local ou publicado | Ler texto de uma página: `curl` ou leitura de texto bastam | Médio | Evidência visual do critério 3 |
 | Conectores (Notion, Drive, documentos) | O responsável ligou e pediu | Dado pessoal ou de terceiros iria para fora | Baixo a médio | — |

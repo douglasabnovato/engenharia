@@ -26,20 +26,26 @@ Ela nasceu dos ciclos de outubro e novembro de 2026, em que 39 repositórios for
 | Escolher entre sessão, subagente, agendamento ou skill | [`ia/recursos.md`](ia/recursos.md) |
 | Bloquear as ações proibidas com hook | [`ia/hooks.md`](ia/hooks.md) |
 | Ver cada ambiente (Comunidade, GitHub, LearnTech), a maturidade da IA em cada um e as orientações | [`ia/ambientes/`](ia/ambientes/README.md) |
+| Saber o padrão mínimo de cada disciplina (DevOps, SecOps, UX, UI, mobile, QA, performance...) por nível | [`arquitetura/disciplinas.md`](arquitetura/disciplinas.md) |
+| Entender o ciclo de melhoria, os portões de qualidade e o orçamento de performance | [`processo/ciclo-evolutivo.md`](processo/ciclo-evolutivo.md) |
+| Ver o que mudou nas regras | [`CHANGELOG.md`](CHANGELOG.md) |
+| Estudar o Claude, as ferramentas e as metodologias, com experimentos medidos | [`ia/estudos/`](ia/estudos/README.md) e [`ia/avaliacoes/`](ia/avaliacoes/README.md) |
 
 ## Mapa das pastas
 
 ```
 README.md              este índice
 CLAUDE-raiz.md         proposta de CLAUDE.md para a pasta que guarda os clones do portfólio
+CHANGELOG.md           mudanças nas regras, skills, agentes e hooks
 arquitetura/
   padroes.md           níveis N1/N2/N3, régua dos 12 critérios, pilhas de referência, segurança
+  disciplinas.md       padrão mínimo N1/N2/N3 de cada disciplina e o agente de cada uma
   modelo-c4.md         como documentar C4 em Mermaid (exemplo: aircnc)
   modelo-adr.md        formato de ADR e exemplos
   modelo-analise.md    especificação, requisitos com critério de aceite, defeitos com severidade
   deploy/              Render + Atlas; Pages, Vercel e Netlify
 ia/
-  orquestracao.md      orquestrador, sessões donas e regras R1 a R17
+  orquestracao.md      orquestrador, sessões donas e regras R1 a R24
   prompts/dg-lider.md  prompt para criar a sessão orquestradora
   arquitetura-ia.md    mapa da IA: camadas, sessões, protocolo, regras, skills, agentes, técnicas
   recursos.md          quando usar cada recurso avançado, custo e armadilhas
@@ -49,6 +55,8 @@ ia/
   processo-repositorio.md  passos 0 a 8, decisões, limites, fases de um projeto novo
   aprendizados.md      todas as lições, por tema
   briefs/              modelos de brief para agentes (ciclo completo e ciclo curto)
+  estudos/             laboratório: trilha de 9 temas, cada um com experimento e métrica
+  avaliacoes/          gabaritos dos agentes e das skills
   historico/           contexto de sessões encerradas (ex.: DG github original)
 processo/
   fluxo-git.md         feature → sprint → principal; ruleset da principal
@@ -57,11 +65,12 @@ processo/
   medida-mvp.md        rascunho: 4 critérios de MVP por repositório
   modelo-issue.md      Objetivo, Motivo, Critérios, Fora desta issue; rótulos; Project
   definicao-de-pronto.md  "Atende" com evidência; "Finalizado"
+  ciclo-evolutivo.md   ciclos diário, semanal e mensal; portões de qualidade; orçamento de performance
   guia-do-responsavel.md  o que só o dono faz, passo a passo
 decisoes/              decisões datadas, com opções e justificativa
 .claude/
   skills/              relatorio-do-dia, ciclo-repositorio, evidencia-atende, revisao-de-fatos, aviso-entre-sessoes
-  agents/              revisor-independente, revisor-de-fatos, explorador
+  agents/              revisores (independente, de fatos, conteúdo), explorador e 11 especialistas por disciplina
 scripts/               estado, relatório, Project e configuração (ver scripts/README.md)
 ```
 

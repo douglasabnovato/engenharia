@@ -39,6 +39,32 @@ O learnTECH treina pessoas para o ecossistema de tecnologia com o que o autor fe
 - **Rotina:** `como-trabalhamos.md` do learnTECH, relatórios do dia em `docs/engenharia/relatorios/`, auditorias (Lighthouse, links: 1.522 URLs, 35 quebradas em 18/11).
 - **Documentação testada:** `documentacao.test.ts` confere se todo link dos `.md` e todo `npm run` citado existem.
 
+## Regras da DG mundo trazidas do Samsung (21/11/2026)
+
+Fonte: as memórias da sessão DG mundo, enviadas ao Líder de TODOS em 21/11/2026. Elas complementam a passagem engenharia#52.
+
+- **Exceção do deploy** (09/11 e 10/11/2026). O Claude para na `developer`. As integrações são:
+  - `developer` no content, no tools e no bootcamps;
+  - `developer-mvp-2026` no learn-tech;
+  - `developer-mvp-2026-2` no career.
+
+  A issue fecha só na `main`, com "Refs #N". A exceção vale só quando o responsável pede na hora. Exemplo de 10/11: PR integração → `main` com o `verificar` verde, `gh pr merge --merge` e `npm run deploy`. Fica fora da R22: o pedido é dado na própria sessão para aquele deploy, não vem de um plano aprovado. O login do `wrangler` é conta do responsável (R12) e ficou no Samsung. No Acer, quem entra é ele.
+- **Logos** (12/11/2026, "Aprovo os dois"):
+  - o catálogo fica em `hd\logos-learn-tech` (`CATALOGO.md`), que é privado e não vai para o GitHub;
+  - cor e símbolo por site: career laranja `<!-- -->`, bootcamps verde `{ }`, tools amarelo `</>`, learn-tech azul `/* */`;
+  - ainda são propostas, sem aprovação: API roxo `; }` e `engenharia` vermelho `[ ]`;
+  - o "D" precisa de redesenho;
+  - a pirâmide de 6 cubos é só para `og:image`, nunca para favicon;
+  - imagem com dado de outra pessoa não é publicada.
+
+Ficam nos `CLAUDE.md` e nas regras de onde já estão, sem repetir aqui:
+- o fluxo do dia (R7, R7a, R8);
+- a ficha de ciclo e a revisão que nunca fica em branco (CLAUDE-raiz);
+- o modelo de negócio, o ambiente gratuito e a identificação obrigatória (R12);
+- os repositórios de terceiros (R13);
+- a espera de 4 horas (R11);
+- a assinatura das issues, o formato do relatório e a prioridade hd → MVP → produto: são do learnTECH e ficam no `CLAUDE.md` dele (`como-trabalhamos.md`).
+
 ## O que vale levar para os outros ambientes
 
 1. `CLAUDE.md` curto por repositório, com "antes de qualquer tarefa", regras que não mudam e tabela de comandos.

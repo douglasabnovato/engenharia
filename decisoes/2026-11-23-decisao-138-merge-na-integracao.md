@@ -40,7 +40,7 @@ Evidência do **C**:
 - **UI:** a tela funciona em 360 px e em 1440 px, com contraste suficiente, texto alternativo nas imagens e alvo de toque de 44 px;
 - **QA:**
   - testes e links;
-  - o check de tamanho: o orçamento de performance do bundle (`processo/ciclo-evolutivo.md`, seção 3, que entra pelo engenharia#50), como o `npm run orcamento` do learn-tech#155;
+  - o check de tamanho: o orçamento de performance do bundle ([`ciclo-evolutivo.md`](../processo/ciclo-evolutivo.md), seção 3), como o `npm run orcamento` do learn-tech#155;
   - nenhum dado pessoal e nada da VEB.
 
 Num PR só de documentação, sem tela, o UI fica "não se aplica", com o motivo.
@@ -56,6 +56,7 @@ O texto que vale está em [`processo/fluxo-git.md`](../processo/fluxo-git.md), "
 
 - Segredos, contas, deploy que exige conta dele e custo (R12).
 - O repositório sob curadoria, `douglasabnovato.dev` (R20): mudança item a item, com o ok dele.
+- Mudança de regra (`ia/orquestracao.md`, `CLAUDE-raiz.md`, definições de agentes e skills): o texto é do responsável, então o merge na sprint é com o ok dele, mesmo com CI verde e revisão R19 (achado 12 da Esp PM).
 - As permissões e as regras de negação do app prevalecem sobre esta decisão.
 
 Onde foi aplicada: [`processo/fluxo-git.md`](../processo/fluxo-git.md), "Quem pode mesclar o quê".

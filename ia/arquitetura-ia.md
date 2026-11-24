@@ -2,7 +2,11 @@
 
 Como o Claude Code trabalha no portfólio: camadas, sessões, regras, ferramentas e técnicas. Este documento é o mapa. Os detalhes de cada parte ficam nos arquivos citados.
 
-Levantado em 12/11/2026 pela DG mundo, a partir do que existe de fato na máquina e nos repositórios. Atualizado em 13/11/2026 com o orquestrador.
+Levantado em 12/11/2026 pela DG mundo, a partir do que existe de fato na máquina e nos repositórios. Atualizado em 13/11/2026 com o orquestrador e em 20/11/2026 com os nomes reais das sessões, a governança por disciplina, os agentes especialistas e o ciclo evolutivo.
+
+## Governança em uma frase
+
+O `engenharia` é a fonte única das regras e é da sessão **arquitetura de IA**. Cada ambiente carrega essas regras pelo `CLAUDE.md` da pasta raiz. A sessão dona constrói, o agente especialista da disciplina revisa ([`disciplinas.md`](../arquitetura/disciplinas.md)), os portões de qualidade decidem se entra ([`ciclo-evolutivo.md`](../processo/ciclo-evolutivo.md)), e o ciclo semanal transforma cada falha em regra, skill, agente ou hook, registrado no [`CHANGELOG.md`](../CHANGELOG.md).
 
 ## Visão geral em camadas
 
@@ -21,16 +25,19 @@ Levantado em 12/11/2026 pela DG mundo, a partir do que existe de fato na máquin
 
 ## Sessões e papéis
 
-Desde 13/11/2026, as sessões têm um orquestrador acima delas. A hierarquia, a sessão dona de cada repositório e as regras R1 a R17 estão em [`orquestracao.md`](orquestracao.md).
+Desde 13/11/2026, as sessões têm um orquestrador acima delas. A hierarquia, a sessão dona de cada repositório e as regras R1 a R24 estão em [`orquestracao.md`](orquestracao.md). Nomes reais desde 20/11/2026.
 
-| Papel | Sessão | Cuida de |
-|---|---|---|
-| Responsável | o dono do portfólio | Decisões, aprovações, configuração e merge na principal |
-| Orquestrador | DG líder | Plano do dia, distribuição dos pedidos, relatório consolidado e regras (`engenharia`) |
-| Sessão de projeto | DG mundo | learnTECH: learntech-content, learn-tech, tools, career e bootcamps |
-| Sessão de projeto | DG veb | VEB: plataforma, landing e Hub |
-| Sessão de apoio | DG github (fork) | studio-d, roteiros, revisão de fatos e os demais repositórios |
-| Subagente | criado por uma sessão | Uma tarefa curta com brief |
+| Papel | Sessão (sigla) | Pasta | Cuida de |
+|---|---|---|---|
+| Responsável | o dono do portfólio | — | Decisões, aprovações, configuração e merge na principal |
+| Orquestrador | Líder de TODOS (`LIDER`) | `C:\douglasabnovato-community` | Plano do dia, distribuição dos pedidos e relatório consolidado. No `engenharia`, só `relatorios/` e `decisoes/` |
+| Governança de IA | arquitetura de IA (`IA`) | `C:\douglasabnovato-ia` | O `engenharia`: regras, padrões, agentes, skills, hooks; `orientacoes-ia.md` de cada ambiente |
+| Sessão de projeto | repositórios LearnTech (`MUNDO`) | `C:\douglasabnovato-learntech` | learnTECH: learntech-content, learn-tech, tools, career e bootcamps |
+| Sessão de projeto | comunidade LearnTech (`COMUNIDADE`) | `C:\douglasabnovato-community` | `formacao-dev` |
+| Sessão de projeto | DG veb (`VEB`), prevista | pasta da VEB | VEB: plataforma, landing e Hub |
+| Sessão de apoio | repositórios GitHub (`GITHUB`) | `C:\douglasabnovato-github` | studio-d, roteiros, revisão de fatos e os demais repositórios |
+| Especialista | subagente da sessão dona | — | Revisão por disciplina (R19), sem escrita |
+| Subagente | criado por uma sessão | — | Uma tarefa curta com brief |
 
 Os papéis de coordenador, agente e revisor independente dos ciclos em lote seguem em [`como-trabalhamos.md`](como-trabalhamos.md). O orquestrador faz o papel de coordenador entre as sessões.
 
@@ -109,6 +116,25 @@ Memórias da DG mundo em 12/11/2026, e o destino proposto para cada uma:
 | [`revisor-independente`](../.claude/agents/revisor-independente.md) | Lê só o diff e o plano e aponta problemas de correção | o mais capaz; só leitura |
 | [`revisor-de-fatos`](../.claude/agents/revisor-de-fatos.md) | Confere números, datas e nomes de um documento contra as fontes | o mais capaz; leitura e `gh` |
 | [`explorador`](../.claude/agents/explorador.md) | Varre muitos arquivos ou repositórios e devolve só a conclusão | modelo mais barato; só leitura |
+| [`revisor-pedagogia`](../.claude/agents/revisor-pedagogia.md), [`revisor-storytelling`](../.claude/agents/revisor-storytelling.md), [`revisor-marketing`](../.claude/agents/revisor-marketing.md) | Revisam o conteúdo do learnTECH antes de publicar: ensino, narrativa e comunicação. Só leitura; quem corrige é a repositórios LearnTech | modelo da sessão; Read, Grep, Glob |
+
+### Especialistas por disciplina (20/11/2026)
+
+Só revisam: leem o nível do repositório, aplicam a linha da disciplina em [`disciplinas.md`](../arquitetura/disciplinas.md) e devolvem checklist e achados. Ferramentas Read, Grep, Glob e Bash de leitura; modelo herdado da sessão. Começam em AU0 (propor) e sobem de nível pelo gabarito ([`ciclo-evolutivo.md`](../processo/ciclo-evolutivo.md), seção 5).
+
+| Agente | Disciplina | A sessão dona chama quando |
+|---|---|---|
+| [`arquiteto`](../.claude/agents/arquiteto.md) | arquitetura de software | feature grande, dependência nova, mudança de estrutura |
+| [`devops`](../.claude/agents/devops.md) | CI/CD, deploy, observabilidade | workflow, deploy, ruleset |
+| [`secops`](../.claude/agents/secops.md) | segurança | dependência, autenticação, rota ou dado |
+| [`ux`](../.claude/agents/ux.md) | experiência | tela ou fluxo novo |
+| [`ui`](../.claude/agents/ui.md) | interface e tokens | componente ou CSS novo |
+| [`mobile`](../.claude/agents/mobile.md) | celular, 375 px, Expo | toda tela |
+| [`qa`](../.claude/agents/qa.md) | testes | todo PR |
+| [`performance`](../.claude/agents/performance.md) | LCP, bundle, Lighthouse | build, dependência, imagem, tela inicial |
+| [`a11y`](../.claude/agents/a11y.md) | WCAG 2.2 AA | toda tela |
+| [`privacidade`](../.claude/agents/privacidade.md) | LGPD | formulário, analytics, imagem nova |
+| [`pm`](../.claude/agents/pm.md) | produto | abertura de ciclo, issue nova |
 
 ## Automação
 
@@ -123,7 +149,9 @@ Memórias da DG mundo em 12/11/2026, e o destino proposto para cada uma:
 | `semana-lider` | sexta, 17h | Chama o orquestrador para a revisão da semana |
 | `convites-learntech` | 10h | Até 3 convites por dia para a organização da comunidade |
 
-Cada execução pede as permissões do responsável na primeira vez. O prompt de cada tarefa deve citar o `CLAUDE.md` e a skill, e não copiar as regras: a sessão de projeto já tem duas cópias do prompt das 7h.
+Cada execução pede as permissões do responsável na primeira vez. O prompt de cada tarefa deve citar o `CLAUDE.md` e a skill, e não copiar as regras: a sessão de projeto já tem duas cópias do prompt da abertura.
+
+Situação em 20/11/2026 (inferido pela lista de tarefas do orquestrador · confirmar): nesta máquina existem só `abertura-do-dia-lider` e `fechamento-do-dia-lider`. As revisões D-1 das 6h30, o `checkpoint-lider` e o `semana-lider` ainda são só texto. Criá-las é a F4 da revisão de 20/11 e depende do ok do responsável.
 
 ## Ferramentas
 
@@ -143,7 +171,7 @@ Cada execução pede as permissões do responsável na primeira vez. O prompt de
 | Revisão de fatos | Confere números e datas antes de publicar | Achou 10 erros num roteiro em 12/11/2026 |
 | Hook de proteção | Recusa force push, `--no-verify`, push na principal e reescrita de histórico antes de o comando rodar ([`hooks.md`](hooks.md)) | Soma às outras camadas: não vê `gh api`, aliases nem comandos dentro de scripts |
 | Escolha do recurso | Do mais simples ao mais caro: própria sessão, subagente, outra sessão ([`recursos.md`](recursos.md)) | Duas sessões com o mesmo pedido duplicam issues: listar as da última hora antes de abrir |
-| Tarefas agendadas | Abertura do dia às 7h | Prompt curto, que cita a base; nunca duplicar regras |
+| Tarefas agendadas | Revisão D-1 às 6h30 e plano às 6h50 | Prompt curto, que cita a base; nunca duplicar regras |
 | Resumo da conversa | Quando o contexto enche, a sessão segue de um resumo | Estado importante vai para arquivo (relatório, MVP.md, issue), não só para a conversa |
 | Evidência por ferramenta | `gh run`, testes, navegador, `curl` | "Atende" sem comando, data e resultado é "Parcial" |
 | Limite de espera | Nunca mais de 4 horas parado em CI ou fila | `timeout` em `gh run watch`; refazer em branch nova se travar |
@@ -166,6 +194,9 @@ Cada execução pede as permissões do responsável na primeira vez. O prompt de
 3. ~~Subir para o `CLAUDE.md` as regras que hoje estão só na memória da DG mundo.~~ Feito em 14/11/2026 (regras 14 a 16), com o ok do responsável: "Aprovo as 4".
 4. Trocar o texto das tarefas agendadas por uma chamada à skill `relatorio-do-dia`.
 5. A sessão de projeto (VEB) documenta a sua parte no próprio repositório, com os mesmos papéis e o mesmo formato de aviso.
-6. Criar a sessão DG líder com o prompt de [`prompts/dg-lider.md`](prompts/dg-lider.md) (responsável).
+6. ~~Criar a sessão DG líder com o prompt de [`prompts/dg-lider.md`](prompts/dg-lider.md) (responsável).~~ Feito: a sessão é a "Líder de TODOS".
+7. **F2 da revisão de 20/11:** gerar o `CLAUDE.md` na raiz das 4 pastas e um `.claude/` com os agentes, as skills e um `settings.json` com o hook. A arquitetura de IA prepara; instalar é do responsável (R12).
+8. **Gabaritos** dos 11 especialistas (20 casos cada) antes de subir qualquer um de AU0.
+9. Opção `--somente <repos>` no `scripts/preencher-project.py`, para a sessão dona não depender de `--excluir` com todos os outros.
 
-Decisões que registram esta arquitetura: [`decisoes/2026-11-12-arquitetura-ia.md`](../decisoes/2026-11-12-arquitetura-ia.md) e [`decisoes/2026-11-13-orquestrador.md`](../decisoes/2026-11-13-orquestrador.md).
+Decisões que registram esta arquitetura: [`decisoes/2026-11-12-arquitetura-ia.md`](../decisoes/2026-11-12-arquitetura-ia.md), [`decisoes/2026-11-13-orquestrador.md`](../decisoes/2026-11-13-orquestrador.md) e [`decisoes/2026-11-20-governanca-ia.md`](../decisoes/2026-11-20-governanca-ia.md).
