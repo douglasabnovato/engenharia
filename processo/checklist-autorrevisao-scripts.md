@@ -62,12 +62,12 @@
 
 ## Origens
 
-Itens 5 a 18 e o 10: sessão arquitetura de IA. Itens 1 a 4 e 19 a 24: sessão comunidade LearnTech. As 2 listas foram unidas em 24/11/2026 e revisadas pelo Esp ES (R19 no engenharia#80).
+Itens 5 a 18: sessão arquitetura de IA. Itens 1 a 4 e 19 a 24: sessão comunidade LearnTech. As 2 listas foram unidas em 24/11/2026 e revisadas pelo Esp ES (R19 no engenharia#80).
 
 | # | Achado que originou |
 |---|---|
 | 1 | formacao-dev#358, item 1; #338, item 6 |
-| 2 | formacao-dev#359, item 1; #360, item 2 da R19 do Esp QA (arquivo local `orquestrador/esp/qa/revisao-r19-formacao-dev-360-2026-11-24.md`, ainda não colado no PR) |
+| 2 | formacao-dev#359, item 1; #360, item 5 da R19 do Esp QA (arquivo local `orquestrador/esp/qa/revisao-r19-formacao-dev-360-2026-11-24.md`, ainda não colado no PR) |
 | 3 | formacao-dev#338, item 5; #359, item 2; #360, item 2 da R19 (mesmo arquivo local) |
 | 4 | formacao-dev#358, item 5; #360, item 1 da R19 (mesmo arquivo local) |
 | 5 | engenharia#66, ressalva 3 (a caixa e a raiz `.`) |
