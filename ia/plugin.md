@@ -39,7 +39,7 @@ Nada é copiado: o plugin aponta para os mesmos arquivos de `.claude/`, sem dupl
 3. **Prefixo nos nomes (confirmado pelo `validate`).** As skills e os agentes do plugin ganham o prefixo `engenharia:` (por exemplo, `engenharia:issue-no-modelo`). Os textos que chamam uma skill pelo nome curto precisam aceitar os dois nomes.
 4. **Agente esquecido.** Como o campo `agents` é uma lista de arquivos, um agente novo sem linha no manifesto não aparece. Mitigação: um teste no CI que compara `.claude/agents/*.md` com o manifesto (passo 4 do plano).
 5. **Versão.** Sem o campo `version`, quem instala acompanha os commits. Num marketplace local, o plugin recarrega os arquivos a cada sessão e ignora a versão. Isso é bom para nós: a `main` é a versão.
-6. **Duplicata.** No Acer, a pasta `ia` (`C:douglasabnovato-ia`) é a pasta-mãe do clone, e as sessões da arquitetura de IA e dos Esp trabalham ali. [A CONFIRMAR] se o Claude Code descobre o `.claude/skills/` de uma subpasta lida na sessão. Se descobrir, a skill aparece duas vezes: com o nome curto e com `engenharia:`. O teste do passo 5 começa pela pasta `ia`, e o resultado é anotado aqui.
+6. **Duplicata.** No Acer, a pasta `ia` (`C:/douglasabnovato-ia`) é a pasta-mãe do clone, e as sessões da arquitetura de IA e dos Esp trabalham ali. [A CONFIRMAR] se o Claude Code descobre o `.claude/skills/` de uma subpasta lida na sessão. Se descobrir, a skill aparece duas vezes: com o nome curto e com `engenharia:`. O teste do passo 5 começa pela pasta `ia`, e o resultado é anotado aqui.
 
 ## Plano
 
