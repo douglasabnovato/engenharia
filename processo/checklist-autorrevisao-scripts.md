@@ -59,10 +59,11 @@
 | 22 | O **texto livre** tem testes de variações (espaço, quebra de linha, sinônimo, acento) **e** de falsos positivos (citação `> `)? |
 | 23 | **Campos nulos** da API passam por `?? []` em toda função pública, com teste? |
 | 24 | Ao escrever o script pelo terminal (heredoc ou `node -e`), as **barras invertidas** sobreviveram? (Confira o arquivo gravado: `grep -cF '\' <arquivo>` dá o número de linhas com barra, que deve bater com o esperado.) |
+| 25 | No Git Bash do Windows, uma **variável ou argumento que começa com `/`** (por exemplo, `PUBLIC_URL=/` ou `origin/main:pasta/arquivo`) não vira caminho do Windows sem aviso? (Rode com `MSYS_NO_PATHCONV=1` e compare.) |
 
 ## Origens
 
-Itens 5 a 18: sessão arquitetura de IA. Itens 1 a 4 e 19 a 24: sessão comunidade LearnTech. As 2 listas foram unidas em 24/11/2026 e revisadas pelo Esp ES (R19 no engenharia#80).
+Itens 5 a 18: sessão arquitetura de IA. Itens 1 a 4 e 19 a 24: sessão comunidade LearnTech. Item 25: sessão repositórios GitHub. As 2 listas foram unidas em 24/11/2026 e revisadas pelo Esp ES (R19 no engenharia#80).
 
 | # | Achado que originou |
 |---|---|
@@ -90,3 +91,4 @@ Itens 5 a 18: sessão arquitetura de IA. Itens 1 a 4 e 19 a 24: sessão comunida
 | 22 | formacao-dev#338, itens 1 e 2; #340, itens 2 a 4 |
 | 23 | formacao-dev#358, item 4; #338 |
 | 24 | autorrevisão da dona no formacao-dev#359, em relato da sessão comunidade LearnTech (não é achado de R19). A arquitetura de IA teve o mesmo deslize ao escrever o `verificar_links.mjs` (#66) e o `grep` do `docs/MVP.md` (#73), e pegou os 2 antes do commit |
+| 25 | sessão repositórios GitHub, movies, 24/11/2026: `PUBLIC_URL=/` virava `C:/Program Files/Git/`, o build quebrava sem aviso e o e2e não rodava no Acer. A arquitetura de IA teve o mesmo efeito em 24/11, com `git show origin/...:arquivo`, e resolveu com `MSYS_NO_PATHCONV=1` |
