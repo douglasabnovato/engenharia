@@ -19,9 +19,15 @@ Acreditamos que regras num lugar só, com fonte e com links testados, farão as 
 | 19/11 | o restaurante-churrascaria dizia "Atende" no critério 9, com uma chave exposta | critério 9 de `padroes.md` |
 | 23/11 | o engenharia#59 entrou na sprint sem a revisão R19 | R19 |
 | 23/11 | 11 escritas no GitHub, sem simulação, 1 acima do limite | R18 |
-| 23/11 | uma ORDEM colada no canal errado foi executada por uma sessão que não era a dona | R4 |
+| 23/11 | uma ORDEM colada no canal errado foi executada por uma sessão que não era a dona (diário de 23/11, atualização da LearnTech às 19h: "ele colou a ordem na sessão GitHub, e não na LearnTech"; "Desvios: (1) R4") | R4 |
 
-**Como contar:** o Líder marca cada caso no diário com `**Desvio (Rnn):**`, e a contagem é `grep -c "Desvio (" dia-2026-11-2[4-9].md dia-2026-11-30.md`. Até o rótulo entrar no modelo do diário, a dona conta à mão com a mesma definição (passo 1 do [`ROADMAP.md`](../ROADMAP.md)).
+**Como contar:** o Líder marca cada caso no diário com `**Desvio (Rnn):**` (adotado em 23/11/2026, às 23h09). O total da semana sai de:
+
+```
+cat dia-2026-11-2[4-9].md dia-2026-11-30.md 2>/dev/null | grep -o "Desvio (" | wc -l
+```
+
+**Mesma régua nas 2 semanas:** a linha de base foi contada à mão pela dona; a meta será contada pelo rótulo. Na 1ª contagem, o Esp Dados reconta a semana de 18 a 23/11 com a mesma definição. Se não der 4, a linha de base é ajustada antes da comparação (passo 1 do [`ROADMAP.md`](../ROADMAP.md)).
 
 ## Os 12 critérios
 
