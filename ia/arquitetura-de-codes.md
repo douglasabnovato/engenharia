@@ -85,3 +85,45 @@ Agentes de conteúdo, sem Esp: `revisor-pedagogia`, `revisor-storytelling` e `re
 - aprovar este registro e a divergência da seção 3;
 - os ajustes 2 e 3 da seção 4 (agentes novos);
 - o achado 5 do mapa de papéis: os Esp abrem na pasta da arquitetura de IA e dividem a memória dela. A pasta própria é decisão dele.
+
+## 7. Proposta: a disciplina Dados e o agente `dados` [A CONFIRMAR com o responsável]
+
+Fecha a lacuna da seção 4: o Esp Dados não tem disciplina nem agente revisor. **Situação:** é só uma proposta. A linha da tabela entra em `arquitetura/disciplinas.md`, e o agente entra em `.claude/agents/dados.md`, num PR depois da cadeia #50 → #53 e do ok dele. Criar um agente novo é decisão dele (seção 6).
+
+Fontes: o plano da onda 1 do Esp Dados (21/11/2026), com 7 achados nos coletores do painel, entre eles "nenhum coletor tem teste" e "a data em UTC vira o dia seguinte depois das 21h"; e a hipótese do `engenharia` (`docs/MVP.md`), que já depende de uma contagem.
+
+### A linha da tabela de disciplinas
+
+A outra tabela de `disciplinas.md`, a do estado por contexto, fica de fora por enquanto. O estado inicial de Dados em cada contexto sai da 1ª revisão do agente.
+
+| Disciplina | Agente | N1 estudo | N2 vitrine | N3 produto |
+|---|---|---|---|---|
+| Dados e métricas | `dados` | todo número publicado (README, `MVP.md`, painel) diz a fonte e a data; nenhum dado pessoal entra num número; a VEB só entra com número agregado (R10); o que é dedução é marcado como inferência ou [HIPÓTESE] | + o coletor tem teste; a data sai no fuso de Brasília; a métrica tem definição escrita (o que conta e o que não conta); o que cai fora da regra aparece como "não classificado" ou falha, e nada é pulado em silêncio; a mesma definição em todos os períodos comparados, e se a definição mudar a linha de base é recontada | + série histórica sem sobrescrever; a métrica principal ligada a uma pergunta de gestão (GQM) |
+
+### O rascunho do agente
+
+```markdown
+---
+name: dados
+description: Revisa números, métricas e coletores (painel, contagens, scripts que geram números). Use antes de publicar um número ou de mudar um coletor.
+tools: Read, Grep, Glob, Bash
+---
+
+Você é o revisor de dados do portfólio. Recebe o diff ou o texto, e não a conclusão de quem escreveu.
+
+Para cada número ou métrica:
+1. A definição está escrita: o que conta, o que não conta e o período?
+2. A fonte e a data estão citadas, e a data está no fuso de Brasília?
+3. Reproduza o número sem gravar: com `node --test` ou com a saída numa pasta de teste (`ORQ_SAIDA` ou `ORQ_BASE`). Nunca rode um coletor sobre `painel-dados/`, porque ele grava e cria a fotografia datada. Dá o mesmo número?
+4. Num coletor: tem teste? Ele sobrescreve o histórico? Ele pula um erro sem avisar?
+5. Numa contagem automática (`grep`, script): ela bate com a lista de casos? Teste com um texto que **não** deve contar, por exemplo uma linha que só explica o rótulo.
+
+Responda com a tabela `número ou métrica · problema · evidência · correção sugerida` e termine com o veredito da R19: aprovado, aprovado com ressalvas ou pedir mudanças.
+Fora do escopo: o banco de um Artifact (como o Diário do Portfólio), que um subagente não lê. Essa revisão fica com o Esp Dados.
+Nunca edite. Use só comandos de leitura. Nenhum dado pessoal no relatório.
+Responda em português do Brasil, com frases curtas.
+```
+
+### Por que não é só o `revisor-de-fatos`
+
+O `revisor-de-fatos` confere se um fato bate com a fonte. O `dados` confere se a **medida** está certa: a definição, o período, o fuso e o teste do coletor. Um número pode conferir com a fonte e, mesmo assim, medir a coisa errada. Exemplo: pelo achado A3 do plano da onda 1, o coletor **pode** contar uma issue fechada como duplicada como concluída. Na contagem de 21/11 havia 0 duplicadas, então o risco ainda não virou erro.

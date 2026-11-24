@@ -8,11 +8,11 @@ Conferido em 23/11/2026, às 23h, pela arquitetura de IA, a sessão dona (engenh
 
 ## Hipótese
 
-Acreditamos que regras num lugar só, com fonte e com links testados, farão as sessões saírem menos das regras. Saberemos quando os **desvios de regra** registrados no diário do Líder de TODOS caírem de 4 para 2 ou menos na semana de 24 a 30/11/2026.
+Acreditamos que regras num lugar só, com fonte e com links testados, farão as sessões saírem menos das regras. Saberemos quando os **desvios de regra** registrados no diário do Líder de TODOS caírem de 6 para 3 ou menos [A CONFIRMAR] na semana de 24 a 30/11/2026.
 
 **Desvio de regra:** uma entrada do diário (`orquestrador/dia-AAAA-MM-DD.md`) em que uma sessão fez uma ação que saiu de uma regra numerada (Rnn), de uma decisão ou de um critério da régua. A entrada cita a regra. Uma tentativa barrada pela permissão, sem efeito, não conta.
 
-**Linha de base, semana de 18 a 23/11/2026:** **4 desvios**, contados pela dona em 23/11, às 23h10. Os diários existentes são 18, 19, 20, 22 e 23/11; não há diário de 17 e de 21/11.
+**Linha de base, semana de 18 a 23/11/2026:** **6 desvios [A CONFIRMAR]**. A dona contou 4 em 23/11, às 23h10. Pela Decisão LIDER 151, entram os 2 desvios rotulados depois disso, porque a semana vai até as 23h59. A recontagem do Esp Dados na 1ª contagem confirma o número. Os diários existentes são 18, 19, 20, 22 e 23/11; não há diário de 17 e de 21/11.
 
 | Data | Desvio | Regra |
 |---|---|---|
@@ -20,21 +20,25 @@ Acreditamos que regras num lugar só, com fonte e com links testados, farão as 
 | 23/11 | o engenharia#59 entrou na sprint sem a revisão R19 | R19 |
 | 23/11 | 11 escritas no GitHub, sem simulação, 1 acima do limite | R18 |
 | 23/11 | uma ORDEM colada no canal errado foi executada por uma sessão que não era a dona (diário de 23/11, atualização da LearnTech às 19h: "ele colou a ordem na sessão GitHub, e não na LearnTech"; "Desvios: (1) R4") | R4 |
+| 23/11 | o formacao-dev#338 mudou código (`scripts/triagem.mjs`) e entrou na sprint só com autorrevisão, que a decisão 144 permite só em PR de documentação (rotulado no diário, `Desvio (R19/144)`) | R19, decisão 144 |
+| 23/11 | a arquitetura de IA fez 13 escritas no GitHub num ciclo, sem simulação (rotulado no diário, `Desvio (R18)`) | R18 |
 
 **Como contar:** o Líder marca cada caso no diário com `**Desvio (Rnn):**` (adotado em 23/11/2026, às 23h09). O total da semana sai de:
 
 ```
-cat dia-2026-11-2[4-9].md dia-2026-11-30.md 2>/dev/null | grep -o "Desvio (" | wc -l
+cat dia-2026-11-2[4-9].md dia-2026-11-30.md 2>/dev/null | grep -c '^- \*\*Desvio (\(R[0-9]\|[0-9]\|critério\)'
 ```
 
-**Mesma régua nas 2 semanas:** a linha de base foi contada à mão pela dona; a meta será contada pelo rótulo. Na 1ª contagem, o Esp Dados reconta a semana de 18 a 23/11 com a mesma definição. Se não der 4, a linha de base é ajustada antes da comparação (passo 1 do [`ROADMAP.md`](../ROADMAP.md)).
+Só conta o rótulo no começo de um item da lista. Uma linha que só explica o rótulo não conta. Um rótulo sem regra numerada, decisão ou critério, como `Desvio (hora)`, também não conta, pela definição acima (achado 1 da R19 do Esp Dados no engenharia#73).
+
+**Mesma régua nas 2 semanas:** a linha de base foi contada à mão pela dona; a meta será contada pelo rótulo. Na 1ª contagem, o Esp Dados reconta a semana de 18 a 23/11 com a mesma definição. Se não der 6, a linha de base é ajustada antes da comparação (passo 1 do [`ROADMAP.md`](../ROADMAP.md)).
 
 ## Os 12 critérios
 
 | # | Critério | Situação | Evidência (comando, data e resultado) |
 |---|---|---|---|
 | 1 | Problema e público claros | Atende | A 1ª frase do [`README.md`](../README.md) diz o que é e para quem: "Base central de engenharia do portfólio ... vale para todos os repositórios" |
-| 2 | Hipótese a validar | **Parcial** | A hipótese tem meta, definição e linha de base (4). Fica Parcial até o rótulo `Desvio (Rnn)` entrar no modelo do diário do Líder e a 1ª contagem sair (passo 1 do roteiro) |
+| 2 | Hipótese a validar | **Parcial** | A hipótese tem meta, definição e linha de base (6, [A CONFIRMAR]). Fica Parcial até o rótulo `Desvio (Rnn)` entrar no modelo do diário do Líder e a 1ª contagem sair (passo 1 do roteiro) |
 | 3 | Fluxo principal completo | Não se aplica: não há tela | O fluxo é "achar a regra". No lugar do e2e, o CI `verificar` confere todos os links internos. Execução 45307074709, de 23/11/2026, na sprint: sucesso |
 | 4 | Escopo enxuto | Atende | a seção "Fora do MVP", abaixo |
 | 5 | Medição de uso | Parcial | Não há painel de visitas, porque o repositório não tem site. A medida é a da hipótese: o diário do Líder. PRs mesclados desde 17/11: 10 (`gh api .../pulls?state=closed`, 23/11/2026) |
