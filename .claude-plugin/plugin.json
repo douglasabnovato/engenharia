@@ -1,7 +1,12 @@
 {
   "name": "engenharia",
   "description": "Regras, skills e agentes revisores do engenharia para as sessões do portfólio (protótipo, engenharia#54)",
-  "skills": ["./.claude/skills/"],
+  "author": {
+    "name": "douglasabnovato"
+  },
+  "skills": [
+    "./.claude/skills/"
+  ],
   "agents": [
     "./.claude/agents/explorador.md",
     "./.claude/agents/revisor-de-fatos.md",
