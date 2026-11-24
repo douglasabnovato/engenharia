@@ -9,6 +9,7 @@ Ferramentas do coordenador e do responsável. Todas usam o GitHub CLI autenticad
 | [`preencher-project.py`](preencher-project.py) | Preenche os campos dos itens do Project a partir das issues; põe responsável, rótulo de tipo e milestone quando faltam | Sim, **só com `--gravar`**. Sem a opção, simula | Coordenador, no fim de cada lote |
 | [`hooks/bloquear_proibidos.py`](hooks/bloquear_proibidos.py) | Hook `PreToolUse` do Claude Code: recusa force push, `--no-verify`, push na principal, apagar branch remota e reescrever histórico. Testes: `python -m unittest discover -s scripts/hooks` | **Não** | O Claude Code, a cada comando, depois que o responsável liga ([`ia/hooks.md`](../ia/hooks.md)) |
 | [`verificar_links.py`](verificar_links.py) | Confere os links internos de todos os `.md`; sai com erro se algum estiver quebrado. Roda no CI (`.github/workflows/verificar.yml`) | **Não** | CI e qualquer sessão antes do PR |
+| [`verificar_links.mjs`](verificar_links.mjs) | O mesmo conferidor de links, em Node, para máquina sem Python (o Acer). Acha os mesmos links quebrados do `.py` no CI. Diferenças: confere a caixa das letras também no Windows, e sai com 1 se a pasta não existe (o `.py` sai com 0). Testes: `node --test scripts/verificar_links.test.mjs` | **Não** | Qualquer sessão no Acer antes do push; o CI roda os dois |
 | [`configurar-responsavel.sh`](configurar-responsavel.sh) | Liga o Pages ou cria o ruleset "principal-protegida" | Sim (configuração do repositório) | **Só o responsável** |
 
 Nenhum script apaga nada: não remove issues, itens, rótulos, branches nem configurações. Os que escrevem só acrescentam ou atualizam campos, e são idempotentes (rodar duas vezes não duplica).
@@ -50,3 +51,16 @@ DONO=<dono> bash scripts/configurar-responsavel.sh proteger repo-a repo-b
 ## Leitura do `MVP.md`
 
 O `estado.py` procura no `MVP.md` as linhas `**Resumo:** X de Y aplicáveis atendidos` e `**Finalizado:** sim|não`. Fora desse formato, o repositório aparece com `-` ou `?`.
+
+## No Acer (sem Python)
+
+Antes do push, confira os links com o Node:
+
+```
+node scripts/verificar_links.mjs
+node --test scripts/verificar_links.test.mjs
+```
+
+No Windows, o disco ignora a caixa das letras (`README.MD` abre `readme.md`). O `.mjs` confere a caixa assim mesmo, como o CI no Linux. Por isso o resultado no Acer é o mesmo do CI.
+
+Os outros scripts `.py` ainda precisam do Python 3 (engenharia#58).
