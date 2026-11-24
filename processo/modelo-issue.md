@@ -45,7 +45,11 @@ Os rótulos podem não existir no repositório: criar antes (`gh label create <n
 
 - Adicionar ao Project: `gh project item-add <n> --owner <dono> --url <url-da-issue>`.
 - Milestone existente do repositório.
-- **Não preencher os campos à mão.** Quem coordena roda o preenchimento em lote no fim de cada lote ([`scripts/preencher-project.py`](../scripts/preencher-project.py)).
+- **Não preencher os campos à mão** (nada de `gh project item-edit` campo a campo). Quem preenche é a **sessão dona** dos repositórios, com [`scripts/preencher-project.py`](../scripts/preencher-project.py):
+  1. roda sem `--gravar` e com `--excluir` para os repositórios que não são dela (R4);
+  2. confere a simulação;
+  3. grava com `--gravar`. Se a simulação mostrar mais de 10 gravações, mostra a lista ao responsável e espera o ok (R18).
+- O orquestrador só lê o Project. Regra fixada em 20/11/2026 ([decisão](../decisoes/2026-11-20-governanca-ia.md)), no lugar do "quem coordena roda no fim do lote".
 
 Campos que o preenchimento em lote cuida: Status, Tipo, Frente (Estudo, Vitrine, Produto), Prioridade, Tamanho, Pontos, Início, Fim, Depende de, Objetivo, Resultado e Evidência.
 
