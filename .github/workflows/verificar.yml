@@ -3,12 +3,18 @@ name: verificar
 
 on:
   push:
-    branches: ["developer/**", "feature/**"]
+    # main: o C3 da medida MVP lê o último run da principal (engenharia#21)
+    branches: ["main", "developer/**", "feature/**"]
   pull_request:
     branches: ["developer/**", "main"]
 
 permissions:
   contents: read
+
+# Cancela o run antigo da mesma branch; na main nada é cancelado (o C3 precisa de cada commit).
+concurrency:
+  group: verificar-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 jobs:
   verificar:
