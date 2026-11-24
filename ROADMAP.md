@@ -1,19 +1,34 @@
 # Roteiro do engenharia
 
-Atualizado em 23/11/2026 pela arquitetura de IA (engenharia#56). O MVP e os 12 critérios estão em [`docs/MVP.md`](docs/MVP.md).
+Atualizado em 23/11/2026 pela arquitetura de IA (engenharia#56). O MVP, a hipótese e os 12 critérios estão em [`docs/MVP.md`](docs/MVP.md).
 
-Prioridade: **P0** destrava outras sessões · **P1** fecha um critério do MVP · **P2** melhora.
+**Prioridade:**
+- **P0:** destrava outras sessões ou fecha um risco;
+- **P1:** fecha um critério do MVP ou mede a hipótese;
+- **P2:** melhora.
 
-| # | Passo | Prioridade | Issue ou PR | Depende de |
+A coluna "Ganho" diz que critério fecha ou que métrica move.
+
+## Bloco A · com a dona e o Líder (não esperam o responsável)
+
+| # | Passo | Prioridade | Ganho | Issue ou PR | Quem faz |
+|---|---|---|---|---|---|
+| 1 | Pôr o rótulo `Desvio (Rnn)` no modelo do diário e contar a 1ª semana (24 a 30/11) contra a linha de base de 4 | P1 | mede a hipótese e fecha o critério 2 | a abrir | o Líder, que é dono do diário, com a dona, que conta e registra aqui |
+| 2 | Ajustes 1 e 4 do pm (hipótese só no `pm`; North Star no topo do `docs/MVP.md`) | P1 | menos duplicata na revisão; North Star medida | depois da cadeia, no passo 7 | a arquitetura de IA |
+| 3 | Gabarito medido do agente `secops` | P2 | autonomia medida (recall e falso positivo) | engenharia#57 | a arquitetura de IA, depois do passo 7 |
+| 4 | Empacotar o engenharia como plugin para as 4 pastas | P2 | menos regra copiada à mão | engenharia#54 | a arquitetura de IA, depois do passo 7 |
+
+## Bloco B · esperam o responsável (a fila real, em ordem)
+
+| # | Passo | Prioridade | Ganho | Issue ou PR |
 |---|---|---|---|---|
-| 1 | Mesclar a cadeia #50 → #51 → #53 (R19 a R24, agentes e estudos) | P0 | engenharia#50, #51 e #53 | o responsável (muda regra) |
-| 2 | Proteger a `main` com o ruleset `principal-protegida` (critério 10) | P0 | — | o responsável (R12) |
-| 3 | Verificação no Acer sem Python | P1 | engenharia#66 (#58) | a revisão do Esp QA e o merge |
-| 4 | Merge só na integração por hook (P3 da fila da noite) | P1 | engenharia#67 | a escolha do responsável entre a P1 e a P3, e ligar o hook (#17) |
-| 5 | Registro da arquitetura de codes | P1 | engenharia#68 (#55) | o ok do responsável; depois, a orquestracao.md |
-| 6 | ATIVAÇÃO permanente não é ORDEM | P1 | engenharia#65 | a confirmação do responsável |
-| 7 | Medida MVP de 4 critérios para o painel | P1 | `processo/medida-mvp.md` | as 3 perguntas ao responsável |
-| 8 | Decidir o critério 9 sem Dependabot | P1 | engenharia#33 | — |
-| 9 | Gabarito medido do agente `secops` | P2 | engenharia#57 | o passo 1 (o agente entra pelo #50) |
-| 10 | Empacotar o engenharia como plugin para as 4 pastas | P2 | engenharia#54 | o passo 1 |
-| 11 | Agentes `dados` e `devrel` (lacunas da arquitetura de codes) | P2 | a abrir depois do passo 5 | o ok do responsável |
+| 5 | Proteger a `main` com o ruleset `principal-protegida` | P0 | critério 10; é condição da P3 | — (R12) |
+| 6 | Confirmar que a ATIVAÇÃO permanente não é ORDEM | P0 | o ciclo evolutivo roda sem dúvida de regra | engenharia#65 |
+| 7 | Mesclar a cadeia #50 → #51 → #53 (R19 a R24, agentes e estudos) | P0 | menos desvio de regra (hipótese); destrava os passos 2, 3 e 4 | engenharia#50, #51 e #53 |
+| 8 | Responder às 3 perguntas da medida MVP, incluindo as exceções C2 e C3 deste repositório | P1 | régua única no painel | `processo/medida-mvp.md` |
+| 9 | Decidir o critério 9 sem Dependabot: ligar ou aceitar o risco | P1 | critério 9 | engenharia#33 |
+| 10 | Decidir a divergência do Esp no GitHub (Decisão LIDER 149) | P1 | papéis sem contradição | `ia/arquitetura-de-codes.md` |
+| 11 | P3 (merge só na integração por hook): só depois de Python instalado, do hook testado ligado e do passo 5 | P2 | a 138 sem ORDEM por merge | engenharia#67 (em espera, Decisão LIDER 148) |
+| 12 | Agentes `dados` e `devrel` (lacunas da arquitetura de codes) | P2 | revisão de Dados e de DevRel | a abrir depois do passo 10 |
+
+Já feito em 23/11/2026: a verificação no Acer sem Python (engenharia#66) e o registro da arquitetura de codes (engenharia#68), os dois mesclados na sprint.
