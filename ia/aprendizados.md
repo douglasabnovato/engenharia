@@ -91,6 +91,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - O Git Bash pode não ter zoneinfo: `TZ=America/Sao_Paulo date` cai em GMT sem erro. Usar o `date` puro, que segue o relógio do Windows. (learntech-content, 15/11/2026)
 - No Acer, `python` e `python3` são só o atalho da Microsoft Store ("Python was not found"). Os scripts `.py` e os testes do hook rodam só no CI. Para os links, usar `node scripts/verificar_links.mjs`. (arquitetura de IA, 23/11/2026; engenharia#58 e #66)
 - Barra invertida escrita pelo terminal (heredoc, `node -e` ou `sed`) se perde no caminho: `\\` vira `\`, e a regex muda sem erro. Conferir o arquivo gravado com `grep -cF '\' <arquivo>` e, para texto com barra, usar o Edit. O `grep -c '\\'` dá "Trailing backslash" no Git Bash. (formacao-dev#359; engenharia#66, #73 e #80, 23 e 24/11/2026)
+- No Windows, `git add readme.md` com o arquivo `README.md` não põe nada no commit e não dá erro: o disco não distingue maiúscula, e o Git distingue. Conferir `git show --stat` antes do push e usar o nome com a caixa do `git ls-files`. (sessão GitHub, petshop#40, 24/11/2026)
 - Para provar que a produção roda a principal, comparar o pacote publicado com um build local. SVG com CRLF muda o hash: comparar o conteúdo com `tr -d '
 '`. (aircnc, 15/11/2026)
 - No Git Bash, `TZ=` com nome de fuso cai em UTC sem aviso. Usar o `date` local e conferir o horário antes de escrever. (portfólio, 16/11/2026)
