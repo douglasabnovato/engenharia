@@ -13,7 +13,7 @@ A coluna "Ganho" diz que critério fecha ou que métrica move.
 
 | # | Passo | Prioridade | Ganho | Issue ou PR | Quem faz |
 |---|---|---|---|---|---|
-| 1 | Contar a 1ª semana (24 a 30/11) pelo rótulo `Desvio (Rnn)`, que o Líder adotou em 23/11 às 23h09, contra a linha de base de 4. Na mesma rodada, o **Esp Dados reconta a linha de base (18 a 23/11) pela mesma definição** e ajusta o 4, se precisar | P1 | mede a hipótese e fecha o critério 2 | a abrir | o Líder, que marca; o Esp Dados, que reconta; a dona, que registra aqui |
+| 1 | Contar a 1ª semana (24 a 30/11) pelo rótulo `Desvio (Rnn)`, que o Líder adotou em 23/11 às 23h09, contra a linha de base de 5 ou 6 (caso 1 [A CONFIRMAR]). A recontagem do Esp Dados foi feita em 24/11, às 05h33 | P1 | mede a hipótese e fecha o critério 2 | a abrir | o Líder, que marca; o Esp Dados, que reconta; a dona, que registra aqui |
 | 2 | Ajustes 1 e 4 do pm (hipótese só no `pm`; North Star no topo do `docs/MVP.md`) | P1 | menos duplicata na revisão; North Star medida | depois da cadeia, no passo 7 | a arquitetura de IA |
 | 3 | Gabarito medido do agente `secops` | P2 | autonomia medida (recall e falso positivo) | engenharia#57 | a arquitetura de IA, depois do passo 7 |
 | 4 | Empacotar o engenharia como plugin para as 4 pastas | P2 | menos regra copiada à mão | engenharia#54 | a arquitetura de IA, depois do passo 7 |
