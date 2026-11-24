@@ -44,7 +44,7 @@ Pedido do responsável, de 21/11/2026: "estude e monte e execute uma arquitetura
 7. **Aviso do Esp:** `ESP-<DISCIPLINA> dd/mm: assunto · achados N · para quem · pendente`.
 8. **Especificação de tarefa:** sai pronta para virar issue: título "Área: verbo + resultado", objetivo, critérios de aceite, fora do escopo, como verificar, rótulos, tamanho, repositório e conta de destino.
 
-**Divergência encontrada [A CONFIRMAR com o responsável]:** as regras de trabalho dos Esp (21/11) dizem "nunca em repositório". Desde 23/11, porém, a revisão R19 sai como comentário no PR (por exemplo, a do Esp QA no engenharia#66). A proposta é aceitar o comentário de revisão como a única escrita do Esp no GitHub, como está no item 6.
+**Divergência encontrada [A CONFIRMAR com o responsável]:** as regras de trabalho dos Esp (21/11) e a [decisão 143](../decisoes/2026-11-23-decisao-143-esp-ux-ui.md) ("escreve só na própria pasta de trabalho, fora dos repositórios") dizem que o Esp não escreve no GitHub. Desde 23/11, porém, a revisão R19 sai como comentário no PR (por exemplo, a do Esp QA no engenharia#66). A proposta, que é a Decisão LIDER 149, é aceitar o comentário de revisão como a única escrita do Esp no GitHub, como está no item 6. Até o ok dele, a dona cola o texto do Esp no PR.
 
 ## 4. Esp ↔ agentes revisores ↔ disciplinas
 
@@ -55,19 +55,21 @@ Os agentes revisores são os subagentes que a dona chama (`.claude/agents/`, que
 | PM | `pm` | Produto |
 | ES | `arquiteto`, `revisor-independente` | Arquitetura de software; engenharia de software (fluxo Git, pronto) |
 | SecOps | `secops`, `privacidade` | SecOps; privacidade e LGPD |
-| QA | `qa`, `a11y`, `performance` | QA, acessibilidade, performance |
+| QA | `qa`, `performance` | QA como disciplina de testes (plano, e2e, cobertura) e performance (orçamentos) |
 | DevOps & SRE | `devops` | DevOps |
-| UX/UI (IHC) | `ux`, `ui`, `mobile` | UX, UI, mobile |
+| UX/UI (IHC) | `ux`, `ui`, `mobile`, `a11y` | UX, UI, mobile, acessibilidade; na R19, os princípios de QA da interface |
 | Dados | **nenhum** | **lacuna:** não há disciplina nem agente de dados |
 | DevRel & Community | `revisor-de-fatos`, mas só em parte | Documentação; a saúde da comunidade não tem agente |
+
+**Quem revisa o quê** (decisões 143 e 144): na revisão R19 em PDCA, o padrão para UX, UI e QA é o Esp UX/UI (IHC). Ele confere as heurísticas, os 360 e 1440 px, o contraste, o alt, os 44 px, os estados e a acessibilidade. O Esp QA segue como disciplina de testes e performance e é chamado quando o PR muda testes, scripts de verificação ou orçamento (por exemplo, o engenharia#66).
 
 Agentes de conteúdo, sem Esp: `revisor-pedagogia`, `revisor-storytelling` e `revisor-marketing` (LearnTech), além do `explorador`, que só lê.
 
 **Ajustes propostos** (achado 13 da revisão do Esp PM, de 23/11):
-1. **A hipótese fica só no `pm`.** Hoje a UX N1 e o Produto N1 conferem a hipótese. O `ux` passa a conferir o fluxo e os estados.
+1. **A hipótese fica só no `pm`.** Hoje a UX N1 e o Produto N1 conferem a hipótese. O `ux` passa a conferir o fluxo e os estados. Quem faz: a arquitetura de IA, num PR logo depois do merge da cadeia #50 → #53, porque muda o `pm.md` e o `disciplinas.md`.
 2. **Dados** ganha uma linha em `disciplinas.md` (painel, métricas de entrega) e um agente `dados`, num PR próprio depois da cadeia.
 3. **DevRel** ganha um agente `devrel` para CONTRIBUTING, modelos de issue e saúde da comunidade, ou amplia o `revisor-de-fatos`.
-4. **O `pm`** confere a North Star e as métricas de apoio na abertura de cada ciclo.
+4. **O `pm`** confere a North Star e as métricas de apoio na abertura de cada ciclo. A North Star fica escrita numa linha "North Star do contexto", no topo do `docs/MVP.md` do repositório principal de cada contexto. Quem faz: a arquitetura de IA, no mesmo PR do ajuste 1.
 
 ## 5. Limites que valem para todos
 
