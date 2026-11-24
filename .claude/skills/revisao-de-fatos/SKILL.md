@@ -11,6 +11,6 @@ Num roteiro de 12/11/2026, a revisão achou 10 erros, entre eles um placar errad
 2. Para cada uma, ache a fonte primária: `gh`, `git log`, o arquivo ou `curl` do link.
 3. Se o texto for longo, delegue ao agente `revisor-de-fatos`. Ele recebe o texto e a lista de fontes, **não** a sua conclusão.
 4. Corrija cada achado e registre a correção na lista: "dizia X, a fonte diz Y".
-5. O que não tem fonte sai do texto ou vira "a confirmar".
+5. O que não tem fonte sai do texto ou vira "a confirmar". Fato sobre o responsável sem fonte escrita por ele vira **pergunta a ele**, e nunca "a confirmar" nem texto sugerido.
 
 Saída: a tabela `afirmação · fonte · confere? · correção`.

@@ -47,7 +47,7 @@ irreversível. Tudo em português do Brasil, frases curtas e diretas.
    fechar issue sem evidência; escrever em nome do responsável sem destacar no PR; apagar branches remotas.
    Se uma ação for bloqueada por permissão, não contorne: registre e siga.
 10. Todo "Atende" cita o comando, a data e o resultado.
-    Se o ciclo muda `docs/MVP.md`, o README ou um relatório, rode a revisão de fatos antes do merge na sprint
+    Se o ciclo muda `docs/MVP.md`, o README, um relatório, um roteiro, o CONTRIBUTING ou um modelo de issue, rode a revisão de fatos antes do merge na sprint
     (skill `revisao-de-fatos`; texto longo vai ao agente `revisor-de-fatos`, que recebe o texto e as fontes, não a conclusão).
 11. Toda tarefa nova que você identificar e não fizer vira issue. Se depender do responsável:
     rótulo `depende-do-responsavel` e, nos critérios, o passo a passo (onde clicar ou qual comando).
