@@ -8,13 +8,16 @@ Regras (CLAUDE.md, regra 6, e processo/fluxo-git.md):
 - --no-verify (e `git commit -n`), ou desligar os hooks com core.hooksPath;
 - push direto para main ou master;
 - apagar branch remota (push --delete, --prune ou refspec ":branch");
-- reescrever histórico (git filter-repo e git filter-branch).
+- reescrever histórico (git filter-repo e git filter-branch);
+- gh pr merge com base na principal, ou sem conseguir conferir a base, e merge
+  pela API (gh api .../pulls/N/merge). Proposta P3, [A CONFIRMAR com o responsável].
 
 É uma camada a mais, não a única: ver ia/hooks.md, "O que ele não cobre".
 """
 import json
 import re
 import shlex
+import subprocess
 import sys
 
 PRINCIPAIS = {"main", "master"}
@@ -149,6 +152,54 @@ def motivo_git(args):
     return None
 
 
+# gh pr merge: só passa quando a base do PR é a integração (proposta P3 de
+# processo/fila-da-noite.md, [A CONFIRMAR com o responsável]). O hook pergunta
+# a base ao GitHub; se não conseguir, recusa (falha fechada).
+COM_VALOR_GH_MERGE = {"-R", "--repo", "-b", "--body", "-F", "--body-file", "-t", "--subject",
+                      "-A", "--author-email", "--match-head-commit"}
+
+
+def consultar_base(alvo, repo):
+    """Devolve a base do PR (baseRefName) ou None se não conseguir conferir."""
+    cmd = ["gh", "pr", "view"] + ([alvo] if alvo else []) + (["-R", repo] if repo else []) \
+        + ["--json", "baseRefName", "-q", ".baseRefName"]
+    try:
+        r = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", timeout=20)
+    except (OSError, subprocess.SubprocessError):
+        return None
+    base = (r.stdout or "").strip()
+    return base if r.returncode == 0 and base else None
+
+
+def motivo_gh(args):
+    """args: o que vem depois de "gh"."""
+    if args and args[0] == "api":
+        if re.search(r"pulls/\d+/merge\b", " ".join(args[1:])):
+            return "Merge pela API (gh api .../merge) fica com o responsável: use gh pr merge, que confere a base."
+        return None
+    if len(args) < 2 or args[0] != "pr" or args[1] != "merge":
+        return None
+    resto, alvo, repo, i = args[2:], None, None, 0
+    while i < len(resto):
+        a = resto[i]
+        if a in COM_VALOR_GH_MERGE:
+            if a in ("-R", "--repo") and i + 1 < len(resto):
+                repo = resto[i + 1]
+            i += 2
+            continue
+        if a.startswith("--repo="):
+            repo = a.split("=", 1)[1]
+        elif not a.startswith("-") and alvo is None:
+            alvo = a
+        i += 1
+    base = consultar_base(alvo, repo)
+    if base is None:
+        return "Não consegui conferir a base do PR; o merge fica com o responsável."
+    if base in PRINCIPAIS:
+        return "Merge na principal é do responsável (R12, decisão 138): só o merge na integração passa."
+    return None
+
+
 def motivo_partes(partes, profundidade):
     i = 0
     while i < len(partes):
@@ -166,6 +217,8 @@ def motivo_partes(partes, profundidade):
         return "Reescrever histórico é decisão e ação do responsável (padroes.md, seção 4)."
     if n == "git":
         return motivo_git([p.rstrip(")};`") for p in partes[i + 1:]])
+    if n == "gh":
+        return motivo_gh([p.rstrip(")};`") for p in partes[i + 1:]])
     if n in SHELLS and profundidade < 3:
         for j in range(i + 1, len(partes)):
             if partes[j].lower() in OPCOES_SHELL:
