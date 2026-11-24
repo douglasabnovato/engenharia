@@ -285,3 +285,7 @@ Para acrescentar: escrever a regra em 1 a 2 linhas, no tema certo, sem repetir u
 - 117 de 179 issues iniciais, sem objetivo nem critério, acabaram fechadas como não planejadas; toda issue nasce com objetivo, motivo e 3 a 5 critérios. (portfólio, 02/11/2026)
 - Issue só fecha depois do merge na principal; antes, comentar a evidência. Fechar na sprint obrigou a reabrir 6. (portfólio, 16/11/2026)
 - Para saber quem fechou uma issue (pessoa ou PR), ler o `ClosedEvent` pelo GraphQL (`actor` e `closer`). (portfólio, 16/11/2026)
+
+## Documentos e roteiros
+
+- Texto com fato verificável (número, data, commit, PR, comando) passa por um revisor de fatos que não escreveu o texto e recebe só o texto e as fontes. Nos roteiros 3 a 7 ele achou de 5 a 6 erros por roteiro, entre eles um commit cujo diff mostrava uma credencial antiga. (studio-d#39, #40, #41, #42 e #44, 12/11/2026; engenharia#9)
