@@ -58,7 +58,7 @@
 | 21 | O que **conta como resposta** foi listado por inteiro (comentário, review, merge de quem é de dentro), com bot e autor fora? |
 | 22 | O **texto livre** tem testes de variações (espaço, quebra de linha, sinônimo, acento) **e** de falsos positivos (citação `> `)? |
 | 23 | **Campos nulos** da API passam por `?? []` em toda função pública, com teste? |
-| 24 | Ao escrever o script pelo terminal (heredoc ou `node -e`), as **barras invertidas** sobreviveram? (Confira o arquivo gravado: `grep -c '\\' <arquivo>`.) |
+| 24 | Ao escrever o script pelo terminal (heredoc ou `node -e`), as **barras invertidas** sobreviveram? (Confira o arquivo gravado: `grep -cF '\' <arquivo>` dá o número de linhas com barra, que deve bater com o esperado.) |
 
 ## Origens
 
