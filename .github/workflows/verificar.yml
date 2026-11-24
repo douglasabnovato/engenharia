@@ -8,6 +8,9 @@ on:
     branches: ["main", "developer/**"]
   pull_request:
     branches: ["developer/**", "main"]
+  # Rodar à mão numa feature sem PR (Actions → verificar → Run workflow). O melhor é abrir
+  # o PR em rascunho já no 1º push, e assim o CI roda sozinho (R19 do Esp DevOps no engenharia#75).
+  workflow_dispatch:
 
 permissions:
   contents: read
