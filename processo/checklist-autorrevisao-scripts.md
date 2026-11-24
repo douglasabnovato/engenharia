@@ -67,9 +67,9 @@ Itens 5 a 18: sessão arquitetura de IA. Itens 1 a 4 e 19 a 24: sessão comunida
 | # | Achado que originou |
 |---|---|
 | 1 | formacao-dev#358, item 1; #338, item 6 |
-| 2 | formacao-dev#359, item 1; #360, item 5 da R19 do Esp QA (arquivo local `orquestrador/esp/qa/revisao-r19-formacao-dev-360-2026-11-24.md`, ainda não colado no PR) |
-| 3 | formacao-dev#338, item 5; #359, item 2; #360, item 2 da R19 (mesmo arquivo local) |
-| 4 | formacao-dev#358, item 5; #360, item 1 da R19 (mesmo arquivo local) |
+| 2 | formacao-dev#359, item 1; [#360, item 5 da R19 do Esp QA](https://github.com/learnTECH-community/formacao-dev/pull/360#issuecomment-7136550228) |
+| 3 | formacao-dev#338, item 5; #359, item 2; [#360, item 2 da R19](https://github.com/learnTECH-community/formacao-dev/pull/360#issuecomment-7136550228) |
+| 4 | formacao-dev#358, item 5; [#360, item 1 da R19](https://github.com/learnTECH-community/formacao-dev/pull/360#issuecomment-7136550228) |
 | 5 | engenharia#66, ressalva 3 (a caixa e a raiz `.`) |
 | 6 | engenharia#66, ressalvas 2 e 4 |
 | 7 | engenharia#73, ressalva 1 (contava a mais); o escape #73 → #79 (não contava `Desvio (Decisão 150)`) |
@@ -84,7 +84,7 @@ Itens 5 a 18: sessão arquitetura de IA. Itens 1 a 4 e 19 a 24: sessão comunida
 | 16 | formacao-dev#339, B2 e B3 |
 | 17 | engenharia#71 (R-c) e #76 |
 | 18 | engenharia#71 (R-a e R-b) e #75 |
-| 19 | formacao-dev#360, item 3 da R19 do Esp QA (arquivo local, ainda não colado no PR) |
+| 19 | [formacao-dev#360, item 3 da R19 do Esp QA](https://github.com/learnTECH-community/formacao-dev/pull/360#issuecomment-7136550228) |
 | 20 | formacao-dev#340, item 1 |
 | 21 | formacao-dev#358, itens 2 e 6; #359, item 3 |
 | 22 | formacao-dev#338, itens 1 e 2; #340, itens 2 a 4 |
