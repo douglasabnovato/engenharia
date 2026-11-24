@@ -24,8 +24,10 @@ Acreditamos que regras num lugar só, com fonte e com links testados, farão as 
 **Como contar:** o Líder marca cada caso no diário com `**Desvio (Rnn):**` (adotado em 23/11/2026, às 23h09). O total da semana sai de:
 
 ```
-cat dia-2026-11-2[4-9].md dia-2026-11-30.md 2>/dev/null | grep -o "Desvio (" | wc -l
+cat dia-2026-11-2[4-9].md dia-2026-11-30.md 2>/dev/null | grep -c '^- \*\*Desvio (\(R[0-9]\|[0-9]\|critério\)'
 ```
+
+Só conta o rótulo no começo de um item da lista. Uma linha que só explica o rótulo não conta. Um rótulo sem regra numerada, decisão ou critério, como `Desvio (hora)`, também não conta, pela definição acima (achado 1 da R19 do Esp Dados no engenharia#73).
 
 **Mesma régua nas 2 semanas:** a linha de base foi contada à mão pela dona; a meta será contada pelo rótulo. Na 1ª contagem, o Esp Dados reconta a semana de 18 a 23/11 com a mesma definição. Se não der 4, a linha de base é ajustada antes da comparação (passo 1 do [`ROADMAP.md`](../ROADMAP.md)).
 
