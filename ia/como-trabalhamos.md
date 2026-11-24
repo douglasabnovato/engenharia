@@ -42,6 +42,15 @@ Depois de lint, testes e build verdes, o agente lança um subagente que **não v
 
 Um revisor que conhece a intenção tende a confirmá-la. Por isso ele recebe o diff, não a conclusão.
 
+## Revisor de fatos
+
+O revisor independente olha o código. Documento, relatório, README e roteiro precisam de outro revisor, o **de fatos** (agente [`revisor-de-fatos`](../.claude/agents/revisor-de-fatos.md), skill [`revisao-de-fatos`](../.claude/skills/revisao-de-fatos/SKILL.md)):
+- **entrada:** só o texto e a lista de fontes (PRs, issues, commits, arquivos, links). Ele não recebe a conclusão de quem escreveu;
+- **pedido:** afirmação sem fonte; data, número, hash, PR ou issue que não conferem; comando que não roda; link que não responde; dado pessoal ou segredo na tela, no print ou no diff citado;
+- **saída:** a tabela `afirmação · fonte · resultado · correção`, como comentário no PR. Quem escreveu corrige cada achado, e o que não tem fonte sai do texto ou vira "a confirmar".
+
+Origem: nos roteiros 3 a 7 do Studio D (studio-d#39, #40, #41, #42 e #44), um revisor que não escreveu o texto achou de 5 a 6 erros por roteiro. Um deles era um commit errado cujo diff mostrava uma credencial antiga. Nenhum teste automático pega esses erros (engenharia#9).
+
 ## Acompanhamento: ▶ INÍCIO e ■ FIM
 
 Cada repositório gera dois blocos na resposta do agente:
