@@ -1,10 +1,12 @@
 // Confere os links internos dos arquivos Markdown, como o verificar_links.py (engenharia#58).
-// Feito para máquinas sem Python, como o Acer. O CI continua com o .py.
+// Feito para máquinas sem Python, como o Acer. O CI roda os dois.
 //
 // Uso: node scripts/verificar_links.mjs [pasta]
-// Sai com código 1 se algum link relativo apontar para um arquivo que não existe.
+// Sai com código 1 se algum link relativo apontar para um arquivo que não existe,
+// ou se a pasta não existir (o .py, nesse caso, sai com 0).
 // Links externos (http, https, mailto) e âncoras puras (#secao) não são conferidos.
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
+// A caixa das letras é conferida também no Windows, como no CI (Linux).
+import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, normalize, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -19,6 +21,21 @@ function* arquivosMd(pasta) {
   for (const e of entradas) if (e.isDirectory() && !IGNORAR_PASTAS.has(e.name)) yield* arquivosMd(join(pasta, e.name));
 }
 
+/** Existe com a mesma caixa em cada parte do caminho (o disco do Windows ignora a caixa). */
+export function existeComCaixa(caminho) {
+  if (!existsSync(caminho)) return false;
+  const partes = caminho.split(sep);
+  for (let i = 1; i < partes.length; i++) {
+    const nome = partes[i];
+    if (nome === '' || nome === '.' || nome === '..') continue;
+    let pai = partes.slice(0, i).join(sep);
+    if (pai === '') pai = sep;
+    else if (pai.endsWith(':')) pai += sep;
+    if (!readdirSync(pai).includes(nome)) return false;
+  }
+  return true;
+}
+
 /** Devolve a lista de [arquivo, link] cujo destino não existe. */
 export function linksQuebrados(raiz) {
   const quebrados = [];
@@ -29,15 +46,21 @@ export function linksQuebrados(raiz) {
     for (const [, alvo] of texto.matchAll(LINK)) {
       if (alvo.startsWith('#') || EXTERNO.some((p) => alvo.startsWith(p))) continue;
       const destino = normalize(join(pasta, alvo.split('#', 1)[0]));
-      if (!existsSync(destino)) quebrados.push([relative(raiz, caminho).split(sep).join('/'), alvo]);
+      if (!existeComCaixa(destino)) quebrados.push([relative(raiz, caminho).split(sep).join('/'), alvo]);
     }
   }
   return quebrados;
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const quebrados = linksQuebrados(process.argv[2] ?? '.');
-  for (const [arquivo, alvo] of quebrados) console.log(`QUEBRADO ${arquivo}: ${alvo}`);
-  console.log(`Links internos quebrados: ${quebrados.length}`);
-  process.exitCode = quebrados.length ? 1 : 0;
+  const raiz = process.argv[2] ?? '.';
+  if (!existsSync(raiz) || !statSync(raiz).isDirectory()) {
+    console.log(`Pasta não encontrada: ${raiz}`);
+    process.exitCode = 1;
+  } else {
+    const quebrados = linksQuebrados(raiz);
+    for (const [arquivo, alvo] of quebrados) console.log(`QUEBRADO ${arquivo}: ${alvo}`);
+    console.log(`Links internos quebrados: ${quebrados.length}`);
+    process.exitCode = quebrados.length ? 1 : 0;
+  }
 }

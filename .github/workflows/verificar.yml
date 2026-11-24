@@ -21,6 +21,10 @@ jobs:
           python-version: "3.12"
       - name: Links internos dos .md
         run: python scripts/verificar_links.py
+      - name: Links internos dos .md (versão Node, a do Acer)
+        run: node scripts/verificar_links.mjs
+      - name: Testes Node dos scripts
+        run: node --test scripts/*.test.mjs
       - name: Testes dos scripts
         run: |
           # Roda cada pasta de scripts que tem test_*.py (as pastas não são pacotes).
